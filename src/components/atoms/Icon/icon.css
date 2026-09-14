@@ -1,0 +1,99 @@
+/**
+ * Atelier Fashion Design System - Icon Component Styles
+ * Strictly adheres to 0-Hardcoding rules and Figma semantic tokens
+ */
+
+.ds-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 0;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease;
+  user-select: none;
+}
+
+.ds-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   Size Variants (Derived 1:1 from Primitive Number Tokens)
+   ========================================================================== */
+
+.ds-icon--size-8 {
+  width: var(--primitive-number-4);  /* 8px */
+  height: var(--primitive-number-4); /* 8px */
+}
+
+.ds-icon--size-12 {
+  width: var(--primitive-number-6);  /* 12px */
+  height: var(--primitive-number-6); /* 12px */
+}
+
+.ds-icon--size-16 {
+  width: var(--primitive-number-7);  /* 16px */
+  height: var(--primitive-number-7); /* 16px */
+}
+
+.ds-icon--size-24 {
+  width: var(--primitive-number-9);  /* 24px */
+  height: var(--primitive-number-9); /* 24px */
+}
+
+.ds-icon--size-32 {
+  width: var(--primitive-number-10);  /* 32px */
+  height: var(--primitive-number-10); /* 32px */
+}
+
+.ds-icon--size-64 {
+  width: var(--primitive-number-14);  /* 64px */
+  height: var(--primitive-number-14); /* 64px */
+}
+
+/* ==========================================================================
+   Color Variants (Derived 1:1 from Semantic Icon Color Tokens)
+   ========================================================================== */
+
+.ds-icon--color-default {
+  color: var(--color-icon-default);
+}
+
+.ds-icon--color-secondary {
+  color: var(--color-icon-secondary);
+}
+
+.ds-icon--color-tertiary {
+  color: var(--color-icon-tertiary);
+}
+
+.ds-icon--color-disabled {
+  color: var(--color-icon-disabled);
+}
+
+.ds-icon--color-inverse {
+  color: var(--color-icon-inverse);
+}
+
+.ds-icon--color-subtle {
+  color: var(--color-icon-subtle);
+}
+
+.ds-icon--color-negative {
+  color: var(--color-icon-negative);
+}
+
+.ds-icon--color-positive {
+  color: var(--color-icon-positive);
+}
+
+.ds-icon--color-point {
+  color: var(--color-icon-point);
+}
+
+.ds-icon--color-inherit {
+  color: inherit;
+}

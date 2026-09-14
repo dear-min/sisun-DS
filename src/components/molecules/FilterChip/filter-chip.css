@@ -1,0 +1,62 @@
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-default);
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.filter-chip--sm {
+  height: 32px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-body-sm);
+}
+
+.filter-chip--md {
+  height: 38px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-body-md);
+}
+
+.filter-chip:hover:not(:disabled) {
+  border-color: var(--color-black);
+  background-color: var(--color-grey-50);
+}
+
+.filter-chip--selected {
+  background-color: var(--color-black) !important;
+  color: var(--color-white) !important;
+  border-color: var(--color-black) !important;
+}
+
+.filter-chip:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 2px;
+}
+
+.filter-chip:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.filter-chip__count {
+  font-size: 11px;
+  color: var(--color-grey-500);
+}
+
+.filter-chip--selected .filter-chip__count {
+  color: var(--color-grey-300);
+}
+
+.filter-chip__check {
+  margin-right: -2px;
+}

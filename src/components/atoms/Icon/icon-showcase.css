@@ -1,0 +1,218 @@
+/**
+ * Atelier Design System - Icon Showcase Styles
+ * Zero hardcoding: strictly uses semantic tokens
+ */
+
+.icon-showcase-container {
+  padding: var(--space-6);
+  font-family: var(--primitive-font-family);
+  color: var(--color-text-default);
+  background-color: var(--color-bg-default);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.icon-showcase-header {
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border-default);
+  padding-bottom: var(--space-6);
+}
+
+.icon-showcase-title {
+  font-size: var(--primitive-font-size-heading-large);
+  font-weight: var(--primitive-font-weight-semibold);
+  letter-spacing: var(--primitive-letter-spacing-1);
+  margin-bottom: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.icon-showcase-badge {
+  font-size: var(--primitive-font-size-body-xxsmall);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary-subtle);
+  color: var(--color-primary-default);
+  border-radius: var(--primitive-number-circle);
+  font-weight: var(--primitive-font-weight-medium);
+}
+
+.icon-showcase-desc {
+  font-size: var(--primitive-font-size-body-medium);
+  color: var(--color-text-subtle);
+  line-height: 1.6;
+}
+
+/* Controls & Filter Bar */
+.icon-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+}
+
+.icon-search-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-default);
+  color: var(--color-text-default);
+  font-size: var(--primitive-font-size-body-small);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.icon-search-input:focus {
+  border-color: var(--color-border-positive);
+}
+
+.icon-filter-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.icon-chip-label {
+  font-size: var(--primitive-font-size-body-xsmall);
+  font-weight: var(--primitive-font-weight-medium);
+  color: var(--color-text-tertiary);
+  margin-right: var(--space-1);
+}
+
+.icon-filter-chip {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--primitive-number-circle);
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-bg-default);
+  color: var(--color-text-subtle);
+  font-size: var(--primitive-font-size-body-xxsmall);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.icon-filter-chip:hover {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-default);
+}
+
+.icon-filter-chip.active {
+  background-color: var(--primitive-color-gray-0);
+  color: var(--color-text-inverse);
+  border-color: var(--primitive-color-gray-0);
+}
+
+/* Icon Grid */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--space-4);
+}
+
+.icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-bg-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  min-height: 110px;
+}
+
+.icon-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-positive);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.icon-card-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-2);
+  color: var(--color-icon-default);
+}
+
+.icon-card-name {
+  font-size: var(--primitive-font-size-body-xxsmall);
+  font-weight: var(--primitive-font-weight-medium);
+  color: var(--color-text-default);
+  text-align: center;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.icon-card-meta {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  margin-top: var(--space-1);
+}
+
+/* Copy Toast */
+.icon-copy-toast {
+  position: fixed;
+  bottom: var(--space-6);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primitive-color-gray-0);
+  color: var(--color-text-inverse);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--primitive-number-circle);
+  font-size: var(--primitive-font-size-body-small);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: fadeInOut 2s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, 10px); }
+  15% { opacity: 1; transform: translate(-50%, 0); }
+  85% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -10px); }
+}
+
+/* Color & Size Matrix Tables */
+.icon-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-4);
+  background-color: var(--color-bg-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.icon-matrix-table th,
+.icon-matrix-table td {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-default);
+  text-align: center;
+  font-size: var(--primitive-font-size-body-small);
+}
+
+.icon-matrix-table th {
+  background-color: var(--color-bg-secondary);
+  font-weight: var(--primitive-font-weight-semibold);
+  color: var(--color-text-default);
+}

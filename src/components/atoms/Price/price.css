@@ -1,0 +1,80 @@
+.fashion-price {
+  font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1.2;
+}
+
+.fashion-price__row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.fashion-price__discount {
+  color: var(--color-sale-primary);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.fashion-price__current {
+  color: var(--color-black);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.fashion-price__original {
+  color: var(--color-grey-400);
+  text-decoration: line-through;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Sizes */
+.fashion-price--sm .fashion-price__discount {
+  font-size: 13px;
+}
+.fashion-price--sm .fashion-price__current {
+  font-size: 14px;
+}
+.fashion-price--sm .fashion-price__original {
+  font-size: 12px;
+}
+
+.fashion-price--md .fashion-price__discount {
+  font-size: 16px;
+}
+.fashion-price--md .fashion-price__current {
+  font-size: 16px;
+}
+.fashion-price--md .fashion-price__original {
+  font-size: 13px;
+}
+
+.fashion-price--lg .fashion-price__discount {
+  font-size: 22px;
+}
+.fashion-price--lg .fashion-price__current {
+  font-size: 22px;
+}
+.fashion-price--lg .fashion-price__original {
+  font-size: 16px;
+}
+
+.fashion-price--xl .fashion-price__discount {
+  font-size: 28px;
+}
+.fashion-price--xl .fashion-price__current {
+  font-size: 30px;
+}
+.fashion-price--xl .fashion-price__original {
+  font-size: 18px;
+}
+
+/* Sold Out State */
+.fashion-price--soldout .fashion-price__soldout-label {
+  font-size: var(--text-body-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-soldout);
+  letter-spacing: var(--tracking-wider);
+}

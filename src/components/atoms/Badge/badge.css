@@ -1,0 +1,69 @@
+.fashion-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Sizes */
+.fashion-badge--sm {
+  font-size: 9px;
+  padding: 3px 6px;
+}
+
+.fashion-badge--md {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+/* Shapes */
+.fashion-badge--sharp {
+  border-radius: var(--radius-none);
+}
+
+.fashion-badge--square {
+  border-radius: var(--radius-xs);
+}
+
+.fashion-badge--pill {
+  border-radius: var(--radius-full);
+}
+
+/* Variants */
+.fashion-badge--new {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.fashion-badge--sale {
+  background-color: var(--color-sale-primary);
+  color: var(--color-white);
+}
+
+.fashion-badge--best {
+  background-color: var(--color-accent-burgundy);
+  color: var(--color-white);
+}
+
+.fashion-badge--exclusive {
+  background-color: var(--color-exclusive-bg);
+  color: var(--color-exclusive-text);
+  border: 1px solid rgba(146, 64, 14, 0.2);
+}
+
+.fashion-badge--soldout {
+  background-color: var(--color-grey-200);
+  color: var(--color-grey-600);
+}
+
+.fashion-badge--neutral {
+  background-color: var(--color-grey-100);
+  color: var(--color-charcoal-700);
+  border: 1px solid var(--border-subtle);
+}

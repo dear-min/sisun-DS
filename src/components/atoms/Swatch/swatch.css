@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Color Swatches
+   ========================================================================== */
+.color-swatch-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.color-swatch-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.color-swatch-group--sm .color-swatch-chip {
+  width: 18px;
+  height: 18px;
+}
+.color-swatch-group--md .color-swatch-chip {
+  width: 26px;
+  height: 26px;
+}
+.color-swatch-group--lg .color-swatch-chip {
+  width: 34px;
+  height: 34px;
+}
+
+.color-swatch-chip__fill {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+.color-swatch-chip--selected {
+  border-color: var(--color-black);
+}
+
+.color-swatch-chip:hover:not(:disabled) {
+  transform: scale(1.12);
+}
+
+.color-swatch-chip:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 2px;
+}
+
+/* Sold out diagonal slash */
+.color-swatch-chip--soldout {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.color-swatch-chip__strike {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--color-sale-primary);
+  transform: rotate(-45deg);
+}
+
+/* ==========================================================================
+   Size Swatches
+   ========================================================================== */
+.size-swatch-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.size-swatch-chip {
+  position: relative;
+  min-width: 44px;
+  height: 40px;
+  padding: 0 var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-black);
+  background: var(--color-white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition-fast);
+  user-select: none;
+  overflow: hidden;
+}
+
+.size-swatch-chip:hover:not(:disabled) {
+  border-color: var(--color-black);
+}
+
+.size-swatch-chip--selected {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.size-swatch-chip:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 2px;
+}
+
+/* Size Sold out */
+.size-swatch-chip--soldout {
+  background-color: var(--color-grey-50);
+  color: var(--color-grey-400);
+  border-color: var(--color-grey-200);
+  cursor: not-allowed;
+}
+
+.size-swatch-chip__strike {
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  height: 1px;
+  background-color: var(--color-grey-400);
+  transform: rotate(-30deg);
+}

@@ -1,0 +1,226 @@
+/**
+ * Fashion E-Commerce Design System - Color Tokens
+ * 피그마(Figma) "00. Common Design System"의 .Primitive 및 Semantic (48개 변수) 컬렉션 100% 매칭
+ */
+
+:root {
+  /* ==========================================================================
+     1. FIGMA PRIMITIVE TOKENS (.Primitive Collection)
+     피그마의 기초 팔레트 정의
+     ========================================================================== */
+  /* Grayscale (.Primitive/Color/Gray/*) */
+  --primitive-color-gray-0: #121212;     /* Color/Gray/0: 가장 어두운 블랙/차콜 */
+  --primitive-color-gray-20: #2d2d2d;    /* Color/Gray/20: 다크 그레이 */
+  --primitive-color-gray-30: #3f3f46;    /* Color/Gray/30: 딥 보더/디바이더 */
+  --primitive-color-gray-40: #555555;    /* Color/Gray/40: 미디엄 다크 그레이 */
+  --primitive-color-gray-60: #888888;    /* Color/Gray/60: 미디엄 그레이 */
+  --primitive-color-gray-70: #b0b0b0;    /* Color/Gray/70: 비활성/디스에이블드 그레이 */
+  --primitive-color-gray-85: #d4d4d8;    /* Color/Gray/85: 기본 보더 라인 */
+  --primitive-color-gray-90: #e4e4e7;    /* Color/Gray/90: 세컨더리 소프트 보더 */
+  --primitive-color-gray-96: #f0f0f2;    /* Color/Gray/96: 비활성 서피스 배경 */
+  --primitive-color-gray-98: #f4f4f5;    /* Color/Gray/98: 초미세 서피스 경계선 */
+  --primitive-color-gray-100: #ffffff;   /* Color/Gray/100: 퓨어 화이트 */
+
+  /* State / Feedback (.Primitive/Color/*) */
+  --primitive-color-red-50: #dc2626;     /* Color/Red/50: 에러/네거티브 및 세일 레드 */
+  --primitive-color-blue-52: #2563eb;    /* Color/Blue/52: 성공/포지티브 블루 */
+
+  /* Brand Orange Scale (.Primitive/Color/Orange/*) */
+  --primitive-color-orange-50: #d94e28;  /* Color/Orange/50: 브랜드 메인 웜 테라코타 */
+  --primitive-color-orange-40: #a93b1d;  /* Color/Orange/40: 딥 테라코타 */
+  --primitive-color-orange-20: #6e2613;  /* Color/Orange/20: 브라운 와인 포인트 */
+  --primitive-color-orange-80: #fae8df;  /* Color/Orange/80: 소프트 웜 틴트 배경 */
+
+  /* Primary Brand Aliases (.Primitive/Color/Primary/*) */
+  --primitive-color-primary-default: var(--primitive-color-orange-50);
+  --primitive-color-primary-secondary: var(--primitive-color-orange-40);
+  --primitive-color-primary-tertiary: var(--primitive-color-orange-20);
+  --primitive-color-primary-subtle: var(--primitive-color-orange-80);
+
+  /* Overlays (.Primitive/Color/Overlay/*) */
+  --primitive-color-overlay-black-20: rgba(0, 0, 0, 0.2);
+  --primitive-color-overlay-black-50: rgba(0, 0, 0, 0.5);
+  --primitive-color-overlay-black-80: rgba(0, 0, 0, 0.8);
+  --primitive-color-overlay-white-20: rgba(255, 255, 255, 0.2);
+  --primitive-color-overlay-white-50: rgba(255, 255, 255, 0.5);
+  --primitive-color-overlay-white-80: rgba(255, 255, 255, 0.8);
+
+  /* 패션 룩북 웜 뉴트럴 */
+  --color-warm-ivory: #fcfbf9;
+  --color-warm-sand: #f5f2eb;
+  --color-warm-taupe: #e8e3d8;
+
+  /* ==========================================================================
+     2. FIGMA SEMANTIC TOKENS (Semantic/Color/* - 48 Variables)
+     ========================================================================== */
+
+  /* (1) Text (11 Variables) */
+  --color-text-default: var(--primitive-color-gray-0);        /* Color/Text/Default -> Color/Gray/0 */
+  --color-text-subtle: var(--primitive-color-gray-20);         /* Color/Text/Subtle -> Color/Gray/20 */
+  --color-text-secondary: var(--primitive-color-gray-40);      /* Color/Text/Secondary -> Color/Gray/40 */
+  --color-text-tertiary: var(--primitive-color-gray-60);       /* Color/Text/Tertiary -> Color/Gray/60 */
+  --color-text-disabled: var(--primitive-color-gray-70);       /* Color/Text/Disabled -> Color/Gray/70 */
+  --color-text-inverse: var(--primitive-color-gray-100);      /* Color/Text/Inverse -> Color/Gray/100 */
+  --color-text-error: var(--primitive-color-red-50);          /* Color/Text/Error -> Color/Red/50 */
+  --color-text-success: var(--primitive-color-blue-52);       /* Color/Text/Success -> Color/Blue/52 */
+  --color-text-point-primary: var(--primitive-color-primary-default);     /* Color/Text/Point/Primary */
+  --color-text-point-secondary: var(--primitive-color-primary-secondary); /* Color/Text/Point/Secondary */
+  --color-text-point-tertiary: var(--primitive-color-primary-tertiary);   /* Color/Text/Point/Tertiary */
+
+  /* (2) Border (10 Variables) */
+  --color-border-default: var(--primitive-color-gray-85);      /* Color/Border/Default -> Color/Gray/85 */
+  --color-border-secondary: var(--primitive-color-gray-90);    /* Color/Border/Secondary -> Color/Gray/90 */
+  --color-border-tertiary: var(--primitive-color-gray-98);     /* Color/Border/Tertiary -> Color/Gray/98 */
+  --color-border-subtle: var(--primitive-color-gray-30);       /* Color/Border/Subtle -> Color/Gray/30 */
+  --color-border-disabled: var(--primitive-color-gray-85);     /* Color/Border/Disabled -> Color/Gray/85 */
+  --color-border-negative: var(--primitive-color-red-50);      /* Color/Border/Negative -> Color/Red/50 */
+  --color-border-positive: var(--primitive-color-blue-52);     /* Color/Border/Positive -> Color/Blue/52 */
+  --color-border-point-primary: var(--primitive-color-primary-default);     /* Color/Border/Point/Primary */
+  --color-border-point-secondary: var(--primitive-color-primary-secondary); /* Color/Border/Point/Secondary */
+  --color-border-point-tertiary: var(--primitive-color-primary-tertiary);   /* Color/Border/Point/Tertiary */
+
+  /* (3) Background (8 Variables) */
+  --color-bg-default: var(--primitive-color-gray-100);        /* Color/Background/Default -> Color/Gray/100 */
+  --color-bg-secondary: var(--primitive-color-gray-98);       /* Color/Background/Secondary -> Color/Gray/98 */
+  --color-bg-tertiary: var(--primitive-color-gray-90);        /* Color/Background/Tertiary -> Color/Gray/90 */
+  --color-bg-disabled: var(--primitive-color-gray-96);        /* Color/Background/Disabled -> Color/Gray/96 */
+  --color-bg-point-primary: var(--primitive-color-primary-default);     /* Color/Background/Point/Primary */
+  --color-bg-point-secondary: var(--primitive-color-primary-secondary); /* Color/Background/Point/Secondary */
+  --color-bg-point-tertiary: var(--primitive-color-primary-tertiary);   /* Color/Background/Point/Tertiary */
+  --color-bg-point-subtle: var(--primitive-color-primary-subtle);       /* Color/Background/Point/Subtle */
+
+  /* (4) Icon (9 Variables) */
+  --color-icon-default: var(--primitive-color-gray-0);        /* Color/Icon/Default -> Color/Gray/0 */
+  --color-icon-secondary: var(--primitive-color-gray-40);     /* Color/Icon/Secondary -> Color/Gray/40 */
+  --color-icon-tertiary: var(--primitive-color-gray-60);      /* Color/Icon/Tertiary -> Color/Gray/60 */
+  --color-icon-disabled: var(--primitive-color-gray-70);      /* Color/Icon/Disabled -> Color/Gray/70 */
+  --color-icon-inverse: var(--primitive-color-gray-100);     /* Color/Icon/Inverse -> Color/Gray/100 */
+  --color-icon-subtle: var(--primitive-color-gray-30);        /* Color/Icon/Subtle -> Color/Gray/30 */
+  --color-icon-negative: var(--primitive-color-red-50);       /* Color/Icon/Negative -> Color/Red/50 */
+  --color-icon-positive: var(--primitive-color-blue-52);      /* Color/Icon/Positive -> Color/Blue/52 */
+  --color-icon-point: var(--primitive-color-orange-50);       /* Color/Icon/Point -> Color/Orange/50 */
+
+  /* (5) Overlay (6 Variables) */
+  --color-overlay-black-light: var(--primitive-color-overlay-black-20);      /* Color/Overlay/Black-Light */
+  --color-overlay-black-balance: var(--primitive-color-overlay-black-50);    /* Color/Overlay/Black-Balance */
+  --color-overlay-black-strong: var(--primitive-color-overlay-black-80);     /* Color/Overlay/Black-Strong */
+  --color-overlay-white-light: var(--primitive-color-overlay-white-20);      /* Color/Overlay/White-Light */
+  --color-overlay-white-balance: var(--primitive-color-overlay-white-50);    /* Color/Overlay/White-Balance */
+  --color-overlay-white-strong: var(--primitive-color-overlay-white-80);     /* Color/Overlay/White-Strong */
+
+  /* (6) Primary (4 Variables) */
+  --color-primary-default: var(--primitive-color-orange-50);    /* Color/Primary/Default */
+  --color-primary-secondary: var(--primitive-color-orange-40);  /* Color/Primary/Secondary */
+  --color-primary-tertiary: var(--primitive-color-orange-20);   /* Color/Primary/Tertiary */
+  --color-primary-subtle: var(--primitive-color-orange-80);     /* Color/Primary/Subtle */
+
+  /* ==========================================================================
+     3. COMPONENT ALIASES (기존 컴포넌트 하위 호환 바인딩)
+     ========================================================================== */
+  --color-black: var(--primitive-color-gray-0);
+  --color-white: var(--primitive-color-gray-100);
+  --color-grey-600: var(--primitive-color-gray-40);
+  --color-grey-500: var(--primitive-color-gray-60);
+  --color-grey-400: var(--primitive-color-gray-70);
+  --color-grey-300: var(--color-border-default);
+  --color-grey-200: var(--color-border-secondary);
+  --color-grey-100: var(--color-bg-secondary);
+  --color-grey-50: var(--color-bg-secondary);
+  --color-charcoal-800: #262629;
+  --color-charcoal-900: #1a1a1c;
+
+  --color-sale-primary: var(--primitive-color-red-50);
+  --color-sale-badge-bg: #fee2e2;
+  --color-sale-badge-text: #991b1b;
+  --color-new-badge-bg: var(--primitive-color-gray-0);
+  --color-new-badge-text: var(--primitive-color-gray-100);
+  --color-soldout: var(--primitive-color-gray-70);
+  --color-exclusive-bg: var(--color-primary-subtle);
+  --color-exclusive-text: var(--color-primary-secondary);
+
+  --bg-app: var(--color-bg-default);
+  --bg-surface: var(--color-bg-default);
+  --bg-surface-subtle: var(--color-bg-secondary);
+  --bg-surface-muted: var(--color-bg-tertiary);
+
+  --text-primary: var(--color-text-default);
+  --text-secondary: var(--color-text-secondary);
+  --text-tertiary: var(--color-text-tertiary);
+  --text-inverse: var(--color-text-inverse);
+  --text-sale: var(--primitive-color-red-50);
+
+  --border-subtle: var(--color-border-secondary);
+  --border-default: var(--color-border-default);
+  --border-strong: var(--color-border-subtle);
+  --border-focus: var(--primitive-color-gray-0);
+
+  --interactive-primary-bg: var(--primitive-color-gray-0);
+  --interactive-primary-text: var(--primitive-color-gray-100);
+  --interactive-primary-hover: var(--primitive-color-gray-20);
+
+  --interactive-secondary-bg: var(--primitive-color-gray-100);
+  --interactive-secondary-text: var(--primitive-color-gray-0);
+  --interactive-secondary-border: var(--color-border-default);
+  --interactive-secondary-hover: var(--color-bg-secondary);
+
+  --wishlist-active: #e11d48;
+}
+
+/* ==========================================================================
+   4. DARK MODE THEME (미드나잇 럭셔리 테마)
+   ========================================================================== */
+[data-theme="dark"],
+.dark-theme {
+  --bg-app: #0f0f10;
+  --bg-surface: #18181b;
+  --bg-surface-subtle: #202024;
+  --bg-surface-muted: #27272a;
+
+  /* 다크모드 Semantic 매핑 */
+  --color-text-default: #ffffff;
+  --color-text-subtle: #e4e4e7;
+  --color-text-secondary: #a1a1aa;
+  --color-text-tertiary: #71717a;
+  --color-text-disabled: #52525b;
+  --color-text-inverse: #121212;
+
+  --color-border-default: #3f3f46;
+  --color-border-secondary: #27272a;
+  --color-border-tertiary: #1f1f23;
+  --color-border-subtle: #71717a;
+  --color-border-disabled: #27272a;
+  --color-border-negative: #f87171;
+  --color-border-positive: #60a5fa;
+
+  --color-bg-default: #121212;
+  --color-bg-secondary: #1a1a1c;
+  --color-bg-tertiary: #27272a;
+  --color-bg-disabled: #222226;
+
+  --color-icon-default: #ffffff;
+  --color-icon-secondary: #a1a1aa;
+  --color-icon-tertiary: #71717a;
+  --color-icon-disabled: #52525b;
+  --color-icon-inverse: #121212;
+  --color-icon-subtle: #e4e4e7;
+
+  --text-primary: var(--color-text-default);
+  --text-secondary: var(--color-text-secondary);
+  --text-tertiary: var(--color-text-tertiary);
+  --text-inverse: var(--color-text-inverse);
+  --text-sale: #f87171;
+
+  --border-subtle: var(--color-border-secondary);
+  --border-default: var(--color-border-default);
+  --border-strong: #ffffff;
+  --border-focus: #ffffff;
+
+  --interactive-primary-bg: #ffffff;
+  --interactive-primary-text: #0f0f10;
+  --interactive-primary-hover: #f4f4f5;
+
+  --interactive-secondary-bg: #18181b;
+  --interactive-secondary-text: #ffffff;
+  --interactive-secondary-border: var(--color-border-default);
+  --interactive-secondary-hover: #27272a;
+}

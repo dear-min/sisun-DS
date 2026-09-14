@@ -1,0 +1,104 @@
+/**
+ * Fashion E-Commerce Design System - Spacing, Radius, Aspect Ratios & Elevation Tokens
+ * 피그마(Figma) "00. Common Design System"의 .Primitive/Layout (Radius, Gap, Padding) 연동
+ */
+
+:root {
+  /* ==========================================================================
+     1. FIGMA PRIMITIVE NUMBER (.Primitive/Number/* - 22 Variables)
+     ========================================================================== */
+  --primitive-number-0: 0px;          /* Number/0: 0 */
+  --primitive-number-1: 2px;          /* Number/1: 2 */
+  --primitive-number-2: 4px;          /* Number/2: 4 */
+  --primitive-number-3: 6px;          /* Number/3: 6 */
+  --primitive-number-4: 8px;          /* Number/4: 8 */
+  --primitive-number-5: 10px;         /* Number/5: 10 */
+  --primitive-number-6: 12px;         /* Number/6: 12 */
+  --primitive-number-7: 16px;         /* Number/7: 16 */
+  --primitive-number-8: 20px;         /* Number/8: 20 */
+  --primitive-number-9: 24px;         /* Number/9: 24 */
+  --primitive-number-10: 32px;        /* Number/10: 32 */
+  --primitive-number-11: 40px;        /* Number/11: 40 */
+  --primitive-number-12: 48px;        /* Number/12: 48 */
+  --primitive-number-13: 56px;        /* Number/13: 56 */
+  --primitive-number-14: 64px;        /* Number/14: 64 */
+  --primitive-number-15: 72px;        /* Number/15: 72 */
+  --primitive-number-16: 80px;        /* Number/16: 80 */
+  --primitive-number-17: 96px;        /* Number/17: 96 */
+  --primitive-number-18: 120px;       /* Number/18: 120 */
+  --primitive-number-19: 140px;       /* Number/19: 140 */
+  --primitive-number-20: 160px;       /* Number/20: 160 */
+  --primitive-number-circle: 999px;   /* Number/circle: 999 */
+
+  /* ==========================================================================
+     2. BORDER RADIUS SYSTEM (Mapped to Primitive Numbers)
+     ========================================================================== */
+  --primitive-radius-0: var(--primitive-number-0);          /* 0px (샤프 미니멀리즘) */
+  --primitive-radius-2: var(--primitive-number-1);          /* 2px (XS) */
+  --primitive-radius-4: var(--primitive-number-2);          /* 4px (SM - 기본 버튼 & 인풋) */
+  --primitive-radius-6: var(--primitive-number-3);          /* 6px (MD - 셀렉트 / 카드) */
+  --primitive-radius-8: var(--primitive-number-4);          /* 8px (LG - 모달 / 컨테이너) */
+  --primitive-radius-12: var(--primitive-number-6);         /* 12px (XL - 룩북 배너) */
+  --primitive-radius-16: var(--primitive-number-7);         /* 16px (2XL) */
+  --primitive-radius-full: var(--primitive-number-circle);  /* 999px (알약형 뱃지, 원형 스와치) */
+
+  /* Radius Aliases */
+  --radius-none: var(--primitive-radius-0);
+  --radius-xs: var(--primitive-radius-2);
+  --radius-sm: var(--primitive-radius-4);
+  --radius-md: var(--primitive-radius-6);
+  --radius-lg: var(--primitive-radius-8);
+  --radius-xl: var(--primitive-radius-12);
+  --radius-2xl: var(--primitive-radius-16);
+  --radius-full: var(--primitive-radius-full);
+
+  /* ==========================================================================
+     3. SPACING SYSTEM (Gap & Padding Mapped to Primitive Numbers)
+     ========================================================================== */
+  --space-0: var(--primitive-number-0);       /* 0px */
+  --space-0-5: var(--primitive-number-1);     /* 2px */
+  --space-1: var(--primitive-number-2);       /* 4px */
+  --space-1-5: var(--primitive-number-3);     /* 6px */
+  --space-2: var(--primitive-number-4);       /* 8px */
+  --space-2-5: var(--primitive-number-5);     /* 10px */
+  --space-3: var(--primitive-number-6);       /* 12px */
+  --space-4: var(--primitive-number-7);       /* 16px */
+  --space-5: var(--primitive-number-8);       /* 20px */
+  --space-6: var(--primitive-number-9);       /* 24px */
+  --space-8: var(--primitive-number-10);      /* 32px */
+  --space-10: var(--primitive-number-11);     /* 40px */
+  --space-12: var(--primitive-number-12);     /* 48px */
+  --space-14: var(--primitive-number-13);     /* 56px */
+  --space-16: var(--primitive-number-14);     /* 64px */
+  --space-18: var(--primitive-number-15);     /* 72px */
+  --space-20: var(--primitive-number-16);     /* 80px */
+  --space-24: var(--primitive-number-17);     /* 96px */
+  --space-30: var(--primitive-number-18);     /* 120px */
+  --space-35: var(--primitive-number-19);     /* 140px */
+  --space-40: var(--primitive-number-20);     /* 160px */
+
+  /* ==========================================================================
+     3. FASHION ASPECT RATIOS (이커머스 비주얼 비율)
+     ========================================================================== */
+  --aspect-fashion: 3 / 4;        /* 패션 룩북 및 모델 착용컷 황금비율 */
+  --aspect-square: 1 / 1;         /* 가방, 슈즈, 주얼리 정방형 컷 */
+  --aspect-banner: 16 / 9;        /* 메인 프로모션 & 브랜드 스토리 배너 */
+  --aspect-portrait-tall: 2 / 3;  /* 런웨이 풀샷 세로 컷 */
+
+  /* ==========================================================================
+     4. ELEVATION & SHADOWS (은은하고 고급스러운 레이어링)
+     ========================================================================== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  --shadow-floating: 0 12px 36px -4px rgba(0, 0, 0, 0.12);
+  --shadow-drawer: 0 -4px 20px 0 rgba(0, 0, 0, 0.08); /* 하단 바 및 바텀시트 */
+
+  /* ==========================================================================
+     5. TRANSITIONS & TIMING (감각적인 모션 & 마이크로 인터랙션)
+     ========================================================================== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}

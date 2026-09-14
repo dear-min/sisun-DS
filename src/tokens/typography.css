@@ -1,0 +1,96 @@
+/**
+ * Fashion E-Commerce Design System - Typography Tokens
+ * 패션 에디토리얼 타이틀, 가격 표기(Tabular Numbers), 바디 및 뱃지 타이포그래피
+ */
+
+:root {
+  /* ==========================================================================
+     1. FIGMA PRIMITIVE FONT (.Primitive/Typography/Font/*)
+     ========================================================================== */
+  --primitive-font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-sans: var(--primitive-font-family);
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Didot, 'Bodoni MT', Georgia, serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
+
+  /* ==========================================================================
+     2. FIGMA PRIMITIVE FONT-SIZE (.Primitive/Typography/Font-size/*)
+     ========================================================================== */
+  /* Heading (4 variables) */
+  --primitive-font-size-heading-xlarge: 32px;
+  --primitive-font-size-heading-large: 24px;
+  --primitive-font-size-heading-medium: 18px;
+  --primitive-font-size-heading-small: 16px;
+
+  /* Body (5 variables) */
+  --primitive-font-size-body-large: 16px;
+  --primitive-font-size-body-medium: 15px;
+  --primitive-font-size-body-small: 14px;
+  --primitive-font-size-body-xsmall: 13px;
+  --primitive-font-size-body-xxsmall: 12px;
+
+  /* ==========================================================================
+     3. FIGMA PRIMITIVE LETTER-SPACING (.Primitive/Typography/Letter-spacing/*)
+     ========================================================================== */
+  --primitive-letter-spacing-0: 0em;
+  --primitive-letter-spacing-1: -0.02em;
+
+  /* ==========================================================================
+     4. FIGMA PRIMITIVE FONT-WEIGHT (.Primitive/Typography/Font-weight/*)
+     ========================================================================== */
+  --primitive-font-weight-regular: 400;
+  --primitive-font-weight-medium: 500;
+  --primitive-font-weight-semibold: 600;
+
+  /* ==========================================================================
+     5. SEMANTIC & UTILITY ALIASES
+     ========================================================================== */
+  /* Font Sizes */
+  --text-heading-xl: var(--primitive-font-size-heading-xlarge);
+  --text-heading-lg: var(--primitive-font-size-heading-large);
+  --text-heading-md: var(--primitive-font-size-heading-medium);
+  --text-heading-sm: var(--primitive-font-size-heading-small);
+
+  --text-body-lg: var(--primitive-font-size-body-large);
+  --text-body-md: var(--primitive-font-size-body-small);
+  --text-body-sm: var(--primitive-font-size-body-xsmall);
+  --text-body-xs: var(--primitive-font-size-body-xxsmall);
+
+  /* Display & Special sizes */
+  --text-display-2xl: 48px;
+  --leading-display-2xl: 1.15;
+  --text-display-xl: 36px;
+  --leading-display-xl: 1.2;
+  --text-display-lg: 28px;
+  --leading-display-lg: 1.25;
+
+  --text-title-lg: var(--primitive-font-size-heading-large);
+  --leading-title-lg: 1.3;
+  --text-title-md: var(--primitive-font-size-heading-medium);
+  --leading-title-md: 1.35;
+  --text-title-sm: var(--primitive-font-size-heading-small);
+  --leading-title-sm: 1.4;
+
+  --leading-body-lg: 1.5;
+  --leading-body-md: 1.5;
+  --leading-body-sm: 1.45;
+
+  --text-caption: 11px;
+  --leading-caption: 1.35;
+  --text-badge: 10px;
+  --leading-badge: 1.2;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: var(--primitive-font-weight-regular);
+  --font-weight-medium: var(--primitive-font-weight-medium);
+  --font-weight-semibold: var(--primitive-font-weight-semibold);
+  --font-weight-bold: 700;
+
+  /* Letter Spacings */
+  --tracking-tightest: -0.03em;
+  --tracking-tight: var(--primitive-letter-spacing-1);     /* -0.02em (Figma '1') */
+  --tracking-normal: var(--primitive-letter-spacing-0);   /* 0em (Figma '0') */
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;                               /* 영문 브랜드명 및 서브헤딩 */
+  --tracking-widest: 0.12em;                              /* 대문자 뱃지, 에디토리얼 태그 */
+}

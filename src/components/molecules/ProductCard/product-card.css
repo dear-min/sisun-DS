@@ -1,0 +1,196 @@
+.fashion-product-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: transparent;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 3:4 Media Container */
+.fashion-product-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--aspect-fashion);
+  background-color: var(--color-warm-sand);
+  overflow: hidden;
+  border-radius: var(--radius-xs);
+  margin-bottom: var(--space-3);
+}
+
+.fashion-product-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fashion-product-card__image--primary {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fashion-product-card__image--secondary {
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Hover effects */
+.fashion-product-card:hover .fashion-product-card__image {
+  transform: scale(1.04);
+}
+
+.fashion-product-card:hover .fashion-product-card__image--secondary {
+  opacity: 1;
+}
+
+/* Top Badges & Wishlist Overlay */
+.fashion-product-card__overlay-top {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fashion-product-card__badge-wrap,
+.fashion-product-card__wishlist-wrap {
+  pointer-events: auto;
+}
+
+/* Quick Add Hover Drawer */
+.fashion-product-card__quick-add-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-3);
+  z-index: 10;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.fashion-product-card:hover .fashion-product-card__quick-add-wrap {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fashion-product-card__quick-add-btn {
+  width: 100%;
+  height: 40px;
+  background: rgba(15, 15, 16, 0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.fashion-product-card__quick-add-btn:hover {
+  background: var(--color-black-pure);
+}
+
+/* Sold Out Overlay */
+.fashion-product-card__soldout-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.fashion-product-card__soldout-overlay span {
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-widest);
+  color: var(--color-charcoal-700);
+  border: 1px solid var(--color-charcoal-700);
+  padding: 6px 14px;
+  background: #ffffff;
+}
+
+/* Content Area */
+.fashion-product-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.fashion-product-card__colors {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.fashion-product-card__color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.fashion-product-card__color-dot:hover {
+  transform: scale(1.2);
+}
+
+.fashion-product-card__color-dot--active {
+  border: 2px solid var(--color-black);
+  transform: scale(1.15);
+}
+
+.fashion-product-card__brand {
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-grey-600);
+  margin-bottom: 3px;
+}
+
+.fashion-product-card__title {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.4;
+  color: var(--color-black);
+  margin-bottom: var(--space-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fashion-product-card:hover .fashion-product-card__title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Soldout Card style */
+.fashion-product-card--soldout .fashion-product-card__media {
+  filter: grayscale(40%);
+}

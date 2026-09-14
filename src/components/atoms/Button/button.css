@@ -1,0 +1,336 @@
+/**
+ * Figma "00. Common Design System" - Button Component Styles
+ * Class Name: btn
+ * 
+ * 디자인 토큰 1:1 매핑 규칙:
+ * 1. Typography:
+ *    - Font-family: var(--primitive-font-family) (.Primitive / Typography / Font / Family)
+ *    - Font-weight: var(--primitive-font-weight-medium) (.Primitive / Typography / Font-weight / Medium: 500)
+ *    - Letter-spacing: var(--primitive-letter-spacing-1) (.Primitive / Typography / Letter-spacing / 1: -0.02em)
+ *    - Font-size:
+ *      - xl: var(--primitive-font-size-body-large) (.Primitive / Typography / Font-size / Body / Large: 16px)
+ *      - lg: var(--primitive-font-size-body-medium) (.Primitive / Typography / Font-size / Body / Medium: 15px)
+ *      - md: var(--primitive-font-size-body-small) (.Primitive / Typography / Font-size / Body / Small: 14px)
+ *      - sm: var(--primitive-font-size-body-xsmall) (.Primitive / Typography / Font-size / Body / XSmall: 13px)
+ *      - xs: var(--primitive-font-size-body-xxsmall) (.Primitive / Typography / Font-size / Body / XXSmall: 12px)
+ * 
+ * 2. Number (Heights, Paddings, Gaps, Radii):
+ *    - xl: height var(--primitive-number-13) (56px) | pad var(--primitive-number-9) (24px) | gap var(--primitive-number-4) (8px) | rad var(--primitive-number-3) (6px)
+ *    - lg: height var(--primitive-number-12) (48px) | pad var(--primitive-number-8) (20px) | gap var(--primitive-number-4) (8px) | rad var(--primitive-number-3) (6px)
+ *    - md: height var(--primitive-number-11) (40px) | pad var(--primitive-number-7) (16px) | gap var(--primitive-number-3) (6px) | rad var(--primitive-number-2) (4px)
+ *    - sm: height var(--primitive-number-10) (32px) | pad var(--primitive-number-6) (12px) | gap var(--primitive-number-3) (6px) | rad var(--primitive-number-2) (4px)
+ *    - xs: height var(--primitive-number-9) (24px)  | pad var(--primitive-number-4) (8px)  | gap var(--primitive-number-2) (4px) | rad var(--primitive-number-2) (4px)
+ * 
+ * 3. Color:
+ *    - Primary:
+ *      - Normal: bg var(--primitive-color-gray-0) | text var(--color-text-inverse) | icon var(--color-icon-inverse)
+ *      - Hover: bg var(--primitive-color-gray-20)
+ *      - Pressed: bg var(--primitive-color-gray-30)
+ *      - Disabled: bg var(--color-bg-disabled) | text var(--color-text-disabled) | icon var(--color-icon-disabled)
+ *    - Secondary:
+ *      - Normal: bg var(--primitive-color-gray-96) | text var(--color-text-default) | icon var(--color-icon-default)
+ *      - Hover: bg var(--color-bg-tertiary) (Color/Gray/90)
+ *      - Pressed: bg var(--primitive-color-gray-85) (Color/Gray/85)
+ *      - Disabled: bg var(--color-bg-disabled) | text var(--color-text-disabled) | icon var(--color-icon-disabled)
+ *    - Tertiary:
+ *      - Normal: bg var(--color-bg-default) | border var(--color-border-default) | text var(--color-text-default) | icon var(--color-icon-default)
+ *      - Hover: bg var(--color-bg-secondary) | border var(--color-border-default)
+ *      - Pressed: bg var(--color-bg-tertiary) | border var(--color-border-default)
+ *      - Disabled: bg var(--color-bg-default) | border var(--color-border-disabled) | text var(--color-text-disabled) | icon var(--color-icon-disabled)
+ */
+
+.btn,
+.fashion-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: var(--primitive-font-family);
+  font-weight: var(--primitive-font-weight-medium);
+  letter-spacing: var(--primitive-letter-spacing-1);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 1;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
+  outline: none;
+}
+
+.btn:focus-visible,
+.fashion-btn:focus-visible {
+  outline: 2px solid var(--color-border-positive);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Sizes: xl (56px), lg (48px), md (40px), sm (32px), xs (24px)
+   ========================================================================== */
+.btn--xl,
+.fashion-btn--xl {
+  height: var(--primitive-number-13); /* 56px */
+  padding: 0 var(--primitive-number-9); /* 24px */
+  font-size: var(--primitive-font-size-body-large); /* 16px (Body/Large) */
+  gap: var(--primitive-number-4); /* 8px */
+  border-radius: var(--primitive-number-3); /* 6px */
+}
+
+.btn--lg,
+.fashion-btn--lg {
+  height: var(--primitive-number-12); /* 48px */
+  padding: 0 var(--primitive-number-8); /* 20px */
+  font-size: var(--primitive-font-size-body-medium); /* 15px (Body/Medium) */
+  gap: var(--primitive-number-4); /* 8px */
+  border-radius: var(--primitive-number-3); /* 6px */
+}
+
+.btn--md,
+.fashion-btn--md {
+  height: var(--primitive-number-11); /* 40px */
+  padding: 0 var(--primitive-number-7); /* 16px */
+  font-size: var(--primitive-font-size-body-small); /* 14px (Body/Small) */
+  gap: var(--primitive-number-3); /* 6px */
+  border-radius: var(--primitive-number-2); /* 4px */
+}
+
+.btn--sm,
+.fashion-btn--sm {
+  height: var(--primitive-number-10); /* 32px */
+  padding: 0 var(--primitive-number-6); /* 12px */
+  font-size: var(--primitive-font-size-body-xsmall); /* 13px (Body/XSmall) */
+  gap: var(--primitive-number-3); /* 6px */
+  border-radius: var(--primitive-number-2); /* 4px */
+}
+
+.btn--xs,
+.fashion-btn--xs {
+  height: var(--primitive-number-9); /* 24px */
+  padding: 0 var(--primitive-number-4); /* 8px */
+  font-size: var(--primitive-font-size-body-xxsmall); /* 12px (Body/XXSmall) */
+  gap: var(--primitive-number-2); /* 4px */
+  border-radius: var(--primitive-number-2); /* 4px */
+}
+
+.btn--full-width,
+.fashion-btn--full-width {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Type 1: Primary (Solid Dark: Gray/0 Background, Inverse Text)
+   ========================================================================== */
+.btn--primary,
+.fashion-btn--primary {
+  background-color: var(--primitive-color-gray-0);
+  color: var(--color-text-inverse);
+  border-color: var(--primitive-color-gray-0);
+}
+
+.btn--primary .btn__icon,
+.fashion-btn--primary .fashion-btn__icon-left,
+.fashion-btn--primary .fashion-btn__icon-right {
+  color: var(--color-icon-inverse);
+}
+
+.btn--primary:hover:not(:disabled),
+.btn--primary.btn--state-hover:not(:disabled),
+.fashion-btn--primary:hover:not(:disabled) {
+  background-color: var(--primitive-color-gray-20);
+  border-color: var(--primitive-color-gray-20);
+}
+
+.btn--primary:active:not(:disabled),
+.btn--primary.btn--state-pressed:not(:disabled),
+.fashion-btn--primary:active:not(:disabled) {
+  background-color: var(--primitive-color-gray-30);
+  border-color: var(--primitive-color-gray-30);
+}
+
+.btn--primary:disabled,
+.btn--primary.btn--state-disabled {
+  background-color: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
+  border-color: var(--color-bg-disabled);
+  cursor: not-allowed;
+}
+
+.btn--primary:disabled .btn__icon,
+.btn--primary.btn--state-disabled .btn__icon {
+  color: var(--color-icon-disabled);
+}
+
+/* ==========================================================================
+   Type 2: Secondary (Soft Gray: Gray/96 Background, Default Text)
+   ========================================================================== */
+.btn--secondary,
+.fashion-btn--secondary {
+  background-color: var(--primitive-color-gray-96);
+  color: var(--color-text-default);
+  border-color: var(--primitive-color-gray-96);
+}
+
+.btn--secondary .btn__icon,
+.fashion-btn--secondary .fashion-btn__icon-left,
+.fashion-btn--secondary .fashion-btn__icon-right {
+  color: var(--color-icon-default);
+}
+
+.btn--secondary:hover:not(:disabled),
+.btn--secondary.btn--state-hover:not(:disabled),
+.fashion-btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-bg-tertiary); /* Color/Gray/90 */
+  border-color: var(--color-bg-tertiary);
+}
+
+.btn--secondary:active:not(:disabled),
+.btn--secondary.btn--state-pressed:not(:disabled),
+.fashion-btn--secondary:active:not(:disabled) {
+  background-color: var(--primitive-color-gray-85); /* Color/Gray/85 */
+  border-color: var(--primitive-color-gray-85);
+}
+
+.btn--secondary:disabled,
+.btn--secondary.btn--state-disabled {
+  background-color: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
+  border-color: var(--color-bg-disabled);
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn--secondary:disabled .btn__icon,
+.btn--secondary.btn--state-disabled .btn__icon {
+  color: var(--color-icon-disabled);
+}
+
+/* ==========================================================================
+   Type 3: Tertiary (White Background, Gray/85 Border, Default Text)
+   ========================================================================== */
+.btn--tertiary,
+.btn--outline,
+.fashion-btn--tertiary,
+.fashion-btn--outline {
+  background-color: var(--color-bg-default);
+  color: var(--color-text-default);
+  border-color: var(--color-border-default);
+}
+
+.btn--tertiary .btn__icon,
+.btn--outline .btn__icon,
+.fashion-btn--tertiary .fashion-btn__icon-left,
+.fashion-btn--tertiary .fashion-btn__icon-right {
+  color: var(--color-icon-default);
+}
+
+.btn--tertiary:hover:not(:disabled),
+.btn--tertiary.btn--state-hover:not(:disabled),
+.btn--outline:hover:not(:disabled),
+.fashion-btn--tertiary:hover:not(:disabled) {
+  background-color: var(--color-bg-secondary); /* Color/Gray/98 */
+  border-color: var(--color-border-default);
+}
+
+.btn--tertiary:active:not(:disabled),
+.btn--tertiary.btn--state-pressed:not(:disabled),
+.btn--outline:active:not(:disabled),
+.fashion-btn--tertiary:active:not(:disabled) {
+  background-color: var(--color-bg-tertiary); /* Color/Gray/90 */
+  border-color: var(--color-border-default);
+}
+
+.btn--tertiary:disabled,
+.btn--tertiary.btn--state-disabled,
+.btn--outline:disabled,
+.fashion-btn--tertiary:disabled {
+  background-color: var(--color-bg-default);
+  color: var(--color-text-disabled);
+  border-color: var(--color-border-disabled);
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn--tertiary:disabled .btn__icon,
+.btn--tertiary.btn--state-disabled .btn__icon {
+  color: var(--color-icon-disabled);
+}
+
+/* ==========================================================================
+   Auxiliary Variants (Ghost & Sale)
+   ========================================================================== */
+.btn--ghost,
+.fashion-btn--ghost {
+  background-color: transparent;
+  color: var(--color-text-default);
+  border-color: transparent;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background-color: var(--color-bg-secondary);
+}
+
+.btn--sale,
+.fashion-btn--sale {
+  background-color: var(--color-sale-primary);
+  color: var(--color-white);
+  border-color: var(--color-sale-primary);
+}
+
+.btn--sale:hover:not(:disabled) {
+  background-color: var(--primitive-color-red-50);
+  border-color: var(--primitive-color-red-50);
+  filter: brightness(0.9);
+}
+
+/* ==========================================================================
+   Icons & Content Layout
+   ========================================================================== */
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn__icon--left,
+.fashion-btn__icon-left {
+  margin-right: 0;
+}
+
+.btn__icon--right,
+.fashion-btn__icon-right {
+  margin-left: 0;
+}
+
+.btn__label,
+.fashion-btn__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon Sizing based on Button Size */
+.btn--xl .btn__icon svg { width: 18px; height: 18px; }
+.btn--lg .btn__icon svg { width: 18px; height: 18px; }
+.btn--md .btn__icon svg { width: 16px; height: 16px; }
+.btn--sm .btn__icon svg { width: 14px; height: 14px; }
+.btn--xs .btn__icon svg { width: 12px; height: 12px; }
+
+/* Loading Spinner */
+.btn__spinner,
+.fashion-btn__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(128, 128, 128, 0.3);
+  border-top-color: currentColor;
+  border-radius: var(--radius-full);
+  animation: btn-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
