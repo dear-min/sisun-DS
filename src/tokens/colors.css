@@ -177,6 +177,23 @@
   --color-input-placeholder: var(--color-text-tertiary);               /* #999999 (Color/Text/Tertiary) */
   --color-input-text: var(--color-text-default);                       /* #000000 (Color/Text/Default) */
 
+  /* Select Component Tokens (피그마 Select 1:1 바인딩) */
+  --color-select-surface: var(--color-bg-default);                      /* #ffffff (Color/Background/Default) */
+  --color-select-border: var(--color-border-default);                   /* #d9d9d9 (Color/Border/Default) */
+  --color-select-border-active: var(--color-border-subtle);             /* #4d4d4d (Color/Border/Subtle) */
+  --color-select-disabled-surface: var(--color-bg-disabled);            /* #f5f5f5 (Color/Background/Disabled) */
+  --color-select-disabled-border: var(--color-border-disabled);         /* #d9d9d9 (Color/Border/Disabled) */
+  --color-select-disabled-text: var(--color-text-disabled);             /* #b2b2b2 (Color/Text/Disabled) */
+  --color-select-readonly-surface: var(--color-bg-secondary);           /* #f5f5f5 (Color/Background/Secondary) */
+  --color-select-readonly-border: var(--color-border-default);          /* #d9d9d9 (Color/Border/Default) */
+  --color-select-readonly-text: var(--color-text-default);              /* #000000 (Color/Text/Default) */
+  --color-select-placeholder: var(--color-text-tertiary);               /* #999999 (Color/Text/Tertiary) */
+  --color-select-text: var(--color-text-default);                       /* #000000 (Color/Text/Default) */
+  --color-select-option-hover: var(--color-bg-secondary);               /* #f5f5f5 (Color/Background/Secondary) */
+  --color-select-option-disabled-bg: var(--color-bg-disabled);          /* #f5f5f5 (Color/Background/Disabled) */
+  --color-select-option-message: var(--color-text-tertiary);            /* #999999 (Color/Text/Tertiary) */
+
+
   /* ==========================================================================
      4. COMPONENT ALIASES (기존 컴포넌트 하위 호환 바인딩)
      ========================================================================== */
@@ -312,4 +329,20 @@
   --color-input-readonly-text: #ffffff;
   --color-input-placeholder: #71717a;
   --color-input-text: #ffffff;
+
+  /* Select Component Dark Theme Overrides */
+  --color-select-surface: #18181b;
+  --color-select-border: var(--color-border-default);
+  --color-select-border-active: #ffffff;
+  --color-select-disabled-surface: #222226;
+  --color-select-disabled-border: #27272a;
+  --color-select-disabled-text: #52525b;
+  --color-select-readonly-surface: #1a1a1c;
+  --color-select-readonly-border: var(--color-border-default);
+  --color-select-readonly-text: #ffffff;
+  --color-select-placeholder: #71717a;
+  --color-select-text: #ffffff;
+  --color-select-option-hover: #27272a;
+  --color-select-option-disabled-bg: #222226;
+  --color-select-option-message: #a1a1aa;
 }

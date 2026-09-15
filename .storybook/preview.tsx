@@ -75,7 +75,7 @@ const preview: Preview = {
           'Foundations',
           ['Design Tokens', ['Overview', 'Typography', 'Number', 'Color', 'Icon']],
           'Atoms',
-          ['Button', 'Icon Button', 'Input', 'Tag', 'Badge', 'Price', 'Swatch', 'Wishlist Button'],
+          ['Button', 'Icon Button', 'Input', 'Select', 'Tag', 'Badge', 'Price', 'Swatch', 'Wishlist Button'],
           'Molecules',
           'Organisms',
         ],
