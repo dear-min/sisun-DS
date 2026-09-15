@@ -1,0 +1,62 @@
+/**
+ * Atelier Fashion Design System - Tag Atom Component
+ * 피그마 "00. Common Design System"의 Tag 컴포넌트 100% 매핑
+ * Class Name: tag
+ * Type: normal (default) | point | inverse | positive | negative
+ */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 22px;
+  line-height: 1;
+  padding: 2px var(--primitive-number-4, 8px);
+  border-radius: var(--radius-xsmall, 2px);
+  font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
+  font-size: var(--primitive-font-size-body-xxsmall, 12px);
+  font-weight: var(--primitive-font-weight-medium, 500);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  user-select: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* ==========================================================================
+   Type Variants (Figma Type 5종)
+   ========================================================================== */
+
+/* 1. Type: Normal (Default) - 피그마 Gray/96 배경, Gray/40 텍스트 */
+.tag--normal {
+  background-color: var(--color-tag-normal-bg);
+  color: var(--color-tag-normal-text);
+}
+
+/* 2. Type: Point - 피그마 Orange/96 소프트 틴트 배경, Orange/50 메인 포인트 텍스트 */
+.tag--point {
+  background-color: var(--color-tag-point-bg);
+  color: var(--color-tag-point-text);
+}
+
+/* 3. Type: Inverse - 피그마 투명 배경, Gray/20 서브틀 텍스트 */
+.tag--inverse {
+  background-color: var(--color-tag-inverse-bg);
+  color: var(--color-tag-inverse-text);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* 4. Type: Positive - 피그마 Blue/95 소프트 틴트 배경, Blue/52 성공/포지티브 텍스트 */
+.tag--positive {
+  background-color: var(--color-tag-positive-bg);
+  color: var(--color-tag-positive-text);
+}
+
+/* 5. Type: Negative - 피그마 Red/95 소프트 틴트 배경, Red/50 에러/네거티브 텍스트 */
+.tag--negative {
+  background-color: var(--color-tag-negative-bg);
+  color: var(--color-tag-negative-text);
+}

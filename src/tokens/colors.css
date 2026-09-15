@@ -25,13 +25,16 @@
 
   /* State / Feedback (.Primitive/Color/*) */
   --primitive-color-red-50: #e51a1a;     /* Color/Red/50: 에러/네거티브 및 세일 레드 */
+  --primitive-color-red-95: #fce8e8;     /* Color/Red/95: 소프트 에러/네거티브 틴트 */
   --primitive-color-blue-52: #1e4eed;    /* Color/Blue/52: 성공/포지티브 블루 */
+  --primitive-color-blue-95: #e7ecfd;    /* Color/Blue/95: 소프트 성공/포지티브 틴트 */
 
   /* Brand Orange Scale (.Primitive/Color/Orange/*) */
   --primitive-color-orange-50: #e4541b;  /* Color/Orange/50: 브랜드 메인 웜 테라코타 */
   --primitive-color-orange-40: #b74315;  /* Color/Orange/40: 딥 테라코타 */
   --primitive-color-orange-20: #5b210b;  /* Color/Orange/20: 브라운 와인 포인트 */
   --primitive-color-orange-80: #f4baa4;  /* Color/Orange/80: 소프트 웜 틴트 배경 */
+  --primitive-color-orange-96: #fdf1ed;  /* Color/Orange/96: 소프트 포인트 틴트 */
 
   /* Primary Brand Aliases (.Primitive/Color/Primary/*) */
   --primitive-color-primary-default: var(--primitive-color-orange-50);
@@ -144,6 +147,22 @@
   --color-button-disabled-border: var(--primitive-color-gray-90);      /* #e5e5e5 */
   --color-button-disabled-text: var(--primitive-color-gray-70);        /* #b2b2b2 */
 
+  /* Tag Component Tokens (피그마 Tag 1:1 바인딩) */
+  --color-tag-normal-bg: var(--color-bg-secondary);                    /* #f5f5f5 */
+  --color-tag-normal-text: var(--color-text-secondary);                 /* #666666 */
+
+  --color-tag-point-bg: var(--primitive-color-orange-96);               /* #fdf1ed */
+  --color-tag-point-text: var(--color-text-point-primary);              /* #e4541b */
+
+  --color-tag-inverse-bg: transparent;
+  --color-tag-inverse-text: var(--color-text-subtle);                   /* #333333 */
+
+  --color-tag-positive-bg: var(--primitive-color-blue-95);              /* #e7ecfd */
+  --color-tag-positive-text: var(--color-text-success);                 /* #1e4eed */
+
+  --color-tag-negative-bg: var(--primitive-color-red-95);               /* #fce8e8 */
+  --color-tag-negative-text: var(--color-text-error);                   /* #e51a1a */
+
   /* ==========================================================================
      4. COMPONENT ALIASES (기존 컴포넌트 하위 호환 바인딩)
      ========================================================================== */
@@ -253,4 +272,16 @@
   --interactive-secondary-text: #ffffff;
   --interactive-secondary-border: var(--color-border-default);
   --interactive-secondary-hover: #27272a;
+
+  /* Tag Component Dark Theme Overrides */
+  --color-tag-normal-bg: var(--color-bg-secondary);                    /* #1a1a1c */
+  --color-tag-normal-text: var(--color-text-secondary);                 /* #a1a1aa */
+  --color-tag-point-bg: rgba(228, 84, 27, 0.15);
+  --color-tag-point-text: #ff773d;
+  --color-tag-inverse-bg: transparent;
+  --color-tag-inverse-text: var(--color-text-subtle);                   /* #e4e4e7 */
+  --color-tag-positive-bg: rgba(30, 78, 237, 0.18);
+  --color-tag-positive-text: #60a5fa;
+  --color-tag-negative-bg: rgba(229, 26, 26, 0.18);
+  --color-tag-negative-text: #f87171;
 }
