@@ -94,6 +94,7 @@ DesignSystem/
 │   │   │   ├── IconButton/         # 피그마 표준 Icon Button (Class: icon-btn, Type: icon, Size 5종, State 3종: normal/hover/active)
 │   │   │   ├── Input/              # 피그마 표준 Input (Class: input, State 6종: normal/focus/active/disabled/readonly/negative, 40px)
 │   │   │   ├── Select/             # 피그마 표준 Select (Class: select, Size 2종: md(40px)/sm(32px), State 4종, Box true/false, Option State 4종)
+│   │   │   ├── Radio/              # 피그마 표준 Radio (Class: radio, Type 2종: unchecked/checked, Disabled 2종: false/true, 16px 볼드 링)
 │   │   │   ├── Tag/                # 피그마 표준 Tag (Class: tag, Type 5종: normal/point/inverse/positive/negative, Caption Small 12px)
 │   │   │   ├── Icon/               # 피그마 표준 Icon 자산 [Foundations/Design Tokens/Icon] (총 46종: 시스템 35종 + 썸네일 11종 전수 등록, 6단계 스케일, 9종 시맨틱 컬러)
 │   │   │   ├── WishlistButton/     # 글래스모피즘 플로팅 + 하트 팝 바운스

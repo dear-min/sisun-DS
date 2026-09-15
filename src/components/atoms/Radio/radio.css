@@ -1,0 +1,126 @@
+/**
+ * Atelier Fashion Design System - Radio Atom Component
+ * 피그마 "00. Common Design System"의 Radio 컴포넌트 100% 매핑
+ * Class Name: radio
+ * Variants:
+ *  - Type: unchecked (default) | checked
+ *  - Disabled: false (default) | true
+ */
+
+/* ==========================================================================
+   1. Radio Component Container
+   ========================================================================== */
+.radio {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
+  font-size: var(--primitive-font-size-body-small, 14px);
+  font-weight: var(--primitive-font-weight-regular, 400);
+  line-height: 1.4;
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+  color: var(--color-radio-text);
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   2. Hidden Native Input for Accessibility & State
+   ========================================================================== */
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. Radio Visual Control Circle (16px x 16px)
+   ========================================================================== */
+.radio__control {
+  display: inline-block;
+  width: var(--primitive-number-7, 16px);
+  height: var(--primitive-number-7, 16px);
+  box-sizing: border-box;
+  border-radius: var(--primitive-radius-circle, 999px);
+  flex-shrink: 0;
+  border: 1px solid var(--color-radio-border);
+  background-color: var(--color-radio-bg);
+  transition: border-color 0.15s ease, border-width 0.15s ease, background-color 0.15s ease;
+}
+
+/* Label text */
+.radio__label {
+  margin-left: var(--primitive-number-4, 8px);
+  color: var(--color-radio-text);
+  transition: color 0.15s ease;
+}
+
+/* Focus Visible state for accessibility */
+.radio__input:focus-visible + .radio__control {
+  outline: 2px solid var(--color-border-subtle, #4d4d4d);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   4. State 1: Checked Normal (볼드 5px 블랙 링 + 화이트 센터)
+   ========================================================================== */
+.radio--checked .radio__control,
+.radio__input:checked:not(:disabled) + .radio__control {
+  border: 5px solid var(--color-radio-border-checked);
+  background-color: var(--color-radio-bg);
+}
+
+/* ==========================================================================
+   5. State 2: Unchecked Disabled (1px 보더 + 비활성 서피스 배경)
+   ========================================================================== */
+.radio--disabled,
+.radio:has(.radio__input:disabled) {
+  cursor: not-allowed;
+}
+
+.radio--disabled .radio__control,
+.radio__input:disabled + .radio__control {
+  border: 1px solid var(--color-radio-border-disabled);
+  background-color: var(--color-radio-bg-disabled);
+  cursor: not-allowed;
+}
+
+.radio--disabled .radio__label,
+.radio__input:disabled ~ .radio__label {
+  color: var(--color-radio-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   6. State 3: Checked Disabled (볼드 5px 그레이 링 + 비활성 서피스 센터)
+   ========================================================================== */
+.radio--checked.radio--disabled .radio__control,
+.radio__input:checked:disabled + .radio__control {
+  border: 5px solid var(--color-radio-border-checked-disabled) !important;
+  background-color: var(--color-radio-bg-disabled) !important;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   7. Radio Group Layouts
+   ========================================================================== */
+.radio-group {
+  display: flex;
+}
+
+.radio-group--vertical {
+  flex-direction: column;
+  gap: var(--primitive-number-5, 10px);
+}
+
+.radio-group--horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--primitive-number-7, 16px);
+  flex-wrap: wrap;
+}
