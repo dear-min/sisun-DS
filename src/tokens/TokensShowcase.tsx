@@ -157,6 +157,101 @@ export const FIGMA_NUMBER_TOKENS = [
 ];
 
 // =============================================================================
+// 9. Semantic Radius Tokens (.Semantic / Layout / Radius - 8 Variables)
+// 피그마 'Semantic' 컬렉션의 Layout / Radius (8종)와 .Primitive/Number 1:1 매핑
+// =============================================================================
+export const FIGMA_RADIUS_TOKENS = [
+  {
+    name: 'None',
+    path: 'Layout / Radius / None',
+    alias: 'Number/0',
+    value: '0px',
+    num: 0,
+    cssVar: '--radius-none',
+    semanticVar: '--semantic-radius-none',
+    figmaVar: '--figma-Semantic-Layout-Radius-None',
+    role: '0px 샤프 미니멀리즘, 각진 모서리 (기본 버튼, 테이블 셀)',
+  },
+  {
+    name: 'XSmall',
+    path: 'Layout / Radius / XSmall',
+    alias: 'Number/1',
+    value: '2px',
+    num: 2,
+    cssVar: '--radius-xsmall',
+    semanticVar: '--semantic-radius-xsmall',
+    figmaVar: '--figma-Semantic-Layout-Radius-XSmall',
+    role: '2px 초미세 곡률 (XS 뱃지, 라벨 태그)',
+  },
+  {
+    name: 'Small',
+    path: 'Layout / Radius / Small',
+    alias: 'Number/2',
+    value: '4px',
+    num: 4,
+    cssVar: '--radius-small',
+    semanticVar: '--semantic-radius-small',
+    figmaVar: '--figma-Semantic-Layout-Radius-Small',
+    role: '4px 기본 컴포넌트 곡률 (SM 인풋, 칩, 버튼)',
+  },
+  {
+    name: 'Medium',
+    path: 'Layout / Radius / Medium',
+    alias: 'Number/3',
+    value: '6px',
+    num: 3,
+    cssVar: '--radius-medium',
+    semanticVar: '--semantic-radius-medium',
+    figmaVar: '--figma-Semantic-Layout-Radius-Medium',
+    role: '6px 중간 곡률 (MD 셀렉트박스, 카드 모서리, 아이콘 버튼)',
+  },
+  {
+    name: 'Large',
+    path: 'Layout / Radius / Large',
+    alias: 'Number/4',
+    value: '8px',
+    num: 4,
+    cssVar: '--radius-large',
+    semanticVar: '--semantic-radius-large',
+    figmaVar: '--figma-Semantic-Layout-Radius-Large',
+    role: '8px 대형 곡률 (LG 모달, 컨테이너, 다이얼로그)',
+  },
+  {
+    name: 'XLarge',
+    path: 'Layout / Radius / XLarge',
+    alias: 'Number/6',
+    value: '12px',
+    num: 12,
+    cssVar: '--radius-xlarge',
+    semanticVar: '--semantic-radius-xlarge',
+    figmaVar: '--figma-Semantic-Layout-Radius-XLarge',
+    role: '12px 룩북 배너, 특수 카드, 드로어 상단 모서리 (Number/6 매핑)',
+  },
+  {
+    name: 'XXLarge',
+    path: 'Layout / Radius / XXLarge',
+    alias: 'Number/7',
+    value: '16px',
+    num: 16,
+    cssVar: '--radius-xxlarge',
+    semanticVar: '--semantic-radius-xxlarge',
+    figmaVar: '--figma-Semantic-Layout-Radius-XXLarge',
+    role: '16px 대형 바텀시트, 플로팅 카드 모서리 (Number/7 매핑)',
+  },
+  {
+    name: 'Circle',
+    path: 'Layout / Radius / Circle',
+    alias: 'Number/circle',
+    value: '999px',
+    num: 999,
+    cssVar: '--radius-circle',
+    semanticVar: '--semantic-radius-circle',
+    figmaVar: '--figma-Semantic-Layout-Radius-Circle',
+    role: '999px 완전한 원형 및 알약형(Pill) 캡슐 라운딩 (플로팅 버튼, 스와치)',
+  },
+];
+
+// =============================================================================
 // Standalone Category 1: Typography Showcase (.Primitive / Typography - 15)
 // =============================================================================
 export interface TypographyShowcaseProps {
@@ -539,8 +634,12 @@ export const NumberShowcase: React.FC<NumberShowcaseProps> = ({
   const [copiedToken, setCopiedToken] = useState<string | null>(null);
 
   // Interactive Visualizer State
-  const [sliderIndex, setSliderIndex] = useState<number>(7); // Default 16px (Number/7)
-  const currentToken = FIGMA_NUMBER_TOKENS[sliderIndex] || FIGMA_NUMBER_TOKENS[7];
+  const [visualizerMode, setVisualizerMode] = useState<'radius' | 'number'>('radius');
+  const [radiusIndex, setRadiusIndex] = useState<number>(3); // Default Medium (6px)
+  const [numberIndex, setNumberIndex] = useState<number>(7); // Default 16px (Number/7)
+
+  const currentRadiusToken = FIGMA_RADIUS_TOKENS[radiusIndex] || FIGMA_RADIUS_TOKENS[3];
+  const currentNumberToken = FIGMA_NUMBER_TOKENS[numberIndex] || FIGMA_NUMBER_TOKENS[7];
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -549,9 +648,9 @@ export const NumberShowcase: React.FC<NumberShowcaseProps> = ({
   };
 
   const subTabs = [
-    { id: 'all', label: '전체 매트릭스 (22)' },
-    { id: 'spacing', label: '여백 스케일 (Spacing & Gap)' },
-    { id: 'radius', label: '곡률 스케일 (Corner Radius)' },
+    { id: 'all', label: '전체 (22 Numbers + 8 Radius)' },
+    { id: 'radius', label: '곡률 스케일 (Radius 8종)' },
+    { id: 'spacing', label: '수치/여백 매트릭스 (Number 22종)' },
     { id: 'visualizer', label: '⚡ Interactive Visualizer' },
   ];
 
@@ -561,16 +660,16 @@ export const NumberShowcase: React.FC<NumberShowcaseProps> = ({
         <div className="figma-type-summary-banner">
           <div>
             <h2 className="tokens-section-title" style={{ margin: 0, border: 'none', padding: 0 }}>
-              .Primitive / Number (22 Variables)
+              .Primitive / Number (22) & Semantic / Radius (8)
             </h2>
             <p className="color-group-desc" style={{ margin: '4px 0 0' }}>
-              여백(Gap, Padding), 컴포넌트 크기(Sizing), 모서리 곡률(Radius)의 단일 진실 공급원 수치 스케일
+              피그마 'Semantic' 컬렉션의 Radius 8종과 .Primitive/Number 22종 수치 매트릭스 1:1 매핑
             </p>
           </div>
           <div className="figma-type-summary-chips">
-            <span className="figma-type-chip">Range: <strong>0px ~ 160px</strong></span>
-            <span className="figma-type-chip">Pill / Circle: <strong>999px</strong></span>
-            <span className="figma-type-chip">Total: <strong>22 variables</strong></span>
+            <span className="figma-type-chip">Semantic Radius: <strong>8 variables</strong></span>
+            <span className="figma-type-chip">Primitive Number: <strong>22 variables</strong></span>
+            <span className="figma-type-chip">Range: <strong>0px ~ 160px, circle</strong></span>
           </div>
         </div>
       )}
@@ -595,95 +694,265 @@ export const NumberShowcase: React.FC<NumberShowcaseProps> = ({
           <div className="figma-tester-header">
             <h3 className="figma-tester-title">
               <Sliders size={18} color="var(--color-primary-default)" />
-              실시간 수치 인터랙티브 뷰어 (Live Number Scale Visualizer)
+              실시간 곡률 & 수치 인터랙티브 뷰어 (Live Radius & Number Scale Visualizer)
             </h3>
-            <span className="figma-alias-badge">Interactive Mode</span>
-          </div>
-
-          <div className="figma-visualizer-controls">
-            <div className="figma-visualizer-slider-group">
-              <span style={{ fontSize: '12px', fontWeight: 600 }}>스케일 조절:</span>
-              <input
-                type="range"
-                min={0}
-                max={FIGMA_NUMBER_TOKENS.length - 1}
-                value={sliderIndex}
-                onChange={(e) => setSliderIndex(Number(e.target.value))}
-                className="figma-visualizer-slider"
-              />
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <span className="figma-number-pill">Number / {currentToken.name}</span>
-              <span className="figma-number-val" style={{ fontSize: '18px' }}>{currentToken.value}</span>
-              <code
-                className="figma-css-var"
-                onClick={() => handleCopy(`var(${currentToken.cssVar})`)}
-                title="클릭하여 복사"
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <button
+                type="button"
+                className={`tokens-subtab-btn ${visualizerMode === 'radius' ? 'tokens-subtab-btn--active' : ''}`}
+                onClick={() => setVisualizerMode('radius')}
+                style={{ padding: '4px 10px', fontSize: '11px' }}
               >
-                var({currentToken.cssVar})
-              </code>
-              {copiedToken && <span className="copy-tag">복사됨! ✓</span>}
+                Radius Mode (8)
+              </button>
+              <button
+                type="button"
+                className={`tokens-subtab-btn ${visualizerMode === 'number' ? 'tokens-subtab-btn--active' : ''}`}
+                onClick={() => setVisualizerMode('number')}
+                style={{ padding: '4px 10px', fontSize: '11px' }}
+              >
+                Number Mode (22)
+              </button>
             </div>
           </div>
 
-          <div className="figma-visualizer-stage">
-            <div
-              className="figma-visualizer-box"
-              style={{
-                padding: currentToken.name === 'circle' ? '24px 32px' : `var(${currentToken.cssVar})`,
-                borderRadius: currentToken.name === 'circle' ? '999px' : `var(${currentToken.cssVar})`,
-                gap: currentToken.name === 'circle' ? '8px' : `var(${currentToken.cssVar})`,
-              }}
-            >
-              <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)' }}>
-                Number: {currentToken.name} ({currentToken.value})
-              </span>
-              <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-                Padding & Radius: {currentToken.value}
-              </span>
-              <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
-                <span style={{ fontSize: '11px', background: 'var(--bg-surface-subtle)', padding: '2px 8px', borderRadius: '4px' }}>
-                  {currentToken.role}
-                </span>
+          {visualizerMode === 'radius' ? (
+            <div>
+              <div className="figma-visualizer-controls">
+                <div className="figma-visualizer-slider-group">
+                  <span style={{ fontSize: '12px', fontWeight: 600 }}>Radius 선택:</span>
+                  <input
+                    type="range"
+                    min={0}
+                    max={FIGMA_RADIUS_TOKENS.length - 1}
+                    value={radiusIndex}
+                    onChange={(e) => setRadiusIndex(Number(e.target.value))}
+                    className="figma-visualizer-slider"
+                  />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <span className="figma-radius-mapping-badge">
+                    Radius / {currentRadiusToken.name} → {currentRadiusToken.alias}
+                  </span>
+                  <span className="figma-number-val" style={{ fontSize: '18px' }}>
+                    {currentRadiusToken.value}
+                  </span>
+                  <code
+                    className="figma-css-var"
+                    onClick={() => handleCopy(`var(${currentRadiusToken.cssVar})`)}
+                    title="클릭하여 복사"
+                  >
+                    var({currentRadiusToken.cssVar})
+                  </code>
+                  {copiedToken && <span className="copy-tag">복사됨! ✓</span>}
+                </div>
+              </div>
+
+              <div className="figma-visualizer-stage" style={{ gap: '24px', flexWrap: 'wrap' }}>
+                {/* UI Card Preview */}
+                <div
+                  style={{
+                    width: '260px',
+                    padding: '20px',
+                    background: 'var(--color-white)',
+                    border: '2px solid var(--color-primary-default)',
+                    borderRadius: `var(${currentRadiusToken.cssVar})`,
+                    boxShadow: 'var(--shadow-md)',
+                    textAlign: 'left',
+                    transition: 'all var(--transition-fast)',
+                  }}
+                >
+                  <div style={{ fontSize: '11px', color: 'var(--color-primary-secondary)', fontWeight: 700, marginBottom: '4px' }}>
+                    UI CARD PREVIEW
+                  </div>
+                  <h4 style={{ margin: '0 0 8px 0', fontSize: '15px', color: 'var(--text-primary)' }}>
+                    Radius: {currentRadiusToken.name} ({currentRadiusToken.value})
+                  </h4>
+                  <p style={{ margin: '0 0 12px 0', fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                    {currentRadiusToken.role}
+                  </p>
+                  <button
+                    type="button"
+                    style={{
+                      padding: '8px 16px',
+                      background: 'var(--color-primary-default)',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: `var(${currentRadiusToken.cssVar})`,
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Button with {currentRadiusToken.name}
+                  </button>
+                </div>
               </div>
             </div>
+          ) : (
+            <div>
+              <div className="figma-visualizer-controls">
+                <div className="figma-visualizer-slider-group">
+                  <span style={{ fontSize: '12px', fontWeight: 600 }}>Number 스케일:</span>
+                  <input
+                    type="range"
+                    min={0}
+                    max={FIGMA_NUMBER_TOKENS.length - 1}
+                    value={numberIndex}
+                    onChange={(e) => setNumberIndex(Number(e.target.value))}
+                    className="figma-visualizer-slider"
+                  />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <span className="figma-number-pill">Number / {currentNumberToken.name}</span>
+                  <span className="figma-number-val" style={{ fontSize: '18px' }}>
+                    {currentNumberToken.value}
+                  </span>
+                  <code
+                    className="figma-css-var"
+                    onClick={() => handleCopy(`var(${currentNumberToken.cssVar})`)}
+                    title="클릭하여 복사"
+                  >
+                    var({currentNumberToken.cssVar})
+                  </code>
+                  {copiedToken && <span className="copy-tag">복사됨! ✓</span>}
+                </div>
+              </div>
+
+              <div className="figma-visualizer-stage">
+                <div
+                  className="figma-visualizer-box"
+                  style={{
+                    padding: currentNumberToken.name === 'circle' ? '24px 32px' : `var(${currentNumberToken.cssVar})`,
+                    borderRadius: currentNumberToken.name === 'circle' ? '999px' : `var(${currentNumberToken.cssVar})`,
+                    gap: currentNumberToken.name === 'circle' ? '8px' : `var(${currentNumberToken.cssVar})`,
+                  }}
+                >
+                  <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)' }}>
+                    Number: {currentNumberToken.name} ({currentNumberToken.value})
+                  </span>
+                  <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                    Padding & Radius: {currentNumberToken.value}
+                  </span>
+                  <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+                    <span style={{ fontSize: '11px', background: 'var(--bg-surface-subtle)', padding: '2px 8px', borderRadius: '4px' }}>
+                      {currentNumberToken.role}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Section 1: 8 Figma Semantic Radius Tokens */}
+      {(subCategory === 'all' || subCategory === 'radius') && (
+        <div style={{ marginBottom: 'var(--space-8)' }}>
+          <div className="figma-type-summary-banner" style={{ background: 'var(--bg-surface-subtle)', marginBottom: 'var(--space-4)' }}>
+            <div>
+              <h3 className="color-group-title" style={{ margin: 0, fontSize: '18px' }}>
+                Semantic / Layout / Radius (8 Variables)
+              </h3>
+              <p className="color-group-desc" style={{ margin: '4px 0 0' }}>
+                피그마 'Semantic' 컬렉션의 Radius 8종과 .Primitive/Number 1:1 매핑 (None:Number/0, XSmall:Number/1, Small:Number/2, Medium:Number/3, Large:Number/4, XLarge:Number/6, XXLarge:Number/7, Circle:Number/circle)
+              </p>
+            </div>
+            <div className="figma-type-summary-chips">
+              <span className="figma-type-chip">Figma Group: <strong>Layout / Radius</strong></span>
+              <span className="figma-type-chip">Source: <strong>.Primitive / Number</strong></span>
+              <span className="figma-type-chip">Total: <strong>8 variables</strong></span>
+            </div>
+          </div>
+
+          <div className="figma-radius-grid">
+            {FIGMA_RADIUS_TOKENS.map((item) => (
+              <div
+                key={item.path}
+                className="figma-radius-card"
+                onClick={() => handleCopy(`var(${item.cssVar})`)}
+                title="클릭하여 CSS 변수명 복사"
+              >
+                <div className="figma-radius-header">
+                  <span className="figma-radius-name">{item.name}</span>
+                  <span className="figma-radius-mapping-badge">→ {item.alias} ({item.value})</span>
+                </div>
+
+                <div className="figma-radius-preview-stage">
+                  <div
+                    className="figma-radius-preview-shape"
+                    style={{
+                      borderRadius: `var(${item.cssVar})`,
+                    }}
+                  >
+                    <span className="figma-radius-preview-label">{item.value}</span>
+                  </div>
+                </div>
+
+                <div className="figma-radius-meta">
+                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                    <code className="figma-css-var">var({item.cssVar})</code>
+                    <code className="figma-css-var" style={{ color: 'var(--text-secondary)' }}>var({item.semanticVar})</code>
+                  </div>
+                  {copiedToken === `var(${item.cssVar})` && <span className="copy-tag">복사됨! ✓</span>}
+                  <p className="figma-role-desc">{item.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}
 
-      {/* Grid of Number Tokens */}
-      {(subCategory === 'all' || subCategory === 'spacing' || subCategory === 'radius') && (
-        <div className="figma-number-grid">
-          {FIGMA_NUMBER_TOKENS.map((item) => (
-            <div
-              key={item.path}
-              className="figma-number-card"
-              onClick={() => handleCopy(`var(${item.cssVar})`)}
-              title="클릭하여 CSS 변수명 복사"
-            >
-              <div className="figma-number-header">
-                <span className="figma-number-pill">{item.name}</span>
-                <span className="figma-number-val">{item.value}</span>
-              </div>
-
-              <div className="figma-number-bar-container">
-                {item.name === 'circle' ? (
-                  <div className="figma-number-circle-demo" title="Radius: 999px Circle" />
-                ) : (
-                  <div
-                    className="figma-number-bar-fill"
-                    style={{ width: `${Math.min(item.num * 1.5, 200)}px` }}
-                  />
-                )}
-              </div>
-
-              <div className="figma-number-meta">
-                <code className="figma-css-var">var({item.cssVar})</code>
-                {copiedToken === `var(${item.cssVar})` && <span className="copy-tag">복사됨! ✓</span>}
-                <p className="figma-role-desc">{item.role}</p>
-              </div>
+      {/* Section 2: Grid of Number Tokens (22) */}
+      {(subCategory === 'all' || subCategory === 'spacing') && (
+        <div>
+          <div className="figma-type-summary-banner" style={{ background: 'var(--bg-surface-subtle)', marginBottom: 'var(--space-4)' }}>
+            <div>
+              <h3 className="color-group-title" style={{ margin: 0, fontSize: '18px' }}>
+                .Primitive / Number (22 Variables)
+              </h3>
+              <p className="color-group-desc" style={{ margin: '4px 0 0' }}>
+                여백(Spacing, Gap, Padding) 및 컴포넌트 크기(Sizing)의 베이스 수치 스케일 (0px ~ 160px, circle 999px)
+              </p>
             </div>
-          ))}
+            <div className="figma-type-summary-chips">
+              <span className="figma-type-chip">Range: <strong>0px ~ 160px</strong></span>
+              <span className="figma-type-chip">Total: <strong>22 variables</strong></span>
+            </div>
+          </div>
+
+          <div className="figma-number-grid">
+            {FIGMA_NUMBER_TOKENS.map((item) => (
+              <div
+                key={item.path}
+                className="figma-number-card"
+                onClick={() => handleCopy(`var(${item.cssVar})`)}
+                title="클릭하여 CSS 변수명 복사"
+              >
+                <div className="figma-number-header">
+                  <span className="figma-number-pill">{item.name}</span>
+                  <span className="figma-number-val">{item.value}</span>
+                </div>
+
+                <div className="figma-number-bar-container">
+                  {item.name === 'circle' ? (
+                    <div className="figma-number-circle-demo" title="Radius: 999px Circle" />
+                  ) : (
+                    <div
+                      className="figma-number-bar-fill"
+                      style={{ width: `${Math.min(item.num * 1.5, 200)}px` }}
+                    />
+                  )}
+                </div>
+
+                <div className="figma-number-meta">
+                  <code className="figma-css-var">var({item.cssVar})</code>
+                  {copiedToken === `var(${item.cssVar})` && <span className="copy-tag">복사됨! ✓</span>}
+                  <p className="figma-role-desc">{item.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </section>

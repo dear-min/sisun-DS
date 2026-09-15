@@ -31,26 +31,46 @@
   --primitive-number-circle: 999px;   /* Number/circle: 999 */
 
   /* ==========================================================================
-     2. BORDER RADIUS SYSTEM (Mapped to Primitive Numbers)
+     2. FIGMA SEMANTIC RADIUS (.Semantic/Layout/Radius/* - 8 Variables)
+     피그마 'Semantic' 컬렉션의 Layout / Radius (8종)와 .Primitive/Number 1:1 매핑
      ========================================================================== */
-  --primitive-radius-0: var(--primitive-number-0);          /* 0px (샤프 미니멀리즘) */
-  --primitive-radius-2: var(--primitive-number-1);          /* 2px (XS) */
-  --primitive-radius-4: var(--primitive-number-2);          /* 4px (SM - 기본 버튼 & 인풋) */
-  --primitive-radius-6: var(--primitive-number-3);          /* 6px (MD - 셀렉트 / 카드) */
-  --primitive-radius-8: var(--primitive-number-4);          /* 8px (LG - 모달 / 컨테이너) */
-  --primitive-radius-12: var(--primitive-number-6);         /* 12px (XL - 룩북 배너) */
-  --primitive-radius-16: var(--primitive-number-7);         /* 16px (2XL) */
-  --primitive-radius-full: var(--primitive-number-circle);  /* 999px (알약형 뱃지, 원형 스와치) */
+  --semantic-radius-none: var(--primitive-number-0);          /* Radius/None -> Number/0 (0px): 샤프 미니멀리즘 */
+  --semantic-radius-xsmall: var(--primitive-number-1);        /* Radius/XSmall -> Number/1 (2px): 초미세 곡률 (XS 뱃지, 태그) */
+  --semantic-radius-small: var(--primitive-number-2);         /* Radius/Small -> Number/2 (4px): 기본 컴포넌트 (SM 인풋, 버튼, 칩) */
+  --semantic-radius-medium: var(--primitive-number-3);        /* Radius/Medium -> Number/3 (6px): 중간 곡률 (MD 셀렉트, 카드 모서리) */
+  --semantic-radius-large: var(--primitive-number-4);         /* Radius/Large -> Number/4 (8px): 대형 곡률 (LG 모달, 컨테이너) */
+  --semantic-radius-xlarge: var(--primitive-number-6);        /* Radius/XLarge -> Number/6 (12px): 룩북 배너, 특수 카드 (Number/6 매핑) */
+  --semantic-radius-xxlarge: var(--primitive-number-7);       /* Radius/XXLarge -> Number/7 (16px): 대형 바텀시트, 플로팅 카드 (Number/7 매핑) */
+  --semantic-radius-circle: var(--primitive-number-circle);   /* Radius/Circle -> Number/circle (999px): 완전한 원형 및 알약형(Pill) */
 
-  /* Radius Aliases */
-  --radius-none: var(--primitive-radius-0);
-  --radius-xs: var(--primitive-radius-2);
-  --radius-sm: var(--primitive-radius-4);
-  --radius-md: var(--primitive-radius-6);
-  --radius-lg: var(--primitive-radius-8);
-  --radius-xl: var(--primitive-radius-12);
-  --radius-2xl: var(--primitive-radius-16);
-  --radius-full: var(--primitive-radius-full);
+  /* Radius Semantic Aliases (Full Name - Figma 1:1) */
+  --radius-none: var(--semantic-radius-none);
+  --radius-xsmall: var(--semantic-radius-xsmall);
+  --radius-small: var(--semantic-radius-small);
+  --radius-medium: var(--semantic-radius-medium);
+  --radius-large: var(--semantic-radius-large);
+  --radius-xlarge: var(--semantic-radius-xlarge);
+  --radius-xxlarge: var(--semantic-radius-xxlarge);
+  --radius-circle: var(--semantic-radius-circle);
+
+  /* Radius Semantic Aliases (Short Code - 호환성 보장) */
+  --radius-xs: var(--semantic-radius-xsmall);
+  --radius-sm: var(--semantic-radius-small);
+  --radius-md: var(--semantic-radius-medium);
+  --radius-lg: var(--semantic-radius-large);
+  --radius-xl: var(--semantic-radius-xlarge);
+  --radius-2xl: var(--semantic-radius-xxlarge);
+  --radius-full: var(--semantic-radius-circle);
+
+  /* Legacy Primitive Aliases */
+  --primitive-radius-0: var(--semantic-radius-none);
+  --primitive-radius-2: var(--semantic-radius-xsmall);
+  --primitive-radius-4: var(--semantic-radius-small);
+  --primitive-radius-6: var(--semantic-radius-medium);
+  --primitive-radius-8: var(--semantic-radius-large);
+  --primitive-radius-12: var(--semantic-radius-xlarge);
+  --primitive-radius-16: var(--semantic-radius-xxlarge);
+  --primitive-radius-full: var(--semantic-radius-circle);
 
   /* ==========================================================================
      3. SPACING SYSTEM (Gap & Padding Mapped to Primitive Numbers)

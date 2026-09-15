@@ -9,7 +9,7 @@ const meta: Meta<typeof NumberShowcase> = {
     docs: {
       description: {
         component:
-          '피그마(Figma) `00. Common Design System`의 `.Primitive / Number` 컬렉션에 정의된 22개 수치 베리어블(0px ~ 160px 및 circle 999px)의 전용 명세서 및 실시간 박스 모델 시각화 도구입니다. 여백(Spacing/Gap/Padding), 컴포넌트 크기(Sizing), 코너 곡률(Corner Radius)의 단일 진실 공급원(SSOT)입니다.',
+          '피그마(Figma) `00. Common Design System`의 `.Primitive / Number` (22개) 및 `Semantic / Layout / Radius` (8개) 토큰 명세서 및 실시간 인터랙티브 비주얼라이저입니다. 곡률(Radius)은 None(0px: Number/0)부터 Circle(999px: Number/circle)까지 피그마와 1:1로 매핑됩니다.',
       },
     },
   },
@@ -19,7 +19,7 @@ export default meta;
 type Story = StoryObj<typeof NumberShowcase>;
 
 /**
- * 전체 22개 수치 토큰 스케일 매트릭스 및 실시간 뷰어 통합 뷰
+ * 전체 22개 Number 수치 매트릭스 + 8개 Semantic Radius 토큰 통합 뷰
  */
 export const Overview: Story = {
   args: {
@@ -28,16 +28,15 @@ export const Overview: Story = {
 };
 
 /**
- * 여백 및 갭 스케일 (Spacing, Gap & Padding: 0px ~ 160px)
- */
-export const SpacingScale: Story = {
-  args: {
-    subCategory: 'spacing',
-  },
-};
-
-/**
- * 모서리 곡률 스케일 (Corner Radius: 0px, 2px, 4px, 6px, 8px, 12px, 16px, circle 999px)
+ * 피그마 Semantic Radius 곡률 스케일 (8종 1:1 매핑)
+ * - None -> Number/0 (0px)
+ * - XSmall -> Number/1 (2px)
+ * - Small -> Number/2 (4px)
+ * - Medium -> Number/3 (6px)
+ * - Large -> Number/4 (8px)
+ * - XLarge -> Number/6 (12px)
+ * - XXLarge -> Number/7 (16px)
+ * - Circle -> Number/circle (999px)
  */
 export const RadiusScale: Story = {
   args: {
@@ -46,7 +45,16 @@ export const RadiusScale: Story = {
 };
 
 /**
- * 실시간 수치 인터랙티브 뷰어 (슬라이더 조작에 따른 박스 모델, 패딩, 래디우스 동적 반영)
+ * 여백 및 갭 수치 스케일 (Spacing, Gap & Padding: Number/0 ~ Number/20)
+ */
+export const SpacingScale: Story = {
+  args: {
+    subCategory: 'spacing',
+  },
+};
+
+/**
+ * 실시간 곡률 & 수치 인터랙티브 뷰어 (Radius Mode와 Number Mode 전환 지원)
  */
 export const InteractiveVisualizer: Story = {
   args: {

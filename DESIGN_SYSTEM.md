@@ -40,9 +40,18 @@
      - *전용 도구*: 실시간 슬라이더 기반 박스 모델 & 스케일 인터랙티브 비주얼라이저 내장
    - **Color (68개 - 100% 등록 완료)**:
      - 원시 색상값 보관: `Color/Gray/*` (0~100 스케일), `Color/Orange/*`, `Color/Red/50`, `Color/Blue/52`, `Color/Overlay/*`
-2. **Layer 2: `Semantic` (의미 기반 토큰 - 독립 카테고리 `Foundations/Design Tokens/Color`)**
-   - UI 맥락에 부여된 48개 색상 토큰: `Text(11)`, `Border(10)`, `Background(8)`, `Icon(9)`, `Overlay(6)`, `Primary(4)`
-   - *향후 등록 예정*: Typescale(71개) 등 세부 시맨틱 타이포 스케일
+2. **Layer 2: `Semantic` (의미 기반 토큰 - 독립 카테고리 `Foundations/Design Tokens/Color`, `Layout/Radius`)**
+   - **Color (48개)**: `Text(11)`, `Border(10)`, `Background(8)`, `Icon(9)`, `Overlay(6)`, `Primary(4)`
+   - **Layout / Radius (8개 - 피그마 1:1 매핑)**:
+     - `None`: `Number/0` (0px) - 샤프 미니멀리즘 직각 모서리
+     - `XSmall`: `Number/1` (2px) - 초미세 뱃지/라벨 모서리
+     - `Small`: `Number/2` (4px) - 기본 컴포넌트(인풋, 칩, 버튼)
+     - `Medium`: `Number/3` (6px) - 셀렉트박스, 카드 모서리, 아이콘 버튼
+     - `Large`: `Number/4` (8px) - 대형 모달, 컨테이너
+     - `XLarge`: `Number/6` (12px) - 룩북 배너, 특수 카드 (`Number/6` 매핑)
+     - `XXLarge`: `Number/7` (16px) - 대형 바텀시트, 플로팅 카드 (`Number/7` 매핑)
+     - `Circle`: `Number/circle` (999px) - 완전한 원형 및 알약형(Pill) 캡슐
+   - *향후 등록 예정*: Typescale(71개), Gap(20개), Padding(20개) 등 세부 레이아웃 토큰
 
 ---
 
