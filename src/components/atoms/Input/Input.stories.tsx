@@ -19,8 +19,8 @@ const meta: Meta<typeof Input> = {
   - \`normal\` (default / Inactive): 기본 입력 대기 상태 (플레이스홀더)
   - \`focus\`: 활성 포커스 상태 (어두운 보더 \`--color-border-subtle\`)
   - \`active\`: 텍스트 입력 완료 상태
-  - \`disabled\`: 비활성 상태 (비활성 서피스 배경 \`--color-bg-disabled\` + \`--color-text-disabled\`)
-  - \`readonly\`: 읽기 전용 상태 (소프트 배경 \`--color-bg-secondary\` + 기본 텍스트)
+  - \`disabled\`: 비활성 상태 (비활성 서피스 배경 \`--color-bg-disabled\` + 보더 \`--color-border-disabled\` + \`--color-text-disabled\`)
+  - \`readonly\`: 읽기 전용 상태 (소프트 배경 \`--color-bg-secondary\` + 기본 보더 \`--color-input-readonly-border\` + 기본 텍스트)
   - \`negative\`: 유효성 에러 상태 (에러 레드 보더 \`--color-border-negative\`)
 - **타이포그래피**: 피그마 \`Body Small\` (14px Regular 400, Letter-spacing: 1 / -0.02em, Pretendard)
 - **치수 토큰**: 높이 40px (\`--primitive-number-11\`), 좌우 패딩 12px (\`--primitive-number-6\`), 모서리 4px (\`--radius-small\`)
@@ -261,8 +261,8 @@ export const TokenMappingTable: Story = {
         state: 'readonly',
         surfaceToken: 'var(--color-input-readonly-surface)',
         surfaceValue: '#f5f5f5 (Color/Background/Secondary)',
-        borderToken: 'transparent',
-        borderValue: 'transparent (보더 없음)',
+        borderToken: 'var(--color-input-readonly-border)',
+        borderValue: '#d9d9d9 (Color/Border/Default)',
         textToken: 'var(--color-input-readonly-text)',
         textValue: '#000000 (Color/Text/Default)',
         role: '읽기 전용 상태 (복사 가능, 수정 불가)',

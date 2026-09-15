@@ -80,19 +80,19 @@
 }
 
 /* ==========================================================================
-   State 5: Readonly (Figma: Gray/96 Fill, Transparent Border, Default Text)
+   State 5: Readonly (Figma: Gray/96 Fill, Gray/85 Border, Default Text)
    ========================================================================== */
 .input[readonly]:not(:disabled),
 .input--readonly:not(:disabled) {
   background-color: var(--color-input-readonly-surface);
-  border-color: transparent;
+  border-color: var(--color-input-readonly-border, var(--color-input-border));
   color: var(--color-input-readonly-text);
   cursor: default;
 }
 
 .input[readonly]:not(:disabled):focus,
 .input--readonly:not(:disabled):focus {
-  border-color: transparent;
+  border-color: var(--color-input-readonly-border, var(--color-input-border));
   box-shadow: none;
 }
 

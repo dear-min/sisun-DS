@@ -172,6 +172,7 @@
   --color-input-disabled-border: var(--color-border-disabled);         /* #d9d9d9 (Color/Border/Disabled) */
   --color-input-disabled-text: var(--color-text-disabled);             /* #b2b2b2 (Color/Text/Disabled) */
   --color-input-readonly-surface: var(--color-bg-secondary);           /* #f5f5f5 (Color/Background/Secondary) */
+  --color-input-readonly-border: var(--color-border-default);          /* #d9d9d9 (Color/Border/Default) */
   --color-input-readonly-text: var(--color-text-default);              /* #000000 (Color/Text/Default) */
   --color-input-placeholder: var(--color-text-tertiary);               /* #999999 (Color/Text/Tertiary) */
   --color-input-text: var(--color-text-default);                       /* #000000 (Color/Text/Default) */
@@ -307,6 +308,7 @@
   --color-input-disabled-border: #27272a;
   --color-input-disabled-text: #52525b;
   --color-input-readonly-surface: #1a1a1c;
+  --color-input-readonly-border: var(--color-border-default);
   --color-input-readonly-text: #ffffff;
   --color-input-placeholder: #71717a;
   --color-input-text: #ffffff;
