@@ -1,15 +1,29 @@
 ---
 description: Fashion E-Commerce Design System architecture, Figma token mapping conventions, and component authoring rules.
-globs: ["src/**/*", "tokens/**/*", ".storybook/**/*"]
+globs: ["src/**/*", "tokens/**/*", ".storybook/**/*", "**/*"]
 ---
 
 # Design System Rules for Antigravity Agent
 
 This workspace is a fashion e-commerce design system ("Atelier Design System") built with React, TypeScript, Storybook, and Vanilla CSS tokens linked 1:1 with Figma (`00. Common Design System`).
 
-## 0. Evidence-Based Implementation & Rule Governance (자료 기반 분석 & 상상 코딩 금지)
-- **상상 코딩 금지 (No Guesswork/Imagination)**: 자의적인 추측이나 상상으로 코드를 작성하지 않습니다. 반드시 사용자가 제공한 원본 자료(피그마, 토큰 JSON, 컴포넌트 명세)를 선행 분석한 근거에 기반하여 개발합니다.
-- **룰 거버넌스 (Rule Governance)**: 모든 룰 업데이트는 대화 세션을 통해 합의하고 `rules.md`에 국문으로 기록 및 유지 관리합니다.
+## 0. Evidence-Based Implementation & Material Analysis (자료 기반 분석 & 상상코딩 전면 금지)
+- **상상코딩 전면 금지 (No Guesswork / Imagination Coding)**:
+  - 어떠한 경우에도 임의의 추측, 자의적인 상상, 눈대중으로 스타일이나 컴포넌트 코드를 작성하지 않습니다.
+  - 디자인 시스템 토큰 체계에 정의되지 않은 임의의 `#hex`, `px`, 스타일 속성을 마음대로 하드코딩하거나 추가하지 않습니다.
+- **제공 자료 정밀 선행 분석 (Thorough Analysis of Provided Materials)**:
+  - 코딩 및 수정 작업 전, 반드시 사용자가 제공한 모든 공식 자료를 철저히 선행 분석한 근거에 기반하여 작업합니다.
+    1. **Figma 레이아웃**: 레이아웃 구조, 오토레이아웃(Flexbox), 정렬, 여백/패딩, 반응형 규격 등
+    2. **디자인 토큰 JSON**: `tokens.json`, Figma Tokens Studio 값, Primitive 및 Semantic 계층
+    3. **컴포넌트 명세**: Variants, State(Default/Hover/Active/Disabled), Props, 접근성(A11y)
+    4. **요구사항 가이드**: 프로젝트 컨벤션, 비즈니스 및 사용자 경험 요구사항
+- **이미지 정밀 분석 및 디자인 토큰 1:1 매핑 (Image Analysis & Token Mapping)**:
+  - 사용자가 요청 시 제공하거나 참조하는 모든 이미지(피그마 캡처, 디자인 시안, 컴포넌트 스크린샷 등)는 작업 전 반드시 시각 요소를 정밀 분석합니다.
+  - 색상, 폰트 크기, 굵기, 행간/자간, 여백/패딩/갭, 테두리(보더), 곡률(border-radius), 아이콘 크기 등 모든 시각적 요소를 프로젝트에 정의된 공식 디자인 토큰(`var(--color-*)`, `var(--primitive-*)`, `var(--space-*)`, `var(--radius-*)` 등)에 1:1로 엄격히 매핑한 근거를 바탕으로 작업합니다.
+- **모호성 해결 절차 (Ambiguity Resolution)**:
+  - 제공 자료에 정의되지 않았거나 상충되는 요소가 발견될 경우, 임의로 판단하거나 추측하여 코딩하지 않고 분석된 근거와 선택지를 사용자에게 질문하여 확인 후 진행합니다.
+- **룰 거버넌스 (Rule Governance)**:
+  - 모든 룰 업데이트는 대화 세션을 통해 합의하고 룰 문서에 국문으로 명확히 기록 및 유지 관리합니다.
 
 ## 1. Zero Hardcoding Policy
 - NEVER hardcode arbitrary `#hex`, `rgb()`, or pixel values directly in components or CSS.
