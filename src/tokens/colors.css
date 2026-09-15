@@ -163,6 +163,19 @@
   --color-tag-negative-bg: var(--primitive-color-red-95);               /* #fce8e8 */
   --color-tag-negative-text: var(--color-text-error);                   /* #e51a1a */
 
+  /* Input Component Tokens (피그마 Input 1:1 바인딩) */
+  --color-input-surface: var(--color-bg-default);                      /* #ffffff (Color/Background/Default) */
+  --color-input-border: var(--color-border-default);                   /* #d9d9d9 (Color/Border/Default) */
+  --color-input-border-active: var(--color-border-subtle);             /* #4d4d4d (Color/Border/Subtle) */
+  --color-input-border-error: var(--color-border-negative);            /* #e51a1a (Color/Border/Negative) */
+  --color-input-disabled-surface: var(--color-bg-disabled);            /* #f5f5f5 (Color/Background/Disabled) */
+  --color-input-disabled-border: var(--color-border-disabled);         /* #d9d9d9 (Color/Border/Disabled) */
+  --color-input-disabled-text: var(--color-text-disabled);             /* #b2b2b2 (Color/Text/Disabled) */
+  --color-input-readonly-surface: var(--color-bg-secondary);           /* #f5f5f5 (Color/Background/Secondary) */
+  --color-input-readonly-text: var(--color-text-default);              /* #000000 (Color/Text/Default) */
+  --color-input-placeholder: var(--color-text-tertiary);               /* #999999 (Color/Text/Tertiary) */
+  --color-input-text: var(--color-text-default);                       /* #000000 (Color/Text/Default) */
+
   /* ==========================================================================
      4. COMPONENT ALIASES (기존 컴포넌트 하위 호환 바인딩)
      ========================================================================== */
@@ -284,4 +297,17 @@
   --color-tag-positive-text: #60a5fa;
   --color-tag-negative-bg: rgba(229, 26, 26, 0.18);
   --color-tag-negative-text: #f87171;
+
+  /* Input Component Dark Theme Overrides */
+  --color-input-surface: #18181b;
+  --color-input-border: var(--color-border-default);
+  --color-input-border-active: #ffffff;
+  --color-input-border-error: #f87171;
+  --color-input-disabled-surface: #222226;
+  --color-input-disabled-border: #27272a;
+  --color-input-disabled-text: #52525b;
+  --color-input-readonly-surface: #1a1a1c;
+  --color-input-readonly-text: #ffffff;
+  --color-input-placeholder: #71717a;
+  --color-input-text: #ffffff;
 }

@@ -1,0 +1,110 @@
+/**
+ * Atelier Fashion Design System - Input Atom Component
+ * 피그마 "00. Common Design System"의 Input 컴포넌트 100% 매핑
+ * Class Name: input
+ * State: normal (default) | focus | active | disabled | readonly | negative
+ */
+
+.input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: var(--primitive-number-11, 40px);
+  padding: 0 var(--primitive-number-6, 12px);
+  border-radius: var(--radius-small, 4px);
+  border: 1px solid var(--color-input-border);
+  background-color: var(--color-input-surface);
+  color: var(--color-input-text);
+  font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
+  font-size: var(--primitive-font-size-body-small, 14px);
+  font-weight: var(--primitive-font-weight-regular, 400);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+  line-height: var(--primitive-number-11, 40px);
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ==========================================================================
+   Placeholder Styling
+   ========================================================================== */
+.input::placeholder {
+  color: var(--color-input-placeholder);
+  opacity: 1;
+  font-weight: var(--primitive-font-weight-regular, 400);
+}
+
+/* ==========================================================================
+   State 1: Normal (Default / Inactive)
+   ========================================================================== */
+.input--normal {
+  background-color: var(--color-input-surface);
+  border-color: var(--color-input-border);
+  color: var(--color-input-text);
+}
+
+/* ==========================================================================
+   State 2: Focus (Figma: Border Subtle #4d4d4d)
+   ========================================================================== */
+.input:focus:not(:disabled):not([readonly]),
+.input--focus:not(:disabled):not([readonly]) {
+  border-color: var(--color-input-border-active);
+  box-shadow: 0 0 0 1px var(--color-input-border-active);
+}
+
+/* ==========================================================================
+   State 3: Active (Figma: Value Entered / Filled)
+   ========================================================================== */
+.input--active {
+  background-color: var(--color-input-surface);
+  border-color: var(--color-input-border);
+  color: var(--color-input-text);
+}
+
+/* ==========================================================================
+   State 4: Disabled (Figma: Gray/96 Fill, Gray/85 Border, Gray/70 Text)
+   ========================================================================== */
+.input:disabled,
+.input--disabled {
+  background-color: var(--color-input-disabled-surface);
+  border-color: var(--color-input-disabled-border);
+  color: var(--color-input-disabled-text);
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.input:disabled::placeholder,
+.input--disabled::placeholder {
+  color: var(--color-input-disabled-text);
+}
+
+/* ==========================================================================
+   State 5: Readonly (Figma: Gray/96 Fill, Transparent Border, Default Text)
+   ========================================================================== */
+.input[readonly]:not(:disabled),
+.input--readonly:not(:disabled) {
+  background-color: var(--color-input-readonly-surface);
+  border-color: transparent;
+  color: var(--color-input-readonly-text);
+  cursor: default;
+}
+
+.input[readonly]:not(:disabled):focus,
+.input--readonly:not(:disabled):focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   State 6: Negative (Figma: Border Error Red/50 #e51a1a)
+   ========================================================================== */
+.input--negative,
+.input--error {
+  border-color: var(--color-input-border-error) !important;
+}
+
+.input--negative:focus,
+.input--error:focus {
+  box-shadow: 0 0 0 1px var(--color-input-border-error) !important;
+}

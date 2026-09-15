@@ -92,6 +92,7 @@ DesignSystem/
 │   │   ├── atoms/                  # [Atoms] 원자 단위 컴포넌트
 │   │   │   ├── Button/             # 피그마 표준 Button (Class: btn, Type 3종+icon, Size 5종, State 4종, Icon 좌우)
 │   │   │   ├── IconButton/         # 피그마 표준 Icon Button (Class: icon-btn, Type: icon, Size 5종, State 3종: normal/hover/active)
+│   │   │   ├── Input/              # 피그마 표준 Input (Class: input, State 6종: normal/focus/active/disabled/readonly/negative, 40px)
 │   │   │   ├── Tag/                # 피그마 표준 Tag (Class: tag, Type 5종: normal/point/inverse/positive/negative, Caption Small 12px)
 │   │   │   ├── Icon/               # 피그마 표준 Icon 자산 [Foundations/Design Tokens/Icon] (총 46종: 시스템 35종 + 썸네일 11종 전수 등록, 6단계 스케일, 9종 시맨틱 컬러)
 │   │   │   ├── WishlistButton/     # 글래스모피즘 플로팅 + 하트 팝 바운스
@@ -118,14 +119,19 @@ DesignSystem/
 
 ## 4. 제작 및 확장 룰 (Rules & Conventions)
 
-### 📌 Rule 0. 자료 기반 분석 및 개발 원칙 (Evidence-Based / 상상 코딩 전면 금지)
-- **상상 코딩 금지**: 어떠한 경우에도 임의의 추측이나 자의적인 상상으로 스타일, 토큰, 컴포넌트 로직을 작성하지 않습니다.
-- **제공 자료 정밀 분석**: 반드시 사용자가 제공한 공식 자료(Figma 레이아웃, 디자인 토큰 JSON, 컴포넌트 명세, 요구사항 가이드 등)를 철저히 선행 분석하고, 그 근거에 입각하여 개발 및 수정을 진행합니다.
-- **모호성 해결 절차**: 제공 자료에 정의되지 않았거나 상충되는 요소가 발견될 경우, 임의로 판단하여 코딩하지 않고 분석된 근거와 선택지를 사용자에게 명확히 전달하여 확인 후 진행합니다.
+### 📌 Rule 0. 자료 기반 분석 및 개발 원칙 (Evidence-Based / 상상코딩 전면 금지)
+- **상상코딩 전면 금지 (No Guesswork / Imagination Coding)**: 어떠한 경우에도 임의의 추측, 자의적인 상상, 눈대중으로 스타일이나 컴포넌트 코드를 작성하지 않습니다. 토큰에 매핑되지 않은 임의의 `#hex`, `px`, 스타일 속성을 마음대로 하드코딩하거나 추가하지 않습니다.
+- **제공 자료 정밀 선행 분석 (Thorough Analysis of Provided Materials)**: 반드시 작업 착수 전 사용자가 제공한 모든 공식 자료를 철저히 선행 분석하고, 그 근거에 입각하여 개발 및 수정을 진행합니다:
+  1. **Figma 레이아웃**: 레이아웃 구조, 오토레이아웃(Flexbox), 정렬, 패딩/마진, 반응형 규격 등
+  2. **디자인 토큰 JSON**: `tokens.json`, Figma Tokens Studio 값, Primitive 및 Semantic 계층 구조
+  3. **컴포넌트 명세**: Variants, State(Default/Hover/Active/Disabled), Props, A11y 요구사항
+  4. **요구사항 가이드**: 프로젝트 컨벤션, 비즈니스 및 사용자 경험 가이드라인
+- **이미지 정밀 분석 및 토큰 1:1 매핑**: 사용자가 제공하는 시안, 피그마 캡처, 컴포넌트 이미지는 작업 전 최우선으로 정밀 분석하여 색상, 폰트 크기, 굵기, 행간/자간, 여백/패딩/갭, 테두리, 곡률(radius), 아이콘 크기 등 모든 시각 요소를 공식 디자인 토큰(`var(--color-*)`, `var(--primitive-*)`, `var(--space-*)`, `var(--radius-*)` 등)에 1:1로 정확하게 매핑한 근거를 바탕으로 작업합니다.
+- **모호성 해결 절차 (Ambiguity Resolution)**: 제공 자료에 정의되지 않았거나 상충되는 요소가 발견될 경우, 임의로 판단하여 코딩하지 않고 분석된 근거와 선택지를 사용자에게 명확히 전달하여 확인 후 진행합니다.
 
 ### 📌 Rule 0-1. 룰 거버넌스 및 국문 문서화 원칙 (Rule Governance)
 - **대화 채널 중심의 룰 업데이트**: 향후 디자인 시스템의 모든 규칙, 프로세스, 컨벤션 업데이트는 본 대화(세션)를 통해 소통하고 합의한 뒤 확정합니다.
-- **국문(한국어) 표준 기록**: 확정된 모든 규칙은 `rules.md` 문서에 국문으로 명확하게 기록·관리하여 팀 전체가 공유하는 단일 진실 공급원(SSOT)을 유지합니다.
+- **국문(한국어) 표준 기록**: 확정된 모든 규칙은 `.agents/rules/` 및 룰 문서에 국문으로 명확하게 기록·관리하여 팀 전체가 공유하는 단일 진실 공급원(SSOT)을 유지합니다.
 
 ### 📌 Rule 1. 색상 및 수치 하드코딩 금지 (Zero Hardcoding)
 - CSS나 컴포넌트 인라인 스타일에 임의의 `#hex`, `rgb()`, `px` 값을 직접 작성하지 않습니다.
