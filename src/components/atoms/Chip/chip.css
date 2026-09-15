@@ -1,0 +1,118 @@
+/**
+ * Atelier Fashion Design System - Chip Atom Component
+ * 피그마 "00. Common Design System"의 Chip 컴포넌트 100% 매핑
+ * Class Name: chip
+ * Variants:
+ *  - Type: unchecked (default) | checked
+ *  - Disabled: false (default) | true
+ *  - Icon: false (default) | true
+ */
+
+/* ==========================================================================
+   1. Chip Component Base (.chip)
+   ========================================================================== */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: var(--primitive-number-10, 32px);
+  padding: 0 var(--primitive-number-7, 16px);
+  border-radius: var(--radius-xsmall, 2px);
+  border: 1px solid var(--color-chip-border);
+  background-color: var(--color-chip-bg);
+  color: var(--color-chip-text);
+  font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
+  font-size: var(--primitive-font-size-body-small, 14px);
+  font-weight: var(--primitive-font-weight-regular, 400);
+  line-height: 1.4;
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  text-decoration: none;
+  white-space: nowrap;
+  gap: var(--primitive-number-2, 4px);
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* ==========================================================================
+   2. State: Checked (Normal)
+   ========================================================================== */
+.chip--checked {
+  border-color: var(--color-chip-border-checked);
+  background-color: var(--color-chip-bg-checked);
+  color: var(--color-chip-text);
+}
+
+/* ==========================================================================
+   3. State: Disabled
+   ========================================================================== */
+.chip--disabled,
+.chip:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Unchecked + Disabled */
+.chip--disabled.chip--unchecked,
+.chip--disabled:not(.chip--checked),
+.chip:disabled:not(.chip--checked) {
+  border-color: var(--color-chip-border-disabled);
+  background-color: var(--color-chip-bg-disabled);
+  color: var(--color-chip-text-disabled);
+}
+
+/* Checked + Disabled */
+.chip--disabled.chip--checked,
+.chip:disabled.chip--checked {
+  border-color: var(--color-chip-border-checked-disabled);
+  background-color: var(--color-chip-bg-disabled);
+  color: var(--color-chip-text-disabled);
+}
+
+/* ==========================================================================
+   4. Focus-Visible (A11y Accessibility)
+   ========================================================================== */
+.chip:focus-visible {
+  outline: 2px solid var(--color-border-positive, #1e4eed);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   5. Hover Interaction (Enabled Only)
+   ========================================================================== */
+@media (hover: hover) {
+  .chip:not(.chip--disabled):not(:disabled):hover {
+    border-color: var(--color-border-subtle);
+  }
+
+  .chip--checked:not(.chip--disabled):not(:disabled):hover {
+    opacity: 0.85;
+  }
+}
+
+/* ==========================================================================
+   6. Sub-elements (Icon & Label)
+   ========================================================================== */
+.chip__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.chip__label {
+  display: inline-block;
+}
+
+/* ==========================================================================
+   7. ChipGroup Component Layout
+   ========================================================================== */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-small, 8px);
+}

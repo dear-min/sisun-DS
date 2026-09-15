@@ -248,6 +248,23 @@ DesignSystem/
 | | Checked Disabled | `Text / Disabled`, `Icon / Inverse` | `var(--color-checkbox-bg-checked-disabled)` (#b2b2b2) / `var(--color-checkbox-border-checked-disabled)` (#b2b2b2) / `var(--color-checkbox-icon-checked)` (#ffffff) | 솔리드 그레이 비활성 채움 + 화이트 SVG 체크 마크 |
 | **A11y** | 포커스 링 / 스크린리더 | `Border / Positive`, 숨김 네이티브 인풋 | `var(--color-border-positive)`, `.check__input` | 키보드 탭 이동 및 접근성 보장 |
 
+### 📌 Rule 2-8. 컴포넌트 ➔ 디자인 토큰 1:1 엄격 매핑 원칙 (Chip)
+피그마 `Chip`은 Type: `unchecked` (default) | `checked`, Disabled: `false` (default) | `true`, Icon: `false` (default) | `true` 속성을 기준으로 하며, 클래스명은 `chip`입니다.
+
+| 분류 | 컴포넌트 속성 | 피그마 토큰 경로 | 적용 CSS 토큰 | 매핑 근거 및 규칙 |
+|---|---|---|---|---|
+| **Dimensions** | 칩 높이 | `Number / 10 (32px)` | `var(--primitive-number-10)` (32px) | 높이 32px 표준 필터 칩 규격 |
+| | 곡률 (Radius) | `Radius / XSmall (2px)` | `var(--radius-xsmall)` (2px) | 모서리 2px 마이크로 곡률 |
+| | 좌우 패딩 (Padding) | `Number / 7 (16px)` | `var(--primitive-number-7)` (16px) | 라벨 좌우 16px 내부 패딩 |
+| | 아이콘 갭 (Gap) | `Number / 2 (4px)` | `var(--primitive-number-2)` (4px) | 아이콘과 텍스트 사이 거리 |
+| **Typography** | 라벨 텍스트 | `Font / Body Small Regular` | `var(--primitive-font-size-body-small)`, `var(--primitive-font-weight-regular)` | Pretendard 14px Regular, 행간 1.4 |
+| **Color** | Unchecked 배경 / 보더 | `Background / Default`, `Border / Default` | `var(--color-chip-bg)` (#ffffff) / `var(--color-chip-border)` (#d9d9d9) | 기본 화이트 서피스 + 1px 그레이 보더 |
+| | Checked 배경 / 보더 | `Background / Default`, `Primary / Default` | `var(--color-chip-bg-checked)` (#ffffff) / `var(--color-chip-border-checked)` (#000000) | 화이트 서피스 + 1px 솔리드 블랙 보더 |
+| | Unchecked Disabled | `Background / Disabled`, `Border / Disabled`, `Text / Disabled` | `var(--color-chip-bg-disabled)` (#f5f5f5) / `var(--color-chip-border-disabled)` (#d9d9d9) / `var(--color-chip-text-disabled)` (#b2b2b2) | 비활성 소프트 그레이 서피스 + 비활성 텍스트 |
+| | Checked Disabled | `Background / Disabled`, `Border / Disabled`, `Text / Disabled` | `var(--color-chip-bg-disabled)` (#f5f5f5) / `var(--color-chip-border-checked-disabled)` (#b2b2b2) / `var(--color-chip-text-disabled)` (#b2b2b2) | 비활성 소프트 그레이 서피스 + 다크 그레이 보더/텍스트 |
+| | Icon (선택형) | `Icon / Default` | `var(--color-chip-icon)` (#000000) / `Icon` (`alarm_12`) | 피그마 `alarm_12` 에셋 1:1 연동 |
+| **A11y** | 포커스 링 / 스크린리더 | `Border / Positive`, `aria-pressed` | `var(--color-border-positive)`, `aria-pressed` 필수 | 키보드 내비게이션 및 접근성 보장 |
+
 ### 📌 Rule 3. 피그마 ➔ 코드 동기화 워크플로우
 1. 피그마에서 Tokens Studio 플러그인 등으로 JSON 내보내기.
 2. `src/tokens/tokens.json` 파일에 붙여넣기.
