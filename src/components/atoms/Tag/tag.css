@@ -41,12 +41,10 @@
   color: var(--color-tag-point-text);
 }
 
-/* 3. Type: Inverse - 피그마 투명 배경, Gray/20 서브틀 텍스트 */
+/* 3. Type: Inverse - 피그마 Default (#ffffff) 배경, Gray/20 서브틀 텍스트 */
 .tag--inverse {
   background-color: var(--color-tag-inverse-bg);
   color: var(--color-tag-inverse-text);
-  padding-left: 0;
-  padding-right: 0;
 }
 
 /* 4. Type: Positive - 피그마 Blue/95 소프트 틴트 배경, Blue/52 성공/포지티브 텍스트 */

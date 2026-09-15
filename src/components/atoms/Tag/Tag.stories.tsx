@@ -18,7 +18,7 @@ const meta: Meta<typeof Tag> = {
 - **Type (5종)**:
   - \`normal\` (default): 뉴트럴 그레이 배경 (\`--color-bg-secondary\`) + 보조 텍스트 (\`--color-text-secondary\`)
   - \`point\`: 브랜드 소프트 오렌지 틴트 배경 (\`--primitive-color-orange-96\`) + 포인트 오렌지 텍스트 (\`--color-text-point-primary\`)
-  - \`inverse\`: 투명 배경 + 서브틀 다크 그레이 텍스트 (\`--color-text-subtle\`)
+  - \`inverse\`: 디폴트 화이트 배경 (\`--color-bg-default\`) + 서브틀 다크 그레이 텍스트 (\`--color-text-subtle\`)
   - \`positive\`: 소프트 성공 블루 틴트 배경 (\`--primitive-color-blue-95\`) + 포지티브 블루 텍스트 (\`--color-text-success\`)
   - \`negative\`: 소프트 에러 레드 틴트 배경 (\`--primitive-color-red-95\`) + 네거티브 레드 텍스트 (\`--color-text-error\`)
 - **타이포그래피**: 피그마 \`Caption Small\` (12px Medium 500, Letter-spacing: 1 / -0.02em, Pretendard)
@@ -190,11 +190,11 @@ export const TokenMappingTable: Story = {
       },
       {
         type: 'inverse',
-        bgToken: 'transparent',
-        bgValue: 'transparent',
+        bgToken: 'var(--color-bg-default)',
+        bgValue: '#ffffff (Color/Background/Default)',
         textToken: 'var(--color-text-subtle)',
         textValue: '#333333 (Color/Gray/20)',
-        role: '미니멀 텍스트 태그, 해시태그, 에디토리얼 키워드',
+        role: '화이트 서피스 태그, 미니멀 클린 레이블, 에디토리얼 키워드',
       },
       {
         type: 'positive',

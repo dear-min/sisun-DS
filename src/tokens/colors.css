@@ -154,7 +154,7 @@
   --color-tag-point-bg: var(--primitive-color-orange-96);               /* #fdf1ed */
   --color-tag-point-text: var(--color-text-point-primary);              /* #e4541b */
 
-  --color-tag-inverse-bg: transparent;
+  --color-tag-inverse-bg: var(--color-bg-default);                     /* #ffffff (Color/Background/Default) */
   --color-tag-inverse-text: var(--color-text-subtle);                   /* #333333 */
 
   --color-tag-positive-bg: var(--primitive-color-blue-95);              /* #e7ecfd */
@@ -278,7 +278,7 @@
   --color-tag-normal-text: var(--color-text-secondary);                 /* #a1a1aa */
   --color-tag-point-bg: rgba(228, 84, 27, 0.15);
   --color-tag-point-text: #ff773d;
-  --color-tag-inverse-bg: transparent;
+  --color-tag-inverse-bg: var(--color-bg-default);                     /* #121212 */
   --color-tag-inverse-text: var(--color-text-subtle);                   /* #e4e4e7 */
   --color-tag-positive-bg: rgba(30, 78, 237, 0.18);
   --color-tag-positive-text: #60a5fa;
