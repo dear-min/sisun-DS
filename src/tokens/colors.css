@@ -9,27 +9,29 @@
      피그마의 기초 팔레트 정의
      ========================================================================== */
   /* Grayscale (.Primitive/Color/Gray/*) */
-  --primitive-color-gray-0: #121212;     /* Color/Gray/0: 가장 어두운 블랙/차콜 */
-  --primitive-color-gray-20: #2d2d2d;    /* Color/Gray/20: 다크 그레이 */
-  --primitive-color-gray-30: #3f3f46;    /* Color/Gray/30: 딥 보더/디바이더 */
-  --primitive-color-gray-40: #555555;    /* Color/Gray/40: 미디엄 다크 그레이 */
-  --primitive-color-gray-60: #888888;    /* Color/Gray/60: 미디엄 그레이 */
-  --primitive-color-gray-70: #b0b0b0;    /* Color/Gray/70: 비활성/디스에이블드 그레이 */
-  --primitive-color-gray-85: #d4d4d8;    /* Color/Gray/85: 기본 보더 라인 */
-  --primitive-color-gray-90: #e4e4e7;    /* Color/Gray/90: 세컨더리 소프트 보더 */
-  --primitive-color-gray-96: #f0f0f2;    /* Color/Gray/96: 비활성 서피스 배경 */
-  --primitive-color-gray-98: #f4f4f5;    /* Color/Gray/98: 초미세 서피스 경계선 */
+  --primitive-color-gray-0: #000000;     /* Color/Gray/0: 가장 어두운 퓨어 블랙 */
+  --primitive-color-gray-10: #1a1a1a;    /* Color/Gray/10: 딥 차콜 블랙 */
+  --primitive-color-gray-20: #333333;    /* Color/Gray/20: 다크 그레이 */
+  --primitive-color-gray-30: #4d4d4d;    /* Color/Gray/30: 딥 보더/디바이더 */
+  --primitive-color-gray-40: #666666;    /* Color/Gray/40: 미디엄 다크 그레이 */
+  --primitive-color-gray-50: #808080;    /* Color/Gray/50: 미디엄 뉴트럴 그레이 */
+  --primitive-color-gray-60: #999999;    /* Color/Gray/60: 미디엄 그레이 */
+  --primitive-color-gray-70: #b2b2b2;    /* Color/Gray/70: 비활성/디스에이블드 그레이 */
+  --primitive-color-gray-85: #d9d9d9;    /* Color/Gray/85: 기본 보더 라인 */
+  --primitive-color-gray-90: #e5e5e5;    /* Color/Gray/90: 세컨더리 소프트 보더 */
+  --primitive-color-gray-96: #f5f5f5;    /* Color/Gray/96: 비활성 서피스 배경 / 서피스 분할선 */
+  --primitive-color-gray-98: #f5f5f5;    /* Color/Gray/98: 하위 호환 매핑 */
   --primitive-color-gray-100: #ffffff;   /* Color/Gray/100: 퓨어 화이트 */
 
   /* State / Feedback (.Primitive/Color/*) */
-  --primitive-color-red-50: #dc2626;     /* Color/Red/50: 에러/네거티브 및 세일 레드 */
-  --primitive-color-blue-52: #2563eb;    /* Color/Blue/52: 성공/포지티브 블루 */
+  --primitive-color-red-50: #e51a1a;     /* Color/Red/50: 에러/네거티브 및 세일 레드 */
+  --primitive-color-blue-52: #1e4eed;    /* Color/Blue/52: 성공/포지티브 블루 */
 
   /* Brand Orange Scale (.Primitive/Color/Orange/*) */
-  --primitive-color-orange-50: #d94e28;  /* Color/Orange/50: 브랜드 메인 웜 테라코타 */
-  --primitive-color-orange-40: #a93b1d;  /* Color/Orange/40: 딥 테라코타 */
-  --primitive-color-orange-20: #6e2613;  /* Color/Orange/20: 브라운 와인 포인트 */
-  --primitive-color-orange-80: #fae8df;  /* Color/Orange/80: 소프트 웜 틴트 배경 */
+  --primitive-color-orange-50: #e4541b;  /* Color/Orange/50: 브랜드 메인 웜 테라코타 */
+  --primitive-color-orange-40: #b74315;  /* Color/Orange/40: 딥 테라코타 */
+  --primitive-color-orange-20: #5b210b;  /* Color/Orange/20: 브라운 와인 포인트 */
+  --primitive-color-orange-80: #f4baa4;  /* Color/Orange/80: 소프트 웜 틴트 배경 */
 
   /* Primary Brand Aliases (.Primitive/Color/Primary/*) */
   --primitive-color-primary-default: var(--primitive-color-orange-50);
@@ -44,6 +46,7 @@
   --primitive-color-overlay-white-20: rgba(255, 255, 255, 0.2);
   --primitive-color-overlay-white-50: rgba(255, 255, 255, 0.5);
   --primitive-color-overlay-white-80: rgba(255, 255, 255, 0.8);
+  --primitive-color-overlay-white-90: rgba(255, 255, 255, 0.9);
 
   /* 패션 룩북 웜 뉴트럴 */
   --color-warm-ivory: #fcfbf9;
@@ -70,7 +73,7 @@
   /* (2) Border (10 Variables) */
   --color-border-default: var(--primitive-color-gray-85);      /* Color/Border/Default -> Color/Gray/85 */
   --color-border-secondary: var(--primitive-color-gray-90);    /* Color/Border/Secondary -> Color/Gray/90 */
-  --color-border-tertiary: var(--primitive-color-gray-98);     /* Color/Border/Tertiary -> Color/Gray/98 */
+  --color-border-tertiary: var(--primitive-color-gray-96);     /* Color/Border/Tertiary -> Color/Gray/96 */
   --color-border-subtle: var(--primitive-color-gray-30);       /* Color/Border/Subtle -> Color/Gray/30 */
   --color-border-disabled: var(--primitive-color-gray-85);     /* Color/Border/Disabled -> Color/Gray/85 */
   --color-border-negative: var(--primitive-color-red-50);      /* Color/Border/Negative -> Color/Red/50 */
@@ -81,7 +84,7 @@
 
   /* (3) Background (8 Variables) */
   --color-bg-default: var(--primitive-color-gray-100);        /* Color/Background/Default -> Color/Gray/100 */
-  --color-bg-secondary: var(--primitive-color-gray-98);       /* Color/Background/Secondary -> Color/Gray/98 */
+  --color-bg-secondary: var(--primitive-color-gray-96);       /* Color/Background/Secondary -> Color/Gray/96 */
   --color-bg-tertiary: var(--primitive-color-gray-90);        /* Color/Background/Tertiary -> Color/Gray/90 */
   --color-bg-disabled: var(--primitive-color-gray-96);        /* Color/Background/Disabled -> Color/Gray/96 */
   --color-bg-point-primary: var(--primitive-color-primary-default);     /* Color/Background/Point/Primary */
@@ -106,7 +109,7 @@
   --color-overlay-black-strong: var(--primitive-color-overlay-black-80);     /* Color/Overlay/Black-Strong */
   --color-overlay-white-light: var(--primitive-color-overlay-white-20);      /* Color/Overlay/White-Light */
   --color-overlay-white-balance: var(--primitive-color-overlay-white-50);    /* Color/Overlay/White-Balance */
-  --color-overlay-white-strong: var(--primitive-color-overlay-white-80);     /* Color/Overlay/White-Strong */
+  --color-overlay-white-strong: var(--primitive-color-overlay-white-90);     /* Color/Overlay/White-Strong */
 
   /* (6) Primary (4 Variables) */
   --color-primary-default: var(--primitive-color-orange-50);    /* Color/Primary/Default */
@@ -115,7 +118,34 @@
   --color-primary-subtle: var(--primitive-color-orange-80);     /* Color/Primary/Subtle */
 
   /* ==========================================================================
-     3. COMPONENT ALIASES (기존 컴포넌트 하위 호환 바인딩)
+     3. FIGMA COMPONENT TOKENS (Component/Color/Button - 피그마 1:1 바인딩)
+     ========================================================================== */
+  /* Primary Button */
+  --color-button-primary-fill: var(--primitive-color-gray-10);         /* #1a1a1a - Normal/Default */
+  --color-button-primary-hover: var(--primitive-color-gray-0);          /* #000000 - Hover (Darker Black) */
+  --color-button-primary-pressed: var(--primitive-color-gray-20);       /* #333333 - Pressed */
+  --color-button-primary-text: var(--color-text-inverse);               /* #ffffff */
+
+  /* Secondary Button */
+  --color-button-secondary-fill: var(--primitive-color-gray-96);       /* #f5f5f5 - Normal/Default */
+  --color-button-secondary-hover: var(--primitive-color-gray-90);      /* #e5e5e5 - Hover */
+  --color-button-secondary-pressed: var(--primitive-color-gray-85);    /* #d9d9d9 - Pressed */
+  --color-button-secondary-text: var(--color-text-default);             /* #000000 */
+
+  /* Tertiary Button */
+  --color-button-tertiary-fill: var(--primitive-color-gray-100);       /* #ffffff - Normal/Default */
+  --color-button-tertiary-hover: var(--primitive-color-gray-96);       /* #f5f5f5 - Hover */
+  --color-button-tertiary-pressed: var(--primitive-color-gray-90);     /* #e5e5e5 - Pressed */
+  --color-button-tertiary-border: var(--color-border-subtle);           /* #4d4d4d */
+  --color-button-tertiary-text: var(--color-text-default);             /* #000000 */
+
+  /* Disabled State (Common) */
+  --color-button-disabled-fill: var(--primitive-color-gray-96);        /* #f5f5f5 */
+  --color-button-disabled-border: var(--primitive-color-gray-90);      /* #e5e5e5 */
+  --color-button-disabled-text: var(--primitive-color-gray-70);        /* #b2b2b2 */
+
+  /* ==========================================================================
+     4. COMPONENT ALIASES (기존 컴포넌트 하위 호환 바인딩)
      ========================================================================== */
   --color-black: var(--primitive-color-gray-0);
   --color-white: var(--primitive-color-gray-100);

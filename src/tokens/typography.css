@@ -93,4 +93,18 @@
   --tracking-wide: 0.04em;
   --tracking-wider: 0.08em;                               /* 영문 브랜드명 및 서브헤딩 */
   --tracking-widest: 0.12em;                              /* 대문자 뱃지, 에디토리얼 태그 */
+
+  /* ==========================================================================
+     6. FIGMA TYPESCALE (Semantic/Typescale - Line Heights & Button Mapping)
+     ========================================================================== */
+  --typescale-body-large-size: 16px;
+  --typescale-body-large-line-height: 24px;
+  --typescale-body-medium-size: 15px;
+  --typescale-body-medium-line-height: 24px;
+  --typescale-body-small-size: 14px;
+  --typescale-body-small-line-height: 22px;
+  --typescale-body-xsmall-size: 13px;
+  --typescale-body-xsmall-line-height: 22px;
+  --typescale-caption-small-size: 12px;
+  --typescale-caption-small-line-height: 22px;
 }

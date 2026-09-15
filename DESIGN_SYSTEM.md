@@ -24,23 +24,27 @@
 - 의류 및 룩북의 황금 비율인 **3:4 세로 비율(`--aspect-fashion: 3 / 4`)**을 표준으로 채택.
 - 상품 자체의 비주얼을 해치지 않도록 **정갈한 모노크롬 베이스**에 브랜드 시그니처 웜 테라코타 포인트(`Color/Orange/50`)를 포인트로 조화롭게 활용.
 
-### 2.2 2-Tier Token Architecture (2단계 토큰 체계)
-피그마의 구조와 100% 동일한 계층 분리:
+### 2.2 2-Tier Token Architecture & Category Organization (토큰 체계 및 카테고리 분류)
+피그마의 구조와 100% 동일한 계층 분리 및 스토리북 독립 카테고리 편성:
 1. **Layer 1: `.Primitive` (원시 토큰 - 총 105개 100% 등록 완료)**
-   - **Typography (15개 - 100% 등록 완료)**:
+   - **Typography (15개 - 독립 카테고리 `Foundations/Design Tokens/Typography`)**:
      - `Font/Family`: `Pretendard`
      - `Font-size / Heading` (4개): `XLarge`(32px), `Large`(24px), `Medium`(18px), `Small`(16px)
      - `Font-size / Body` (5개): `Large`(16px), `Medium`(15px), `Small`(14px), `XSmall`(13px), `XXSmall`(12px)
      - `Letter-spacing` (2개): `0`(0em), `1`(-0.02em)
      - `Font-weight` (3개): `Regular`(400), `Medium`(500), `SemiBold`(600)
-   - **Color (68개 - 100% 등록 완료)**:
-     - 원시 색상값 보관: `Color/Gray/*` (0~100 스케일), `Color/Orange/*`, `Color/Red/50`, `Color/Blue/52`, `Color/Overlay/*`
-   - **Number (22개 - 100% 등록 완료)**:
+     - *전용 도구*: 실시간 문구/사이즈/굵기/자간 인터랙티브 테스터 내장
+   - **Number (22개 - 독립 카테고리 `Foundations/Design Tokens/Number`)**:
      - `0`~`20` (0px, 2px, 4px, 6px, 8px, 10px, 12px, 16px, 20px, 24px, 32px, 40px, 48px, 56px, 64px, 72px, 80px, 96px, 120px, 140px, 160px), `circle` (999px)
      - 여백(Spacing/Gap/Padding), 컴포넌트 크기(Sizing), 곡률(Radius)의 단일 진실 공급원(SSOT)
-2. **Layer 2: `Semantic` (의미 기반 토큰)**
+     - *전용 도구*: 실시간 슬라이더 기반 박스 모델 & 스케일 인터랙티브 비주얼라이저 내장
+   - **Color (68개 - 100% 등록 완료)**:
+     - 원시 색상값 보관: `Color/Gray/*` (0~100 스케일), `Color/Orange/*`, `Color/Red/50`, `Color/Blue/52`, `Color/Overlay/*`
+2. **Layer 2: `Semantic` (의미 기반 토큰 - 독립 카테고리 `Foundations/Design Tokens/Color`)**
    - UI 맥락에 부여된 48개 색상 토큰: `Text(11)`, `Border(10)`, `Background(8)`, `Icon(9)`, `Overlay(6)`, `Primary(4)`
    - *향후 등록 예정*: Typescale(71개) 등 세부 시맨틱 타이포 스케일
+
+---
 
 ### 2.3 Pretendard Typography & Tabular Pricing
 - 국문과 영문의 완벽한 밸런스를 갖춘 공식 **Pretendard 웹폰트**를 전면 채택.
@@ -70,11 +74,15 @@ DesignSystem/
 │   │   ├── tokens.json             # W3C DTCG 표준 토큰 정의 파일
 │   │   ├── figma-generated.css     # 스크립트로 자동 생성된 피그마 변수
 │   │   ├── index.css               # 토큰 취합 및 글로벌 리셋
-│   │   ├── TokensShowcase.tsx      # 토큰 인터랙티브 뷰어 (탭 필터링 및 원클릭 복사)
-│   │   └── Tokens.stories.tsx
+│   │   ├── TokensShowcase.tsx      # 독립 카테고리 쇼케이스 & 인터랙티브 도구
+│   │   ├── Tokens.stories.tsx      # [Foundations/Design Tokens/Overview] 마스터 대시보드
+│   │   ├── Typography.stories.tsx  # [Foundations/Design Tokens/Typography] 타이포그래피 전용 뷰
+│   │   ├── Number.stories.tsx      # [Foundations/Design Tokens/Number] 수치/스케일 전용 뷰
+│   │   └── Color.stories.tsx       # [Foundations/Design Tokens/Color] 시맨틱 컬러 전용 뷰
 │   ├── components/
 │   │   ├── atoms/                  # [Atoms] 원자 단위 컴포넌트
-│   │   │   ├── Button/             # 피그마 표준 Button (Class: btn, Type 3종, Size 5종, State 4종, Icon 좌우)
+│   │   │   ├── Button/             # 피그마 표준 Button (Class: btn, Type 3종+icon, Size 5종, State 4종, Icon 좌우)
+│   │   │   ├── IconButton/         # 피그마 표준 Icon Button (Class: icon-btn, Type: icon, Size 5종, State 3종: normal/hover/active)
 │   │   │   ├── Icon/               # 피그마 표준 Icon (총 46종: 시스템 35종 + 썸네일 11종 전수 등록, 6단계 스케일, 9종 시맨틱 컬러)
 │   │   │   ├── WishlistButton/     # 글래스모피즘 플로팅 + 하트 팝 바운스
 │   │   │   ├── Badge/              # SALE, NEW IN, EXCLUSIVE, SOLD OUT
@@ -142,25 +150,27 @@ DesignSystem/
 
 | 분류 | 컴포넌트 속성 | 피그마 토큰 경로 | 적용 CSS 토큰 | 매핑 근거 및 규칙 |
 |---|---|---|---|---|
-| **Typography** | `xl` (56px) 폰트 크기 | `Typography / Font-size / Body / Large` | `var(--primitive-font-size-body-large)` (16px) | 본문 스케일 1:1 매칭 (Heading 적용 금지) |
-| | `lg` (48px) 폰트 크기 | `Typography / Font-size / Body / Medium` | `var(--primitive-font-size-body-medium)` (15px) | 본문 스케일 1:1 매칭 |
-| | `md` (40px) 폰트 크기 | `Typography / Font-size / Body / Small` | `var(--primitive-font-size-body-small)` (14px) | 본문 스케일 1:1 매칭 |
-| | `sm` (32px) 폰트 크기 | `Typography / Font-size / Body / XSmall` | `var(--primitive-font-size-body-xsmall)` (13px) | 본문 스케일 1:1 매칭 |
-| | `xs` (24px) 폰트 크기 | `Typography / Font-size / Body / XXSmall` | `var(--primitive-font-size-body-xxsmall)` (12px) | 본문 스케일 1:1 매칭 |
+| **Typography** | `xl` (56px) 폰트/행간 | `Typescale / Body Large` | `16px / 24px` (`--typescale-body-large-*`) | 피그마 Typescale 1:1 매칭 |
+| | `lg` (48px) 폰트/행간 | `Typescale / Body Medium` | `15px / 24px` (`--typescale-body-medium-*`) | 피그마 Typescale 1:1 매칭 |
+| | `md` (40px) 폰트/행간 | `Typescale / Body Small` | `14px / 22px` (`--typescale-body-small-*`) | 피그마 Typescale 1:1 매칭 |
+| | `sm` (32px) 폰트/행간 | `Typescale / Body XSmall` | `13px / 22px` (`--typescale-body-xsmall-*`) | 피그마 Typescale 1:1 매칭 |
+| | `xs` (24px) 폰트/행간 | `Typescale / Caption Small` | `12px / 22px` (`--typescale-caption-small-*`) | 피그마 Typescale 1:1 매칭 |
 | | 서체 / 굵기 / 자간 | Pretendard / Medium (500) / 1 (-0.02em) | `var(--primitive-font-family)` / `var(--primitive-font-weight-medium)` / `var(--primitive-letter-spacing-1)` | 폰트 기초 토큰 일관 적용 |
 | **Number** | 높이 (xl~xs) | `Number / 13, 12, 11, 10, 9` | `var(--primitive-number-13)` (56) ~ `var(--primitive-number-9)` (24) | 5단계 높이 1:1 바인딩 |
-| | 패딩 (xl~xs) | `Number / 9, 8, 7, 6, 4` | `var(--primitive-number-9)` (24) ~ `var(--primitive-number-4)` (8) | 5단계 수평 패딩 1:1 바인딩 |
-| | 갭 (xl~xs) | `Number / 4, 4, 3, 3, 2` | `var(--primitive-number-4)` (8) ~ `var(--primitive-number-2)` (4) | 5단계 아이콘-텍스트 갭 |
-| | 곡률 (xl~xs) | `Number / 3, 3, 2, 2, 2` | `var(--primitive-number-3)` (6) / `var(--primitive-number-2)` (4) | xl·lg는 6px, md·sm·xs는 4px |
-| **Color** | Primary 배경 (Normal) | `Color / Gray / 0` | `var(--primitive-color-gray-0)` (#121212) | 텍스트 토큰(`--color-text-default`) 오용 금지 |
-| | Primary 텍스트 / 아이콘 | `Color / Text(Icon) / Inverse` | `var(--color-text-inverse)` / `var(--color-icon-inverse)` | 인버스 화이트 토큰 |
-| | Primary 호버 / 누름 | `Color / Gray / 20`, `30` | `var(--primitive-color-gray-20)` / `var(--primitive-color-gray-30)` | 원시 그레이 스케일 매핑 |
-| | Secondary 배경 (Normal) | `Color / Gray / 96` | `var(--primitive-color-gray-96)` (#f0f0f2) | 소프트 그레이 서피스 |
-| | Secondary 텍스트 / 아이콘 | `Color / Text(Icon) / Default` | `var(--color-text-default)` / `var(--color-icon-default)` | 기본 다크 텍스트/아이콘 |
-| | Secondary 호버 / 누름 | `Background / Tertiary`, `Gray / 85` | `var(--color-bg-tertiary)` / `var(--primitive-color-gray-85)` | 인터랙션 피드백 토큰 |
-| | Tertiary 배경 / 보더 / 텍스트 | `Background(Border, Text) / Default` | `var(--color-bg-default)` / `var(--color-border-default)` / `var(--color-text-default)` | 시맨틱 화이트 + 1px 보더 |
-| | Disabled 상태 (공통) | `Background / Disabled`, `Text(Icon) / Disabled` | `var(--color-bg-disabled)` / `var(--color-text-disabled)` / `var(--color-icon-disabled)` | 비활성 표준 시맨틱 토큰 |
-| | 포커스 링 (접근성) | `Color / Border / Positive` | `var(--color-border-positive)` (#2563eb) | 미정의 변수(`--border-focus`) 사용 금지 |
+| | 패딩 (xl~xs) | `Padding / Unit_24, 20, 16, 12, 8` | `var(--primitive-number-9)` (24) ~ `var(--primitive-number-4)` (8) | 5단계 수평 패딩 1:1 바인딩 |
+| | 갭 (xl~xs) | `Gap / Unit_8, 8, 6, 6, 4` | `var(--primitive-number-4)` (8) ~ `var(--primitive-number-2)` (4) | 5단계 아이콘-텍스트 갭 |
+| | 곡률 (xl~xs) | `Radius / Medium(6), Small(4)` | `var(--primitive-number-3)` (6) / `var(--primitive-number-2)` (4) | xl·lg는 6px, md·sm·xs는 4px |
+| **Color** | Primary 배경 (Normal) | `Color / Button / Primary-fill` | `var(--color-button-primary-fill)` (#1a1a1a) | 딥 차콜 블랙 (Gray/10) |
+| | Primary 텍스트 / 아이콘 | `Color / Text(Icon) / Inverse` | `var(--color-text-inverse)` / `var(--color-icon-inverse)` | 인버스 퓨어 화이트 토큰 |
+| | Primary 호버 | `Color / Button / Primary-fill-hover` | `var(--color-button-primary-hover)` (#000000) | 더 어두운 퓨어 블랙 (Gray/0) |
+| | Primary 누름 | `Color / Button / Primary-fill-pressed` | `var(--color-button-primary-pressed)` (#333333) | 다크 그레이 눌림 피드백 (Gray/20) |
+| | Secondary 배경 (Normal) | `Color / Button / Secondary-fill` | `var(--color-button-secondary-fill)` (#f5f5f5) | 소프트 그레이 서피스 (Gray/96) |
+| | Secondary 텍스트 / 아이콘 | `Color / Text(Icon) / Default` | `var(--color-text-default)` / `var(--color-icon-default)` | 기본 다크 텍스트/아이콘 (Gray/0) |
+| | Secondary 호버 / 누름 | `Color / Button / Secondary-fill-hover / -pressed` | `var(--color-button-secondary-hover)` (#e5e5e5) / `var(--color-button-secondary-pressed)` (#d9d9d9) | 인터랙션 피드백 토큰 |
+| | Tertiary 배경 / 보더 / 텍스트 | `Color / Button / Tertiary-fill / -border` | `var(--color-button-tertiary-fill)` (#ffffff) / `var(--color-button-tertiary-border)` (#4d4d4d) | 퓨어 화이트 + 1px 보더 |
+| | Tertiary 호버 / 누름 | `Color / Button / Tertiary-fill-hover / -pressed` | `var(--color-button-tertiary-hover)` (#f5f5f5) / `var(--color-button-tertiary-pressed)` (#e5e5e5) | 인터랙션 피드백 토큰 |
+| | Disabled 상태 (공통) | `Color / Button / Disabled-fill / -border / -text` | `var(--color-button-disabled-fill)` (#f5f5f5) / `var(--color-button-disabled-border)` (#e5e5e5) / `var(--color-button-disabled-text)` (#b2b2b2) | 비활성 표준 시맨틱 토큰 |
+| | 포커스 링 (접근성) | `Color / Border / Positive` | `var(--color-border-positive)` (#1e4eed) | 미정의 변수(`--border-focus`) 사용 금지 |
 
 ### 📌 Rule 2-2. 컴포넌트 ➔ 디자인 토큰 1:1 엄격 매핑 원칙 (Icon 46종 전수 등록)
 아이콘은 피그마 `Icon` 에셋 46종(시스템 35종, 썸네일 11종)을 전수 등록하였으며, 크기와 색상은 반드시 원시 및 시맨틱 디자인 토큰과 1:1 매핑되어야 합니다.
@@ -175,15 +185,15 @@ DesignSystem/
 
 2. **Color 매핑 (Semantic Icon Color 토큰 1:1)**:
    - 하드코딩된 `#hex` 색상 사용을 전면 금지하고 `currentColor` 상속을 표준으로 합니다.
-   - `default`: `var(--color-icon-default)` (`#121212` / 다크 `#ffffff`)
-   - `secondary`: `var(--color-icon-secondary)` (`#737373` / 다크 `#a1a1aa`)
-   - `tertiary`: `var(--color-icon-tertiary)` (`#a1a1aa` / 다크 `#71717a`)
-   - `disabled`: `var(--color-icon-disabled)` (`#b0b0b0` / 다크 `#52525b`)
-   - `inverse`: `var(--color-icon-inverse)` (`#ffffff` / 다크 `#121212`)
-   - `subtle`: `var(--color-icon-subtle)` (`#52525b` / 다크 `#e4e4e7`)
-   - `negative`: `var(--color-icon-negative)` (`#ef4444`)
-   - `positive`: `var(--color-icon-positive)` (`#2563eb`)
-   - `point`: `var(--color-icon-point)` (`#f97316`)
+   - `default`: `var(--color-icon-default)` (`#000000` / 다크 `#ffffff`)
+   - `secondary`: `var(--color-icon-secondary)` (`#666666` / 다크 `#a1a1aa`)
+   - `tertiary`: `var(--color-icon-tertiary)` (`#999999` / 다크 `#71717a`)
+   - `disabled`: `var(--color-icon-disabled)` (`#b2b2b2` / 다크 `#52525b`)
+   - `inverse`: `var(--color-icon-inverse)` (`#ffffff` / 다크 `#000000`)
+   - `subtle`: `var(--color-icon-subtle)` (`#4d4d4d` / 다크 `#e4e4e7`)
+   - `negative`: `var(--color-icon-negative)` (`#e51a1a`)
+   - `positive`: `var(--color-icon-positive)` (`#1e4eed`)
+   - `point`: `var(--color-icon-point)` (`#e4541b`)
 
 3. **등록된 아이콘 인벤토리 (총 46종)**:
    - **Icon8 (1)**: `bullet_8`
@@ -193,6 +203,19 @@ DesignSystem/
    - **Icon32 (1)**: `download_32`
    - **Icon64 (1)**: `nodata_64` (벡터 SVG + PNG 동시 지원)
    - **Thumbnail (11)**: `thumbnail_mobile`, `thumbnail_pc`, `thumbnail_pc_resource`, `thumbnail_name_ico_wish_state_active/inactive`, `thumbnail_pc_name_ico_wish_state_active/inactive`, `thumbnail_type_default/hover_state_active/inactive`
+
+### 📌 Rule 2-3. 컴포넌트 ➔ 디자인 토큰 1:1 엄격 매핑 원칙 (Icon Button)
+피그마 `Icon Button`은 Type: `icon`, State: `normal` (default) | `hover` | `active` 3종을 기준으로 하며, 1:1 정방형 비율을 유지합니다.
+
+| 분류 | 컴포넌트 속성 | 피그마 토큰 경로 | 적용 CSS 토큰 | 매핑 근거 및 규칙 |
+|---|---|---|---|---|
+| **Dimensions** | 크기 (xl~xs 5종) | `Number / 13, 12, 11, 10, 9` | `var(--primitive-number-13)` (56) ~ `var(--primitive-number-9)` (24) | 1:1 정방형 (너비=높이 동일) |
+| | 곡률 (xl·lg / md·sm·xs) | `Number / 3, 2` | `var(--primitive-number-3)` (6) / `var(--primitive-number-2)` (4) | Button 규격과 동일한 곡률 |
+| **Color** | Normal 배경 / 보더 / 아이콘 | `Background / Default`, `Border / Default`, `Icon / Default` | `var(--color-bg-default)` / `var(--color-border-default)` / `var(--color-icon-default)` | 화이트 서피스 + 기본 그레이 보더 + 블랙 아웃라인 |
+| | Hover 배경 | `Background / Secondary` | `var(--color-bg-secondary)` (#f5f5f5) | 상호작용 피드백 소프트 그레이 |
+| | Active 아이콘 | `Icon / Point` | `var(--color-icon-point)` (#e4541b) | 브랜드 메인 테라코타 오렌지 솔리드 채움 |
+| | Disabled (공통) | `Background / Disabled`, `Border / Disabled`, `Icon / Disabled` | `var(--color-bg-disabled)` / `var(--color-border-disabled)` / `var(--color-icon-disabled)` | 비활성 표준 시맨틱 토큰 |
+| **A11y** | 포커스 링 / 스크린리더 | `Border / Positive`, `aria-label` | `var(--color-border-positive)`, `aria-label` 필수 | 키보드 내비게이션 및 접근성 보장 |
 
 ### 📌 Rule 3. 피그마 ➔ 코드 동기화 워크플로우
 1. 피그마에서 Tokens Studio 플러그인 등으로 JSON 내보내기.
