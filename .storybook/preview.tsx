@@ -69,6 +69,17 @@ const preview: Preview = {
     },
   ],
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Foundations',
+          ['Design Tokens', ['Overview', 'Typography', 'Number', 'Color', 'Icon']],
+          'Atoms',
+          'Molecules',
+          'Organisms',
+        ],
+      },
+    },
     viewport: {
       viewports: customViewports,
       defaultViewport: 'responsive',

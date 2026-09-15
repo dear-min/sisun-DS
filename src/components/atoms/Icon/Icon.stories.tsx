@@ -6,15 +6,15 @@ import { iconRegistry } from './iconData';
 import './icon-showcase.css';
 
 const meta: Meta<typeof Icon> = {
-  title: 'Atoms/Icon',
+  title: 'Foundations/Design Tokens/Icon',
   component: Icon,
   parameters: {
     layout: 'padded',
     docs: {
       description: {
         component: `
-### Atelier Fashion Design System - Icon Atom System
-피그마 \`00. Common Design System\`의 **Icon (총 46종: 시스템 35종 + 썸네일 11종)**을 100% 등록 완료한 원자 단위 아이콘 컴포넌트입니다.
+### Atelier Fashion Design System - Icon System (Design Tokens)
+피그마 \`00. Common Design System\`의 **Icon (총 46종: 시스템 35종 + 썸네일 11종)**을 100% 등록 완료한 디자인 토큰 아이콘 자산 시스템입니다.
 
 - **제로 하드코딩 (Rule 1)**: 모든 아이콘은 상위 요소 또는 시맨틱 아이콘 컬러 토큰(\`--color-icon-*\`)을 \`currentColor\`로 상속받습니다.
 - **치수 토큰 연동 (Rule 2-1)**: \`8px\`, \`12px\`, \`16px\`, \`24px\`, \`32px\`, \`64px\` 스케일이 \`--primitive-number-*\` 토큰과 1:1 바인딩됩니다.
@@ -240,15 +240,15 @@ export const SizeMatrix: Story = {
 export const ColorTokensMatrix: Story = {
   render: () => {
     const colors: { token: IconColorToken; name: string; cssVar: string; role: string }[] = [
-      { token: 'default', name: 'Default', cssVar: '--color-icon-default', role: '기본 다크(#121212) / 다크모드 화이트' },
-      { token: 'secondary', name: 'Secondary', cssVar: '--color-icon-secondary', role: '서브 액션 및 메뉴 회색(#737373)' },
-      { token: 'tertiary', name: 'Tertiary', cssVar: '--color-icon-tertiary', role: '비활성 근접 은은한 회색(#a1a1aa)' },
-      { token: 'disabled', name: 'Disabled', cssVar: '--color-icon-disabled', role: '비활성화 상태(#b0b0b0)' },
+      { token: 'default', name: 'Default', cssVar: '--color-icon-default', role: '기본 다크(#000000) / 다크모드 화이트' },
+      { token: 'secondary', name: 'Secondary', cssVar: '--color-icon-secondary', role: '서브 액션 및 메뉴 회색(#666666)' },
+      { token: 'tertiary', name: 'Tertiary', cssVar: '--color-icon-tertiary', role: '비활성 근접 은은한 회색(#999999)' },
+      { token: 'disabled', name: 'Disabled', cssVar: '--color-icon-disabled', role: '비활성화 상태(#b2b2b2)' },
       { token: 'inverse', name: 'Inverse', cssVar: '--color-icon-inverse', role: 'Primary 버튼 배경 내 화이트(#ffffff)' },
-      { token: 'subtle', name: 'Subtle', cssVar: '--color-icon-subtle', role: '미세 구분선 및 디바이더(#52525b)' },
-      { token: 'negative', name: 'Negative', cssVar: '--color-icon-negative', role: '삭제, 경고, 에러 피드백(#ef4444)' },
-      { token: 'positive', name: 'Positive', cssVar: '--color-icon-positive', role: '다운로드 완료, 링크, 성공(#2563eb)' },
-      { token: 'point', name: 'Point', cssVar: '--color-icon-point', role: '브랜드 시그니처 테라코타 오렌지(#f97316)' },
+      { token: 'subtle', name: 'Subtle', cssVar: '--color-icon-subtle', role: '미세 구분선 및 디바이더(#4d4d4d)' },
+      { token: 'negative', name: 'Negative', cssVar: '--color-icon-negative', role: '삭제, 경고, 에러 피드백(#e51a1a)' },
+      { token: 'positive', name: 'Positive', cssVar: '--color-icon-positive', role: '다운로드 완료, 링크, 성공(#1e4eed)' },
+      { token: 'point', name: 'Point', cssVar: '--color-icon-point', role: '브랜드 시그니처 테라코타 오렌지(#e4541b)' },
     ];
 
     const sampleIcons = ['cart_16', 'wish_16', 'alarm_12', 'download_24', 'share_16'];
