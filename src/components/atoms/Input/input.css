@@ -21,7 +21,7 @@
   letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
   line-height: var(--primitive-number-11, 40px);
   outline: none;
-  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
   -webkit-appearance: none;
   appearance: none;
 }
@@ -50,7 +50,7 @@
 .input:focus:not(:disabled):not([readonly]),
 .input--focus:not(:disabled):not([readonly]) {
   border-color: var(--color-input-border-active);
-  box-shadow: 0 0 0 1px var(--color-input-border-active);
+  box-shadow: none;
 }
 
 /* ==========================================================================
@@ -106,5 +106,6 @@
 
 .input--negative:focus,
 .input--error:focus {
-  box-shadow: 0 0 0 1px var(--color-input-border-error) !important;
+  border-color: var(--color-input-border-error) !important;
+  box-shadow: none;
 }
