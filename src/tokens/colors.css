@@ -147,6 +147,13 @@
   --color-button-disabled-border: var(--primitive-color-gray-90);      /* #e5e5e5 */
   --color-button-disabled-text: var(--primitive-color-gray-70);        /* #b2b2b2 */
 
+  /* Floating Button Component Tokens (피그마 Floating Button 1:1 바인딩) */
+  --color-button-floating-bg: var(--color-bg-default);                 /* #ffffff */
+  --color-button-floating-hover: var(--color-bg-default);              /* #ffffff */
+  --color-button-floating-pressed: var(--primitive-color-gray-90);    /* #e5e5e5 */
+  --color-button-floating-text: var(--color-text-default);             /* #000000 */
+  --color-button-floating-shadow: rgba(0, 0, 0, 0.12);
+
   /* Tag Component Tokens (피그마 Tag 1:1 바인딩) */
   --color-tag-normal-bg: var(--color-bg-secondary);                    /* #f5f5f5 */
   --color-tag-normal-text: var(--color-text-secondary);                 /* #666666 */
@@ -340,6 +347,13 @@
   --interactive-secondary-text: #ffffff;
   --interactive-secondary-border: var(--color-border-default);
   --interactive-secondary-hover: #27272a;
+
+  /* Floating Button Dark Theme Overrides */
+  --color-button-floating-bg: #27272a;
+  --color-button-floating-hover: #3f3f46;
+  --color-button-floating-pressed: #52525b;
+  --color-button-floating-text: #ffffff;
+  --color-button-floating-shadow: rgba(0, 0, 0, 0.5);
 
   /* Tag Component Dark Theme Overrides */
   --color-tag-normal-bg: var(--color-bg-secondary);                    /* #1a1a1c */

@@ -1,0 +1,13 @@
+{
+  "tokenSetOrder": [
+    "core",
+    "light",
+    "light/light",
+    "dark",
+    "theme",
+    "theme/theme",
+    ".Primitive/Mode 1",
+    "Semantic/Mode 1",
+    "Component/Mode 1"
+  ]
+}

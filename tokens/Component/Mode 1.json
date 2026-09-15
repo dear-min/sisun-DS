@@ -1,0 +1,240 @@
+{
+  "Color": {
+    "Button": {
+      "Primary-fill": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.10}"
+      },
+      "Primary-fill-hover": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.0}"
+      },
+      "Secondary-fill": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.96}"
+      },
+      "Secondary-fill-hover": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.90}"
+      },
+      "Primary-fill-pressed": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.20}"
+      },
+      "Secondary-fill-pressed": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.85}"
+      },
+      "Tertiary-fill": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.100}"
+      },
+      "Tertiary-fill-hover": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.96}"
+      },
+      "Tertiary-fill-pressed": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.90}"
+      },
+      "Tertiary-border": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Subtle}"
+      },
+      "Disabled-fill": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.96}"
+      },
+      "Disabled-border": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Gray.90}"
+      }
+    },
+    "Input": {
+      "Surface": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Background.Default}"
+      },
+      "Border": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Default}"
+      },
+      "Border-active": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Subtle}"
+      },
+      "Border-error": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Negative}"
+      },
+      "Disabled-surface": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Background.Disabled}"
+      },
+      "Disabled-border": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Disabled}"
+      }
+    },
+    "Select": {
+      "Surface": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Background.Default}"
+      },
+      "Border": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Default}"
+      },
+      "Border-active": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Subtle}"
+      },
+      "Disabled-surface": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "FRAME_FILL"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Background.Disabled}"
+      },
+      "Disabled-border": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "STROKE_COLOR"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Border.Disabled}"
+      }
+    }
+  }
+}

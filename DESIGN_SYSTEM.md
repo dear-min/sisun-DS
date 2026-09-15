@@ -265,6 +265,24 @@ DesignSystem/
 | | Icon (선택형) | `Icon / Default` | `var(--color-chip-icon)` (#000000) / `Icon` (`alarm_12`) | 피그마 `alarm_12` 에셋 1:1 연동 |
 | **A11y** | 포커스 링 / 스크린리더 | `Border / Positive`, `aria-pressed` | `var(--color-border-positive)`, `aria-pressed` 필수 | 키보드 내비게이션 및 접근성 보장 |
 
+### 📌 Rule 2-9. 컴포넌트 ➔ 디자인 토큰 1:1 엄격 매핑 원칙 (Floating Button)
+피그마 `Floating Button`은 Type: `floating`, Size: `md` (default) | `sm`, State: `normal` (default) | `hover` | `pressed`, Icon: `setup_16` (Left default / Right) 속성을 기준으로 하며, 클래스명은 `floating-btn` (별칭: `btn--floating`)입니다.
+
+| 분류 | 컴포넌트 속성 | 피그마 토큰 경로 | 적용 CSS 토큰 | 매핑 근거 및 규칙 |
+|---|---|---|---|---|
+| **Dimensions** | 높이 (md / sm) | `Number / 11 (40px)`, `Number / 10 (32px)` | `var(--primitive-number-11)` (40px) / `var(--primitive-number-10)` (32px) | md 40px, sm 32px 캡슐형 높이 |
+| | 곡률 (Radius) | `Radius / Circle (999px)` | `var(--primitive-radius-circle)` (999px) | 완전 원형 필/캡슐 형태 유지 |
+| | 좌우 패딩 (md / sm) | `Number / 7 (16px)`, `Number / 6 (12px)` | `var(--primitive-number-7)` (16px) / `var(--primitive-number-6)` (12px) | 버튼 내부 좌우 패딩 |
+| | 아이콘 갭 (Gap) | `Number / 2 (4px)` | `var(--primitive-number-2)` (4px) | 아이콘과 텍스트 사이 거리 |
+| **Typography** | md 라벨 텍스트 | `Font / Body Small Medium` | `var(--primitive-font-size-body-small)` (14px), `var(--primitive-font-weight-medium)` (500) | Pretendard 14px Medium, 행간 1.4 |
+| | sm 라벨 텍스트 | `Font / Body XSmall Medium` | `var(--primitive-font-size-body-xsmall)` (13px), `var(--primitive-font-weight-medium)` (500) | Pretendard 13px Medium, 행간 1.4 |
+| **Color** | Normal 배경 / 섀도우 | `Background / Default`, `Shadow / Floating` | `var(--color-button-floating-bg)` (#ffffff) / `var(--color-button-floating-shadow)` | 화이트 서피스 + 소프트 드롭 섀도우 (`0 4px 12px rgba(0,0,0,0.12)`) |
+| | Hover 상태 | `Background / Default`, `Shadow / Hover` | `var(--color-button-floating-hover)` (#ffffff) / `translateY(-1px)` | 엘리베이션 상승 효과 + 깊어진 섀도우 |
+| | Pressed 상태 | `Color / Gray / 90` | `var(--color-button-floating-pressed)` (#e5e5e5) | 활성/눌림 피드백 소프트 그레이 배경 |
+| | 텍스트 / 아이콘 색상 | `Text / Default`, `Icon / Default` | `var(--color-button-floating-text)` (#000000) / `var(--color-icon-default)` | 솔리드 블랙 텍스트 및 아이콘 |
+| | 기본 아이콘 에셋 | `Icon / 16 / Fill / ico_setup_16` | `Icon` (`setup_16`) | 피그마 46종 인벤토리 등록 태그 에셋 1:1 연동 |
+| **A11y** | 포커스 링 (접근성) | `Border / Positive` | `var(--color-border-positive)` (#1e4eed) | 키보드 내비게이션 및 포커스 링 보장 |
+
 ### 📌 Rule 3. 피그마 ➔ 코드 동기화 워크플로우
 1. 피그마에서 Tokens Studio 플러그인 등으로 JSON 내보내기.
 2. `src/tokens/tokens.json` 파일에 붙여넣기.

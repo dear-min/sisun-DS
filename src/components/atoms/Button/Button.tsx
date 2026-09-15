@@ -5,14 +5,14 @@ import './button.css';
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   /** 버튼 텍스트 또는 컨텐츠 */
   children?: ReactNode;
-  /** 버튼 위계 타입 (Figma Type: primary | secondary | tertiary) */
-  type?: 'primary' | 'secondary' | 'tertiary';
+  /** 버튼 위계 타입 (Figma Type: primary | secondary | tertiary | icon | floating) */
+  type?: 'primary' | 'secondary' | 'tertiary' | 'icon' | 'floating';
   /** 기존 코드 호환용 variant (outline은 tertiary로 자동 매핑) */
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'ghost' | 'sale';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'outline' | 'ghost' | 'sale' | 'icon' | 'floating';
   /** 버튼 크기 (Figma Size: xl | lg | md | sm | xs) */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  /** 버튼 상태 강제 지정 (Figma State: normal | hover | pressed | disabled) */
-  state?: 'normal' | 'hover' | 'pressed' | 'disabled';
+  /** 버튼 상태 강제 지정 (Figma State: normal | hover | pressed | active | disabled) */
+  state?: 'normal' | 'hover' | 'pressed' | 'active' | 'disabled';
   /** 아이콘 포함 여부 (Figma Icon) */
   icon?: boolean;
   /** 좌측 아이콘 */
@@ -44,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   // Figma type 우선, variant 호환 (outline -> tertiary)
-  let resolvedType: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'sale' = type;
+  let resolvedType: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'sale' | 'icon' | 'floating' = type;
   if (variant) {
     if (variant === 'outline') resolvedType = 'tertiary';
     else resolvedType = variant;

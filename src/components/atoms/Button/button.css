@@ -3,40 +3,40 @@
  * Class Name: btn
  * 
  * 디자인 토큰 1:1 매핑 규칙:
- * 1. Typography:
- *    - Font-family: var(--primitive-font-family) (.Primitive / Typography / Font / Family)
- *    - Font-weight: var(--primitive-font-weight-medium) (.Primitive / Typography / Font-weight / Medium: 500)
- *    - Letter-spacing: var(--primitive-letter-spacing-1) (.Primitive / Typography / Letter-spacing / 1: -0.02em)
- *    - Font-size:
- *      - xl: var(--primitive-font-size-body-large) (.Primitive / Typography / Font-size / Body / Large: 16px)
- *      - lg: var(--primitive-font-size-body-medium) (.Primitive / Typography / Font-size / Body / Medium: 15px)
- *      - md: var(--primitive-font-size-body-small) (.Primitive / Typography / Font-size / Body / Small: 14px)
- *      - sm: var(--primitive-font-size-body-xsmall) (.Primitive / Typography / Font-size / Body / XSmall: 13px)
- *      - xs: var(--primitive-font-size-body-xxsmall) (.Primitive / Typography / Font-size / Body / XXSmall: 12px)
+ * 1. Typography (Typescale):
+ *    - Font-family: var(--primitive-font-family) (Pretendard)
+ *    - Font-weight: var(--primitive-font-weight-medium) (500)
+ *    - Letter-spacing: var(--primitive-letter-spacing-1) (-0.02em)
+ *    - Font-size & Line-height:
+ *      - xl: 16px / 24px (Typescale.Body-Large)
+ *      - lg: 15px / 24px (Typescale.Body-Medium)
+ *      - md: 14px / 22px (Typescale.Body-Small)
+ *      - sm: 13px / 22px (Typescale.Body-XSmall)
+ *      - xs: 12px / 22px (Typescale.Caption-Small)
  * 
  * 2. Number (Heights, Paddings, Gaps, Radii):
- *    - xl: height var(--primitive-number-13) (56px) | pad var(--primitive-number-9) (24px) | gap var(--primitive-number-4) (8px) | rad var(--primitive-number-3) (6px)
- *    - lg: height var(--primitive-number-12) (48px) | pad var(--primitive-number-8) (20px) | gap var(--primitive-number-4) (8px) | rad var(--primitive-number-3) (6px)
- *    - md: height var(--primitive-number-11) (40px) | pad var(--primitive-number-7) (16px) | gap var(--primitive-number-3) (6px) | rad var(--primitive-number-2) (4px)
- *    - sm: height var(--primitive-number-10) (32px) | pad var(--primitive-number-6) (12px) | gap var(--primitive-number-3) (6px) | rad var(--primitive-number-2) (4px)
- *    - xs: height var(--primitive-number-9) (24px)  | pad var(--primitive-number-4) (8px)  | gap var(--primitive-number-2) (4px) | rad var(--primitive-number-2) (4px)
+ *    - xl: height 56px (Number.13) | pad 24px (Number.9) | gap 8px (Number.4) | rad 6px (Number.3)
+ *    - lg: height 48px (Number.12) | pad 20px (Number.8) | gap 8px (Number.4) | rad 6px (Number.3)
+ *    - md: height 40px (Number.11) | pad 16px (Number.7) | gap 6px (Number.3) | rad 4px (Number.2)
+ *    - sm: height 32px (Number.10) | pad 12px (Number.6) | gap 6px (Number.3) | rad 4px (Number.2)
+ *    - xs: height 24px (Number.9)  | pad 8px  (Number.4) | gap 4px (Number.2) | rad 4px (Number.2)
  * 
- * 3. Color:
+ * 3. Color (Component/Color/Button):
  *    - Primary:
- *      - Normal: bg var(--primitive-color-gray-0) | text var(--color-text-inverse) | icon var(--color-icon-inverse)
- *      - Hover: bg var(--primitive-color-gray-20)
- *      - Pressed: bg var(--primitive-color-gray-30)
- *      - Disabled: bg var(--color-bg-disabled) | text var(--color-text-disabled) | icon var(--color-icon-disabled)
+ *      - Normal:  bg var(--color-button-primary-fill) (#1a1a1a) | text var(--color-button-primary-text) (#ffffff)
+ *      - Hover:   bg var(--color-button-primary-hover) (#000000) (Figma: 더 어두운 퓨어 블랙)
+ *      - Pressed: bg var(--color-button-primary-pressed) (#333333) (Figma: 다크 그레이 눌림 피드백)
+ *      - Disabled: bg var(--color-button-disabled-fill) (#f5f5f5) | text var(--color-button-disabled-text) (#b2b2b2)
  *    - Secondary:
- *      - Normal: bg var(--primitive-color-gray-96) | text var(--color-text-default) | icon var(--color-icon-default)
- *      - Hover: bg var(--color-bg-tertiary) (Color/Gray/90)
- *      - Pressed: bg var(--primitive-color-gray-85) (Color/Gray/85)
- *      - Disabled: bg var(--color-bg-disabled) | text var(--color-text-disabled) | icon var(--color-icon-disabled)
+ *      - Normal:  bg var(--color-button-secondary-fill) (#f5f5f5) | text var(--color-button-secondary-text) (#000000)
+ *      - Hover:   bg var(--color-button-secondary-hover) (#e5e5e5)
+ *      - Pressed: bg var(--color-button-secondary-pressed) (#d9d9d9)
+ *      - Disabled: bg var(--color-button-disabled-fill) (#f5f5f5) | text var(--color-button-disabled-text) (#b2b2b2)
  *    - Tertiary:
- *      - Normal: bg var(--color-bg-default) | border var(--color-border-default) | text var(--color-text-default) | icon var(--color-icon-default)
- *      - Hover: bg var(--color-bg-secondary) | border var(--color-border-default)
- *      - Pressed: bg var(--color-bg-tertiary) | border var(--color-border-default)
- *      - Disabled: bg var(--color-bg-default) | border var(--color-border-disabled) | text var(--color-text-disabled) | icon var(--color-icon-disabled)
+ *      - Normal:  bg var(--color-button-tertiary-fill) (#ffffff) | border var(--color-button-tertiary-border) (#d9d9d9) | text var(--color-button-tertiary-text) (#000000)
+ *      - Hover:   bg var(--color-button-tertiary-hover) (#f5f5f5) | border var(--color-button-tertiary-border) (#d9d9d9)
+ *      - Pressed: bg var(--color-button-tertiary-pressed) (#e5e5e5) | border var(--color-button-tertiary-border) (#d9d9d9)
+ *      - Disabled: bg var(--color-button-tertiary-fill) (#ffffff) | border var(--color-button-disabled-border) (#e5e5e5) | text var(--color-button-disabled-text) (#b2b2b2)
  */
 
 .btn,
@@ -54,7 +54,6 @@
   user-select: none;
   box-sizing: border-box;
   text-decoration: none;
-  line-height: 1;
   transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), opacity var(--transition-fast);
   outline: none;
 }
@@ -70,47 +69,72 @@
    ========================================================================== */
 .btn--xl,
 .fashion-btn--xl {
-  height: var(--primitive-number-13); /* 56px */
-  padding: 0 var(--primitive-number-9); /* 24px */
-  font-size: var(--primitive-font-size-body-large); /* 16px (Body/Large) */
-  gap: var(--primitive-number-4); /* 8px */
-  border-radius: var(--primitive-number-3); /* 6px */
+  height: var(--primitive-number-13);
+  /* 56px */
+  padding: 0 var(--primitive-number-9);
+  /* 24px */
+  font-size: var(--typescale-body-large-size, 16px);
+  line-height: var(--typescale-body-large-line-height, 24px);
+  gap: var(--primitive-number-4);
+  /* 8px */
+  border-radius: var(--primitive-number-3);
+  /* 6px */
 }
 
 .btn--lg,
 .fashion-btn--lg {
-  height: var(--primitive-number-12); /* 48px */
-  padding: 0 var(--primitive-number-8); /* 20px */
-  font-size: var(--primitive-font-size-body-medium); /* 15px (Body/Medium) */
-  gap: var(--primitive-number-4); /* 8px */
-  border-radius: var(--primitive-number-3); /* 6px */
+  height: var(--primitive-number-12);
+  /* 48px */
+  padding: 0 var(--primitive-number-8);
+  /* 20px */
+  font-size: var(--typescale-body-medium-size, 15px);
+  line-height: var(--typescale-body-medium-line-height, 24px);
+  gap: var(--primitive-number-4);
+  /* 8px */
+  border-radius: var(--primitive-number-3);
+  /* 6px */
 }
 
 .btn--md,
 .fashion-btn--md {
-  height: var(--primitive-number-11); /* 40px */
-  padding: 0 var(--primitive-number-7); /* 16px */
-  font-size: var(--primitive-font-size-body-small); /* 14px (Body/Small) */
-  gap: var(--primitive-number-3); /* 6px */
-  border-radius: var(--primitive-number-2); /* 4px */
+  height: var(--primitive-number-11);
+  /* 40px */
+  padding: 0 var(--primitive-number-7);
+  /* 16px */
+  font-size: var(--typescale-body-small-size, 14px);
+  line-height: var(--typescale-body-small-line-height, 22px);
+  gap: var(--primitive-number-3);
+  /* 6px */
+  border-radius: var(--primitive-number-2);
+  /* 4px */
 }
 
 .btn--sm,
 .fashion-btn--sm {
-  height: var(--primitive-number-10); /* 32px */
-  padding: 0 var(--primitive-number-6); /* 12px */
-  font-size: var(--primitive-font-size-body-xsmall); /* 13px (Body/XSmall) */
-  gap: var(--primitive-number-3); /* 6px */
-  border-radius: var(--primitive-number-2); /* 4px */
+  height: var(--primitive-number-10);
+  /* 32px */
+  padding: 0 var(--primitive-number-6);
+  /* 12px */
+  font-size: var(--typescale-body-xsmall-size, 13px);
+  line-height: var(--typescale-body-xsmall-line-height, 22px);
+  gap: var(--primitive-number-3);
+  /* 6px */
+  border-radius: var(--primitive-number-2);
+  /* 4px */
 }
 
 .btn--xs,
 .fashion-btn--xs {
-  height: var(--primitive-number-9); /* 24px */
-  padding: 0 var(--primitive-number-4); /* 8px */
-  font-size: var(--primitive-font-size-body-xxsmall); /* 12px (Body/XXSmall) */
-  gap: var(--primitive-number-2); /* 4px */
-  border-radius: var(--primitive-number-2); /* 4px */
+  height: var(--primitive-number-9);
+  /* 24px */
+  padding: 0 var(--primitive-number-4);
+  /* 8px */
+  font-size: var(--typescale-caption-small-size, 12px);
+  line-height: var(--typescale-caption-small-line-height, 22px);
+  gap: var(--primitive-number-2);
+  /* 4px */
+  border-radius: var(--primitive-number-2);
+  /* 4px */
 }
 
 .btn--full-width,
@@ -119,141 +143,139 @@
 }
 
 /* ==========================================================================
-   Type 1: Primary (Solid Dark: Gray/0 Background, Inverse Text)
+   Type 1: Primary (Figma: Gray/10 Normal -> Gray/0 Hover -> Gray/20 Pressed)
    ========================================================================== */
 .btn--primary,
 .fashion-btn--primary {
-  background-color: var(--primitive-color-gray-0);
-  color: var(--color-text-inverse);
-  border-color: var(--primitive-color-gray-0);
+  background-color: var(--color-button-primary-fill);
+  color: var(--color-button-primary-text);
+  border-color: var(--color-button-primary-fill);
 }
 
 .btn--primary .btn__icon,
 .fashion-btn--primary .fashion-btn__icon-left,
 .fashion-btn--primary .fashion-btn__icon-right {
-  color: var(--color-icon-inverse);
+  color: var(--color-button-primary-text);
 }
 
 .btn--primary:hover:not(:disabled),
 .btn--primary.btn--state-hover:not(:disabled),
 .fashion-btn--primary:hover:not(:disabled) {
-  background-color: var(--primitive-color-gray-20);
-  border-color: var(--primitive-color-gray-20);
+  background-color: var(--color-button-primary-hover);
+  border-color: var(--color-button-primary-hover);
 }
 
 .btn--primary:active:not(:disabled),
 .btn--primary.btn--state-pressed:not(:disabled),
 .fashion-btn--primary:active:not(:disabled) {
-  background-color: var(--primitive-color-gray-30);
-  border-color: var(--primitive-color-gray-30);
+  background-color: var(--color-button-primary-pressed);
+  border-color: var(--color-button-primary-pressed);
 }
 
 .btn--primary:disabled,
 .btn--primary.btn--state-disabled {
-  background-color: var(--color-bg-disabled);
-  color: var(--color-text-disabled);
-  border-color: var(--color-bg-disabled);
+  background-color: var(--color-button-disabled-fill);
+  color: var(--color-button-disabled-text);
+  border-color: var(--color-button-disabled-fill);
   cursor: not-allowed;
 }
 
 .btn--primary:disabled .btn__icon,
 .btn--primary.btn--state-disabled .btn__icon {
-  color: var(--color-icon-disabled);
+  color: var(--color-button-disabled-text);
 }
 
 /* ==========================================================================
-   Type 2: Secondary (Soft Gray: Gray/96 Background, Default Text)
+   Type 2: Secondary (Figma: Gray/96 Normal -> Gray/90 Hover -> Gray/85 Pressed)
    ========================================================================== */
 .btn--secondary,
 .fashion-btn--secondary {
-  background-color: var(--primitive-color-gray-96);
-  color: var(--color-text-default);
-  border-color: var(--primitive-color-gray-96);
+  background-color: var(--color-button-secondary-fill);
+  color: var(--color-button-secondary-text);
+  border-color: var(--color-button-secondary-fill);
 }
 
 .btn--secondary .btn__icon,
 .fashion-btn--secondary .fashion-btn__icon-left,
 .fashion-btn--secondary .fashion-btn__icon-right {
-  color: var(--color-icon-default);
+  color: var(--color-button-secondary-text);
 }
 
 .btn--secondary:hover:not(:disabled),
 .btn--secondary.btn--state-hover:not(:disabled),
 .fashion-btn--secondary:hover:not(:disabled) {
-  background-color: var(--color-bg-tertiary); /* Color/Gray/90 */
-  border-color: var(--color-bg-tertiary);
+  background-color: var(--color-button-secondary-hover);
+  border-color: var(--color-button-secondary-hover);
 }
 
 .btn--secondary:active:not(:disabled),
 .btn--secondary.btn--state-pressed:not(:disabled),
 .fashion-btn--secondary:active:not(:disabled) {
-  background-color: var(--primitive-color-gray-85); /* Color/Gray/85 */
-  border-color: var(--primitive-color-gray-85);
+  background-color: var(--color-button-secondary-pressed);
+  border-color: var(--color-button-secondary-pressed);
 }
 
 .btn--secondary:disabled,
 .btn--secondary.btn--state-disabled {
-  background-color: var(--color-bg-disabled);
-  color: var(--color-text-disabled);
-  border-color: var(--color-bg-disabled);
-  opacity: 0.65;
+  background-color: var(--color-button-disabled-fill);
+  color: var(--color-button-disabled-text);
+  border-color: var(--color-button-disabled-fill);
   cursor: not-allowed;
 }
 
 .btn--secondary:disabled .btn__icon,
 .btn--secondary.btn--state-disabled .btn__icon {
-  color: var(--color-icon-disabled);
+  color: var(--color-button-disabled-text);
 }
 
 /* ==========================================================================
-   Type 3: Tertiary (White Background, Gray/85 Border, Default Text)
+   Type 3: Tertiary (Figma: Gray/100 Normal -> Gray/96 Hover -> Gray/90 Pressed)
    ========================================================================== */
 .btn--tertiary,
 .btn--outline,
 .fashion-btn--tertiary,
 .fashion-btn--outline {
-  background-color: var(--color-bg-default);
-  color: var(--color-text-default);
-  border-color: var(--color-border-default);
+  background-color: var(--color-button-tertiary-fill);
+  color: var(--color-button-tertiary-text);
+  border-color: var(--color-button-tertiary-border);
 }
 
 .btn--tertiary .btn__icon,
 .btn--outline .btn__icon,
 .fashion-btn--tertiary .fashion-btn__icon-left,
 .fashion-btn--tertiary .fashion-btn__icon-right {
-  color: var(--color-icon-default);
+  color: var(--color-button-tertiary-text);
 }
 
 .btn--tertiary:hover:not(:disabled),
 .btn--tertiary.btn--state-hover:not(:disabled),
 .btn--outline:hover:not(:disabled),
 .fashion-btn--tertiary:hover:not(:disabled) {
-  background-color: var(--color-bg-secondary); /* Color/Gray/98 */
-  border-color: var(--color-border-default);
+  background-color: var(--color-button-tertiary-hover);
+  border-color: var(--color-button-tertiary-border);
 }
 
 .btn--tertiary:active:not(:disabled),
 .btn--tertiary.btn--state-pressed:not(:disabled),
 .btn--outline:active:not(:disabled),
 .fashion-btn--tertiary:active:not(:disabled) {
-  background-color: var(--color-bg-tertiary); /* Color/Gray/90 */
-  border-color: var(--color-border-default);
+  background-color: var(--color-button-tertiary-pressed);
+  border-color: var(--color-button-tertiary-border);
 }
 
 .btn--tertiary:disabled,
 .btn--tertiary.btn--state-disabled,
 .btn--outline:disabled,
 .fashion-btn--tertiary:disabled {
-  background-color: var(--color-bg-default);
-  color: var(--color-text-disabled);
-  border-color: var(--color-border-disabled);
-  opacity: 0.65;
+  background-color: var(--color-button-tertiary-fill);
+  color: var(--color-button-disabled-text);
+  border-color: var(--color-button-disabled-border);
   cursor: not-allowed;
 }
 
 .btn--tertiary:disabled .btn__icon,
 .btn--tertiary.btn--state-disabled .btn__icon {
-  color: var(--color-icon-disabled);
+  color: var(--color-button-disabled-text);
 }
 
 /* ==========================================================================
@@ -277,10 +299,96 @@
   border-color: var(--color-sale-primary);
 }
 
+/* ==========================================================================
+   Floating Variant (.btn--floating, .fashion-btn--floating)
+   ========================================================================== */
+.btn--floating,
+.fashion-btn--floating {
+  border-radius: var(--primitive-radius-circle, 999px);
+  background-color: var(--color-button-floating-bg, #ffffff);
+  color: var(--color-button-floating-text, #000000);
+  border: none;
+  box-shadow: 0 4px 12px var(--color-button-floating-shadow, rgba(0, 0, 0, 0.12)), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, color 0.15s ease;
+}
+
+.btn--floating:hover:not(:disabled),
+.fashion-btn--floating:hover:not(:disabled),
+.btn--floating.btn--state-hover {
+  background-color: var(--color-button-floating-hover, #ffffff);
+  box-shadow: 0 6px 16px var(--color-button-floating-shadow, rgba(0, 0, 0, 0.16)), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn--floating:active:not(:disabled),
+.fashion-btn--floating:active:not(:disabled),
+.btn--floating.btn--state-pressed {
+  background-color: var(--color-button-floating-pressed, #e5e5e5);
+  box-shadow: 0 2px 6px var(--color-button-floating-shadow, rgba(0, 0, 0, 0.12));
+  transform: translateY(0);
+}
+
+
 .btn--sale:hover:not(:disabled) {
   background-color: var(--primitive-color-red-50);
   border-color: var(--primitive-color-red-50);
   filter: brightness(0.9);
+}
+
+/* ==========================================================================
+   Type: Icon Button (Figma Type: icon)
+   ========================================================================== */
+.btn--icon,
+.fashion-btn--icon {
+  padding: 0;
+  background-color: var(--color-bg-default);
+  border-color: var(--color-border-default);
+  color: var(--color-icon-default);
+  flex-shrink: 0;
+}
+
+.btn--icon.btn--xl {
+  width: var(--primitive-number-13);
+}
+
+.btn--icon.btn--lg {
+  width: var(--primitive-number-12);
+}
+
+.btn--icon.btn--md {
+  width: var(--primitive-number-11);
+}
+
+.btn--icon.btn--sm {
+  width: var(--primitive-number-10);
+}
+
+.btn--icon.btn--xs {
+  width: var(--primitive-number-9);
+}
+
+.btn--icon:hover:not(:disabled),
+.btn--icon.btn--state-hover:not(:disabled) {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border-default);
+  color: var(--color-icon-default);
+}
+
+.btn--icon:active:not(:disabled),
+.btn--icon.btn--state-active:not(:disabled),
+.btn--icon.btn--state-pressed:not(:disabled) {
+  background-color: var(--color-bg-default);
+  border-color: var(--color-border-default);
+  color: var(--color-icon-point);
+}
+
+.btn--icon:disabled,
+.btn--icon.btn--state-disabled {
+  background-color: var(--color-bg-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-icon-disabled);
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 
 /* ==========================================================================
@@ -311,11 +419,30 @@
 }
 
 /* Icon Sizing based on Button Size */
-.btn--xl .btn__icon svg { width: 18px; height: 18px; }
-.btn--lg .btn__icon svg { width: 18px; height: 18px; }
-.btn--md .btn__icon svg { width: 16px; height: 16px; }
-.btn--sm .btn__icon svg { width: 14px; height: 14px; }
-.btn--xs .btn__icon svg { width: 12px; height: 12px; }
+.btn--xl .btn__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn--lg .btn__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn--md .btn__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn--sm .btn__icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btn--xs .btn__icon svg {
+  width: 12px;
+  height: 12px;
+}
 
 /* Loading Spinner */
 .btn__spinner,

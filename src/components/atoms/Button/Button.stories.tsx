@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { Button } from './Button';
-import { Download, ChevronRight, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Icon } from '../Icon/Icon';
 
 const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
@@ -12,10 +11,11 @@ const meta: Meta<typeof Button> = {
       description: {
         component: `피그마 **"00. Common Design System"**의 **Button** 컴포넌트입니다.
 - **Class Name**: \`btn\`
-- **Type**: \`primary\` | \`secondary\` | \`tertiary\` (중요도에 따른 위계 구분)
-- **Size**: \`xl\` | \`lg\` | \`md\` | \`sm\` | \`xs\` (컨텐츠 내 비중에 따른 5단계 크기)
-- **State**: \`normal\` | \`hover\` | \`pressed\` | \`disabled\` (상호작용 상태 피드백)
-- **Icon**: 좌측(속성 시각화) 및 우측(다음 액션 보조) 아이콘 지원`,
+- **Type**: \`primary\` | \`secondary\` | \`tertiary\` (중요도에 따라 버튼 간 위계를 구분하여 사용)
+- **Size**: \`xl\` | \`lg\` | \`md\` | \`sm\` | \`xs\` (컨텐츠 내 적절한 비중을 가진 크기로 사용)
+- **State**: \`normal\` (default) | \`hover\` | \`pressed\` | \`disabled\` (사용자의 상호작용 시 컬러가 변경)
+- **Icon**: 좌측(속성 시각화) 및 우측(다음 액션 보조) 아이콘 지원
+- **Token 바인딩**: \`Component/Color/Button\`, \`Semantic/Typescale\`, \`Semantic/Layout\` 1:1 완벽 매핑`,
       },
     },
   },
@@ -78,6 +78,348 @@ export const Default: Story = {
 };
 
 /**
+ * 0. 피그마 공식 디자인 명세서 1:1 완벽 재현 뷰 (Figma Spec View)
+ */
+export const FigmaSpecification: Story = {
+  name: 'Figma Spec (공식 명세 완벽 재현)',
+  render: () => {
+    const sizes: Array<'xl' | 'lg' | 'md' | 'sm' | 'xs'> = ['xl', 'lg', 'md', 'sm', 'xs'];
+    const states: Array<'normal' | 'hover' | 'pressed' | 'disabled'> = ['normal', 'hover', 'pressed', 'disabled'];
+
+    return (
+      <div
+        style={{
+          width: '680px',
+          maxWidth: '100%',
+          backgroundColor: '#f7f7f8',
+          padding: '40px 32px',
+          borderRadius: '16px',
+          boxSizing: 'border-box',
+          fontFamily: 'var(--primitive-font-family, Pretendard, sans-serif)',
+          color: '#1a1a1a',
+        }}
+      >
+        {/* Header */}
+        <div style={{ marginBottom: '28px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <h2 style={{ margin: 0, fontSize: '24px', fontWeight: 700, letterSpacing: '-0.02em' }}>
+              Button
+            </h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontSize: '12px', fontWeight: 600, color: '#666' }}>Class Name</span>
+              <span
+                style={{
+                  fontSize: '11px',
+                  fontFamily: 'monospace',
+                  backgroundColor: '#e9ecef',
+                  padding: '2px 8px',
+                  borderRadius: '4px',
+                  color: '#333',
+                  fontWeight: 600,
+                }}
+              >
+                btn
+              </span>
+            </div>
+          </div>
+          <div style={{ width: '100%', height: '2px', backgroundColor: '#111111' }} />
+        </div>
+
+        {/* 1. Type Section */}
+        <div style={{ marginBottom: '36px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '15px', fontWeight: 600 }}>Type</span>
+            <span style={{ fontSize: '14px', color: '#666' }}>=</span>
+            {['primary', 'secondary', 'tertiary'].map((t) => (
+              <span
+                key={t}
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: '#e9ecef',
+                  padding: '2px 8px',
+                  borderRadius: '4px',
+                  color: '#333',
+                }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: '#666' }}>
+            중요도에 따라 버튼 간 위계를 구분하여 사용합니다.
+          </p>
+          <div
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '36px 20px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '24px',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="lg">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Primary</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="secondary" size="lg">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Secondary</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="tertiary" size="lg">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Tertiary</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 2. Size Section */}
+        <div style={{ marginBottom: '36px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '15px', fontWeight: 600 }}>Size</span>
+            <span style={{ fontSize: '14px', color: '#666' }}>=</span>
+            {['xl', 'lg', 'md', 'sm', 'xs'].map((s) => (
+              <span
+                key={s}
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: '#e9ecef',
+                  padding: '2px 8px',
+                  borderRadius: '4px',
+                  color: '#333',
+                }}
+              >
+                {s}
+              </span>
+            ))}
+          </div>
+          <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: '#666' }}>
+            컨텐츠 내 적절한 비중을 가진 크기로 사용합니다.
+          </p>
+          <div
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '36px 20px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '16px',
+              flexWrap: 'wrap',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="xl">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>XLarge</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="lg">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Large</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="md">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Medium</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="sm">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Small</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="xs">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>XSmall</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. State Section */}
+        <div style={{ marginBottom: '36px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '15px', fontWeight: 600 }}>State</span>
+            <span style={{ fontSize: '14px', color: '#666' }}>=</span>
+            <span
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: '#e9ecef',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                color: '#333',
+              }}
+            >
+              normal <span style={{ color: '#888', fontSize: '11px' }}>default</span>
+            </span>
+            {['hover', 'pressed', 'disabled'].map((st) => (
+              <span
+                key={st}
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: '#e9ecef',
+                  padding: '2px 8px',
+                  borderRadius: '4px',
+                  color: '#333',
+                }}
+              >
+                {st}
+              </span>
+            ))}
+          </div>
+          <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: '#666' }}>
+            사용자의 상호작용 시 컬러가 변경됩니다.
+          </p>
+          <div
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '36px 20px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '20px',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="lg" state="normal">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Default</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="lg" state="hover">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Hover</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="lg" state="pressed">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Pressed</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="primary" size="lg" state="disabled">버튼명</Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Disabled</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Icon Section */}
+        <div style={{ marginBottom: '36px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '15px', fontWeight: 600 }}>Icon</span>
+            <span style={{ fontSize: '14px', color: '#666' }}>=</span>
+            <span
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: '#e9ecef',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                color: '#333',
+              }}
+            >
+              false <span style={{ color: '#888', fontSize: '11px' }}>default</span>
+            </span>
+            <span
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: '#e9ecef',
+                padding: '2px 8px',
+                borderRadius: '4px',
+                color: '#333',
+              }}
+            >
+              true
+            </span>
+          </div>
+          <p style={{ margin: '0 0 6px 0', fontSize: '13px', color: '#666' }}>
+            버튼 내 시각적인 상징이 필요한 경우 사용합니다.
+          </p>
+          <p style={{ margin: '0 0 4px 0', fontSize: '12px', color: '#888' }}>
+            Left : 버튼의 속성을 시각화하여 이해를 보조하는 경우
+          </p>
+          <p style={{ margin: '0 0 16px 0', fontSize: '12px', color: '#888' }}>
+            Right : 버튼의 다음 액션을 시각화하여 이해를 보조하는 경우
+          </p>
+          <div
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '36px 20px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '24px',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="tertiary" size="md" leftIcon={<Icon name="download_16" size={16} />}>
+                쿠폰 다운로드
+              </Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Left Icon</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <Button type="tertiary" size="md" rightIcon={<Icon name="arrow_right_12" size={12} />}>
+                배송지 목록
+              </Button>
+              <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Right Icon</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 5. Component Section */}
+        <div>
+          <h3 style={{ margin: '0 0 16px 0', fontSize: '16px', fontWeight: 700 }}>
+            Component
+          </h3>
+          <div
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '12px',
+              padding: '40px 24px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+            }}
+          >
+            {/* Purple dashed Figma Component Set bounding box */}
+            <div
+              style={{
+                border: '1.5px dashed #8a38f5',
+                borderRadius: '12px',
+                padding: '24px 20px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '32px',
+              }}
+            >
+              {(['primary', 'secondary', 'tertiary'] as const).map((type) => (
+                <div key={type} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  {sizes.map((size) => (
+                    <div key={size} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                      {states.map((st) => (
+                        <div key={st} style={{ width: '96px', display: 'flex', justifyContent: 'center' }}>
+                          <Button type={type} size={size} state={st}>
+                            버튼명
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
+/**
  * 1. Type (중요도에 따라 버튼 간 위계를 구분하여 사용)
  */
 export const TypeHierarchy: Story = {
@@ -86,15 +428,15 @@ export const TypeHierarchy: Story = {
       <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
           <Button type="primary" size="lg">버튼명</Button>
-          <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)', fontFamily: 'var(--primitive-font-family)' }}>Primary</span>
+          <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Primary</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
           <Button type="secondary" size="lg">버튼명</Button>
-          <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)', fontFamily: 'var(--primitive-font-family)' }}>Secondary</span>
+          <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Secondary</span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
           <Button type="tertiary" size="lg">버튼명</Button>
-          <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)', fontFamily: 'var(--primitive-font-family)' }}>Tertiary</span>
+          <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Tertiary</span>
         </div>
       </div>
     </div>
@@ -109,23 +451,23 @@ export const Sizes: Story = {
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
         <Button type="primary" size="xl">버튼명</Button>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>XLarge (56px)</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>XLarge</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
         <Button type="primary" size="lg">버튼명</Button>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Large (48px)</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Large</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
         <Button type="primary" size="md">버튼명</Button>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Medium (40px)</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Medium</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
         <Button type="primary" size="sm">버튼명</Button>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Small (32px)</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Small</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
         <Button type="primary" size="xs">버튼명</Button>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>XSmall (24px)</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>XSmall</span>
       </div>
     </div>
   ),
@@ -164,16 +506,16 @@ export const Icons: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-        <Button type="tertiary" size="md" leftIcon={<Download size={16} />}>
+        <Button type="tertiary" size="md" leftIcon={<Icon name="download_16" size={16} />}>
           쿠폰 다운로드
         </Button>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Left Icon (속성 시각화)</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Left Icon</span>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-        <Button type="tertiary" size="md" rightIcon={<ChevronRight size={16} />}>
+        <Button type="tertiary" size="md" rightIcon={<Icon name="arrow_right_12" size={12} />}>
           배송지 목록
         </Button>
-        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Right Icon (다음 액션 보조)</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Right Icon</span>
       </div>
     </div>
   ),
@@ -193,23 +535,24 @@ export const FigmaComponentMatrix: Story = {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--primitive-number-10)',
-          padding: 'var(--primitive-number-9)',
-          backgroundColor: 'var(--color-bg-secondary)',
-          borderRadius: 'var(--primitive-number-6)',
-          border: '1px dashed var(--color-border-default)',
+          gap: '24px',
+          padding: '24px',
+          backgroundColor: '#ffffff',
+          borderRadius: '12px',
+          border: '1.5px dashed #8a38f5',
+          fontFamily: 'var(--primitive-font-family)',
         }}
       >
         {types.map((type) => (
-          <div key={type} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-6)' }}>
-            <h4 style={{ margin: 0, textTransform: 'capitalize', fontSize: '14px', fontWeight: 600, color: 'var(--color-text-default)', fontFamily: 'var(--primitive-font-family)' }}>
+          <div key={type} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <h4 style={{ margin: 0, textTransform: 'capitalize', fontSize: '14px', fontWeight: 600, color: 'var(--color-text-default)' }}>
               {type} Matrix (5 Sizes × 4 States)
             </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {sizes.map((size) => (
-                <div key={size} style={{ display: 'flex', gap: 'var(--primitive-number-6)', alignItems: 'center' }}>
+                <div key={size} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                   {states.map((state) => (
-                    <div key={state} style={{ width: '130px', display: 'flex', justifyContent: 'center' }}>
+                    <div key={state} style={{ width: '100px', display: 'flex', justifyContent: 'center' }}>
                       <Button type={type} size={size} state={state}>
                         버튼명
                       </Button>
@@ -244,135 +587,92 @@ export const TokenMappingTable: Story = {
           Button ➔ Figma Design Token 1:1 매핑 명세서
         </h3>
         <p style={{ margin: 0, fontSize: '14px', color: 'var(--color-text-secondary)' }}>
-          모든 스타일 속성은 피그마 <code>00. Common Design System</code>에 등록된 토큰 명칭과 100% 동일하게 매핑됩니다.
+          모든 스타일 속성은 피그마 <code>00. Common Design System</code>의 <code>Component / Color / Button</code> 및 <code>Typescale</code>과 100% 동일하게 매핑됩니다.
         </p>
       </div>
 
-      {/* 1. Typography */}
-      <div style={{ border: '1px solid var(--color-border-default)', borderRadius: 'var(--primitive-number-3)', overflow: 'hidden' }}>
-        <div style={{ padding: '12px 16px', backgroundColor: 'var(--color-bg-secondary)', fontWeight: 600, fontSize: '14px', color: 'var(--color-text-default)' }}>
-          1. Typography 매핑 (Pretendard, Medium 500, 자간 -0.02em)
-        </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', textAlign: 'left' }}>
+      <div style={{ overflowX: 'auto' }}>
+        <table
+          style={{
+            width: '100%',
+            borderCollapse: 'collapse',
+            fontSize: '13px',
+            textAlign: 'left',
+            lineHeight: 1.6,
+          }}
+        >
           <thead>
-            <tr style={{ borderBottom: '1px solid var(--color-border-default)', backgroundColor: 'var(--color-bg-default)' }}>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>버튼 Size</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>피그마 토큰 경로</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>적용 CSS 변수명</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>값</th>
+            <tr style={{ backgroundColor: 'var(--color-bg-secondary)', borderBottom: '2px solid var(--color-border-default)' }}>
+              <th style={{ padding: '10px 14px', fontWeight: 600 }}>속성 분류</th>
+              <th style={{ padding: '10px 14px', fontWeight: 600 }}>컴포넌트 속성</th>
+              <th style={{ padding: '10px 14px', fontWeight: 600 }}>피그마 토큰 경로</th>
+              <th style={{ padding: '10px 14px', fontWeight: 600 }}>적용 CSS 토큰</th>
+              <th style={{ padding: '10px 14px', fontWeight: 600 }}>값 / 비고</th>
             </tr>
           </thead>
           <tbody>
-            {[
-              { size: 'xl', path: '.Primitive / Typography / Font-size / Body / Large', css: '--primitive-font-size-body-large', val: '16px' },
-              { size: 'lg', path: '.Primitive / Typography / Font-size / Body / Medium', css: '--primitive-font-size-body-medium', val: '15px' },
-              { size: 'md', path: '.Primitive / Typography / Font-size / Body / Small', css: '--primitive-font-size-body-small', val: '14px' },
-              { size: 'sm', path: '.Primitive / Typography / Font-size / Body / XSmall', css: '--primitive-font-size-body-xsmall', val: '13px' },
-              { size: 'xs', path: '.Primitive / Typography / Font-size / Body / XXSmall', css: '--primitive-font-size-body-xxsmall', val: '12px' },
-            ].map((row, i) => (
-              <tr key={row.size} style={{ borderBottom: i < 4 ? '1px solid var(--color-border-secondary)' : 'none' }}>
-                <td style={{ padding: '10px 16px', fontWeight: 600 }}>{row.size}</td>
-                <td style={{ padding: '10px 16px' }}><code>{row.path}</code></td>
-                <td style={{ padding: '10px 16px', color: 'var(--primitive-color-orange-50)' }}><code>var({row.css})</code></td>
-                <td style={{ padding: '10px 16px' }}>{row.val}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* 2. Number Dimensions */}
-      <div style={{ border: '1px solid var(--color-border-default)', borderRadius: 'var(--primitive-number-3)', overflow: 'hidden' }}>
-        <div style={{ padding: '12px 16px', backgroundColor: 'var(--color-bg-secondary)', fontWeight: 600, fontSize: '14px', color: 'var(--color-text-default)' }}>
-          2. Number 치수 매핑 (Height, Padding, Gap, Corner Radius)
-        </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', textAlign: 'left' }}>
-          <thead>
-            <tr style={{ borderBottom: '1px solid var(--color-border-default)', backgroundColor: 'var(--color-bg-default)' }}>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>버튼 Size</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Height</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Padding (X)</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Gap</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Radius</th>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Color (Primary)</td>
+              <td style={{ padding: '10px 14px' }}>Normal / Hover / Pressed</td>
+              <td style={{ padding: '10px 14px' }}><code>Color.Button.Primary-fill / -hover / -pressed</code></td>
+              <td style={{ padding: '10px 14px' }}><code>var(--color-button-primary-fill / -hover / -pressed)</code></td>
+              <td style={{ padding: '10px 14px' }}>#1a1a1a (Gray/10) ➔ #000000 (Gray/0) ➔ #333333 (Gray/20)</td>
             </tr>
-          </thead>
-          <tbody>
-            {[
-              { size: 'xl', h: '--primitive-number-13 (56px)', p: '--primitive-number-9 (24px)', g: '--primitive-number-4 (8px)', r: '--primitive-number-3 (6px)' },
-              { size: 'lg', h: '--primitive-number-12 (48px)', p: '--primitive-number-8 (20px)', g: '--primitive-number-4 (8px)', r: '--primitive-number-3 (6px)' },
-              { size: 'md', h: '--primitive-number-11 (40px)', p: '--primitive-number-7 (16px)', g: '--primitive-number-3 (6px)', r: '--primitive-number-2 (4px)' },
-              { size: 'sm', h: '--primitive-number-10 (32px)', p: '--primitive-number-6 (12px)', g: '--primitive-number-3 (6px)', r: '--primitive-number-2 (4px)' },
-              { size: 'xs', h: '--primitive-number-9 (24px)', p: '--primitive-number-4 (8px)', g: '--primitive-number-2 (4px)', r: '--primitive-number-2 (4px)' },
-            ].map((row, i) => (
-              <tr key={row.size} style={{ borderBottom: i < 4 ? '1px solid var(--color-border-secondary)' : 'none' }}>
-                <td style={{ padding: '10px 16px', fontWeight: 600 }}>{row.size}</td>
-                <td style={{ padding: '10px 16px' }}><code>var({row.h})</code></td>
-                <td style={{ padding: '10px 16px' }}><code>var({row.p})</code></td>
-                <td style={{ padding: '10px 16px' }}><code>var({row.g})</code></td>
-                <td style={{ padding: '10px 16px' }}><code>var({row.r})</code></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* 3. Color Tokens */}
-      <div style={{ border: '1px solid var(--color-border-default)', borderRadius: 'var(--primitive-number-3)', overflow: 'hidden' }}>
-        <div style={{ padding: '12px 16px', backgroundColor: 'var(--color-bg-secondary)', fontWeight: 600, fontSize: '14px', color: 'var(--color-text-default)' }}>
-          3. Color 매핑 (Primary, Secondary, Tertiary × Normal, Hover, Pressed, Disabled)
-        </div>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', textAlign: 'left' }}>
-          <thead>
-            <tr style={{ borderBottom: '1px solid var(--color-border-default)', backgroundColor: 'var(--color-bg-default)' }}>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Type</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Normal (기본)</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Hover (오버)</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Pressed (누름)</th>
-              <th style={{ padding: '10px 16px', color: 'var(--color-text-secondary)' }}>Disabled (비활성)</th>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Color (Secondary)</td>
+              <td style={{ padding: '10px 14px' }}>Normal / Hover / Pressed</td>
+              <td style={{ padding: '10px 14px' }}><code>Color.Button.Secondary-fill / -hover / -pressed</code></td>
+              <td style={{ padding: '10px 14px' }}><code>var(--color-button-secondary-fill / -hover / -pressed)</code></td>
+              <td style={{ padding: '10px 14px' }}>#f5f5f5 (Gray/96) ➔ #e5e5e5 (Gray/90) ➔ #d9d9d9 (Gray/85)</td>
             </tr>
-          </thead>
-          <tbody>
-            <tr style={{ borderBottom: '1px solid var(--color-border-secondary)' }}>
-              <td style={{ padding: '10px 16px', fontWeight: 600 }}>Primary</td>
-              <td style={{ padding: '10px 16px' }}>
-                BG: <code>var(--primitive-color-gray-0)</code><br />
-                Text: <code>var(--color-text-inverse)</code><br />
-                Icon: <code>var(--color-icon-inverse)</code>
-              </td>
-              <td style={{ padding: '10px 16px' }}>BG: <code>var(--primitive-color-gray-20)</code></td>
-              <td style={{ padding: '10px 16px' }}>BG: <code>var(--primitive-color-gray-30)</code></td>
-              <td style={{ padding: '10px 16px' }}>
-                BG: <code>var(--color-bg-disabled)</code><br />
-                Text: <code>var(--color-text-disabled)</code>
-              </td>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Color (Tertiary)</td>
+              <td style={{ padding: '10px 14px' }}>배경 / 테두리</td>
+              <td style={{ padding: '10px 14px' }}><code>Color.Button.Tertiary-fill / -border</code></td>
+              <td style={{ padding: '10px 14px' }}><code>var(--color-button-tertiary-fill / -border)</code></td>
+              <td style={{ padding: '10px 14px' }}>배경: #ffffff ➔ #f5f5f5 ➔ #e5e5e5 / 테두리: #4d4d4d (Border/Subtle)</td>
             </tr>
-            <tr style={{ borderBottom: '1px solid var(--color-border-secondary)' }}>
-              <td style={{ padding: '10px 16px', fontWeight: 600 }}>Secondary</td>
-              <td style={{ padding: '10px 16px' }}>
-                BG: <code>var(--primitive-color-gray-96)</code><br />
-                Text: <code>var(--color-text-default)</code><br />
-                Icon: <code>var(--color-icon-default)</code>
-              </td>
-              <td style={{ padding: '10px 16px' }}>BG: <code>var(--color-bg-tertiary)</code></td>
-              <td style={{ padding: '10px 16px' }}>BG: <code>var(--primitive-color-gray-85)</code></td>
-              <td style={{ padding: '10px 16px' }}>
-                BG: <code>var(--color-bg-disabled)</code><br />
-                Text: <code>var(--color-text-disabled)</code>
-              </td>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Color (Disabled)</td>
+              <td style={{ padding: '10px 14px' }}>배경 / 테두리 / 텍스트</td>
+              <td style={{ padding: '10px 14px' }}><code>Color.Button.Disabled-fill / -border / -text</code></td>
+              <td style={{ padding: '10px 14px' }}><code>var(--color-button-disabled-fill / -border / -text)</code></td>
+              <td style={{ padding: '10px 14px' }}>#f5f5f5 / #e5e5e5 / #b2b2b2</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Typescale (xl)</td>
+              <td style={{ padding: '10px 14px' }}>크기 / 행간 / 자간 / 굵기</td>
+              <td style={{ padding: '10px 14px' }}><code>Typescale.Body Large</code></td>
+              <td style={{ padding: '10px 14px' }}><code>16px / 24px / -0.02em / Medium(500)</code></td>
+              <td style={{ padding: '10px 14px' }}>피그마 Typescale 1:1 매칭</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Typescale (lg)</td>
+              <td style={{ padding: '10px 14px' }}>크기 / 행간 / 자간 / 굵기</td>
+              <td style={{ padding: '10px 14px' }}><code>Typescale.Body Medium</code></td>
+              <td style={{ padding: '10px 14px' }}><code>15px / 24px / -0.02em / Medium(500)</code></td>
+              <td style={{ padding: '10px 14px' }}>피그마 Typescale 1:1 매칭</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Typescale (md)</td>
+              <td style={{ padding: '10px 14px' }}>크기 / 행간 / 자간 / 굵기</td>
+              <td style={{ padding: '10px 14px' }}><code>Typescale.Body Small</code></td>
+              <td style={{ padding: '10px 14px' }}><code>14px / 22px / -0.02em / Medium(500)</code></td>
+              <td style={{ padding: '10px 14px' }}>피그마 Typescale 1:1 매칭</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid var(--color-border-tertiary)' }}>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Typescale (sm)</td>
+              <td style={{ padding: '10px 14px' }}>크기 / 행간 / 자간 / 굵기</td>
+              <td style={{ padding: '10px 14px' }}><code>Typescale.Body XSmall</code></td>
+              <td style={{ padding: '10px 14px' }}><code>13px / 22px / -0.02em / Medium(500)</code></td>
+              <td style={{ padding: '10px 14px' }}>피그마 Typescale 1:1 매칭</td>
             </tr>
             <tr>
-              <td style={{ padding: '10px 16px', fontWeight: 600 }}>Tertiary</td>
-              <td style={{ padding: '10px 16px' }}>
-                BG: <code>var(--color-bg-default)</code><br />
-                Border: <code>var(--color-border-default)</code><br />
-                Text: <code>var(--color-text-default)</code>
-              </td>
-              <td style={{ padding: '10px 16px' }}>BG: <code>var(--color-bg-secondary)</code></td>
-              <td style={{ padding: '10px 16px' }}>BG: <code>var(--color-bg-tertiary)</code></td>
-              <td style={{ padding: '10px 16px' }}>
-                Border: <code>var(--color-border-disabled)</code><br />
-                Text: <code>var(--color-text-disabled)</code>
-              </td>
+              <td style={{ padding: '10px 14px', fontWeight: 500 }}>Typescale (xs)</td>
+              <td style={{ padding: '10px 14px' }}>크기 / 행간 / 자간 / 굵기</td>
+              <td style={{ padding: '10px 14px' }}><code>Typescale.Caption Small</code></td>
+              <td style={{ padding: '10px 14px' }}><code>12px / 22px / -0.02em / Medium(500)</code></td>
+              <td style={{ padding: '10px 14px' }}>피그마 Typescale 1:1 매칭</td>
             </tr>
           </tbody>
         </table>

@@ -1,0 +1,1236 @@
+{
+  "Color": {
+    "Gray": {
+      "0": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.0}"
+      },
+      "10": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#1a1a1a"
+      },
+      "20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#333333"
+      },
+      "30": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#4d4d4d"
+      },
+      "40": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#666666"
+      },
+      "50": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#808080"
+      },
+      "60": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#999999"
+      },
+      "70": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#b2b2b2"
+      },
+      "85": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#d9d9d9"
+      },
+      "90": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#e5e5e5"
+      },
+      "96": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#f5f5f5"
+      },
+      "100": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.100}"
+      }
+    },
+    "Common": {
+      "0": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#000000"
+      },
+      "100": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ffffff"
+      }
+    },
+    "Orange": {
+      "0": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.0}"
+      },
+      "10": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#2e1105"
+      },
+      "20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#5b210b"
+      },
+      "30": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#893210"
+      },
+      "40": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#b74315"
+      },
+      "50": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#e4541b"
+      },
+      "60": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ea7648"
+      },
+      "70": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ef9876"
+      },
+      "80": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#f4baa4"
+      },
+      "90": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#faddd1"
+      },
+      "96": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#fdf1ed"
+      },
+      "100": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.100}"
+      }
+    },
+    "Red": {
+      "0": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.0}"
+      },
+      "10": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#2e0505"
+      },
+      "20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#5c0a0a"
+      },
+      "30": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#891010"
+      },
+      "40": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#b71515"
+      },
+      "50": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#e51a1a"
+      },
+      "60": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ea4848"
+      },
+      "70": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ef7676"
+      },
+      "80": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#f5a3a3"
+      },
+      "90": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#fad1d1"
+      },
+      "95": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#fce8e8"
+      },
+      "100": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.100}"
+      }
+    },
+    "Blue": {
+      "0": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.0}"
+      },
+      "10": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#040e2f"
+      },
+      "20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#081c5e"
+      },
+      "30": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#0b2a8e"
+      },
+      "40": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#0b2a8e"
+      },
+      "52": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#1e4eed"
+      },
+      "60": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#426af0"
+      },
+      "70": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#7190f4"
+      },
+      "80": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#a1b5f7"
+      },
+      "90": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#d0dafb"
+      },
+      "95": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#e7ecfd"
+      },
+      "100": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "{Color.Common.100}"
+      }
+    },
+    "Overlay": {
+      "Black20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#00000033"
+      },
+      "Black50": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#00000080"
+      },
+      "Black80": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#000000cc"
+      },
+      "White20": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ffffff33"
+      },
+      "White50": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ffffff80"
+      },
+      "White90": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "color",
+        "$value": "#ffffffe6"
+      }
+    }
+  },
+  "Typography": {
+    "Font": {
+      "Family": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "text",
+        "$value": "Pretendard"
+      }
+    },
+    "Font-weight": {
+      "Regular": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "text",
+        "$value": "Regular"
+      },
+      "Medium": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "text",
+        "$value": "Medium"
+      },
+      "SemiBold": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "text",
+        "$value": "SemiBold"
+      }
+    },
+    "Letter-spacing": {
+      "0": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "number",
+        "$value": 0
+      },
+      "1": {
+        "$extensions": {
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$type": "number",
+        "$value": -0.02
+      }
+    },
+    "Font-size": {
+      "Body": {
+        "XSmall": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 13
+        },
+        "Small": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 14
+        },
+        "Medium": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 15
+        },
+        "Large": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 16
+        },
+        "XXSmall": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 12
+        }
+      },
+      "Heading": {
+        "Medium": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 18
+        },
+        "XLarge": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 32
+        },
+        "Large": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 24
+        },
+        "Small": {
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": false
+          },
+          "$type": "number",
+          "$value": 16
+        }
+      }
+    }
+  },
+  "Number": {
+    "0": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 0
+    },
+    "1": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 2
+    },
+    "2": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 4
+    },
+    "3": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 6
+    },
+    "4": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 8
+    },
+    "5": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 10
+    },
+    "6": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 12
+    },
+    "7": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 16
+    },
+    "8": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 20
+    },
+    "9": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 24
+    },
+    "10": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 32
+    },
+    "11": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 40
+    },
+    "12": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 48
+    },
+    "13": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 56
+    },
+    "14": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 64
+    },
+    "15": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 72
+    },
+    "16": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 80
+    },
+    "17": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 96
+    },
+    "18": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 120
+    },
+    "19": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 140
+    },
+    "20": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 160
+    },
+    "circle": {
+      "$extensions": {
+        "com.figma.hiddenFromPublishing": false
+      },
+      "$type": "number",
+      "$value": 999
+    }
+  },
+  "Strong": {
+    "$type": "boxShadow",
+    "$value": {
+      "color": "#00000040",
+      "type": "dropShadow",
+      "x": 0,
+      "y": 0,
+      "blur": 10,
+      "spread": 0
+    }
+  },
+  "fontFamilies": {
+    "roboto": {
+      "$type": "fontFamilies",
+      "$value": "Roboto"
+    },
+    "inter": {
+      "$type": "fontFamilies",
+      "$value": "Inter"
+    }
+  },
+  "lineHeights": {
+    "27": {
+      "$type": "lineHeights",
+      "$value": "110%"
+    },
+    "28": {
+      "$type": "lineHeights",
+      "$value": "110%"
+    },
+    "29": {
+      "$type": "lineHeights",
+      "$value": "110%"
+    },
+    "30": {
+      "$type": "lineHeights",
+      "$value": "110%"
+    },
+    "31": {
+      "$type": "lineHeights",
+      "$value": "110%"
+    }
+  },
+  "fontWeights": {
+    "roboto-3": {
+      "$type": "fontWeights",
+      "$value": "Regular"
+    },
+    "inter-4": {
+      "$type": "fontWeights",
+      "$value": "Bold"
+    },
+    "inter-5": {
+      "$type": "fontWeights",
+      "$value": "Regular"
+    }
+  },
+  "fontSize": {
+    "0": {
+      "$type": "fontSizes",
+      "$value": 12
+    },
+    "1": {
+      "$type": "fontSizes",
+      "$value": 13
+    },
+    "2": {
+      "$type": "fontSizes",
+      "$value": 14
+    },
+    "3": {
+      "$type": "fontSizes",
+      "$value": 15
+    },
+    "4": {
+      "$type": "fontSizes",
+      "$value": 16
+    },
+    "5": {
+      "$type": "fontSizes",
+      "$value": 18
+    },
+    "6": {
+      "$type": "fontSizes",
+      "$value": 20
+    },
+    "7": {
+      "$type": "fontSizes",
+      "$value": 24
+    },
+    "8": {
+      "$type": "fontSizes",
+      "$value": 28
+    },
+    "9": {
+      "$type": "fontSizes",
+      "$value": 32
+    },
+    "10": {
+      "$type": "fontSizes",
+      "$value": 39
+    },
+    "11": {
+      "$type": "fontSizes",
+      "$value": 49
+    }
+  },
+  "letterSpacing": {
+    "0": {
+      "$type": "letterSpacing",
+      "$value": -0.02
+    },
+    "1": {
+      "$type": "letterSpacing",
+      "$value": "0%"
+    },
+    "2": {
+      "$type": "letterSpacing",
+      "$value": "-5%"
+    }
+  },
+  "paragraphSpacing": {
+    "0": {
+      "$type": "paragraphSpacing",
+      "$value": 0
+    },
+    "1": {
+      "$type": "paragraphSpacing",
+      "$value": 26
+    },
+    "2": {
+      "$type": "paragraphSpacing",
+      "$value": 32
+    }
+  },
+  "Heading 1": {
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading XLarge.Font}",
+        "fontWeight": "{Typescale.Heading XLarge.Weight}",
+        "lineHeight": "{Typescale.Heading XLarge.Line Height}",
+        "fontSize": "{fontSize.9}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading XLarge.Font}",
+        "fontWeight": "{Typescale.Heading Large.Weight-emphasized}",
+        "lineHeight": "{Typescale.Heading XLarge.Line Height}",
+        "fontSize": "{fontSize.9}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Heading 2": {
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Heading Large.Line Height}",
+        "fontSize": "{fontSize.8}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "{Typescale.Heading Large.Weight-emphasized}",
+        "lineHeight": "{Typescale.Heading Large.Line Height}",
+        "fontSize": "{fontSize.8}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Heading 3": {
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Heading Medium.Line Height}",
+        "fontSize": "{fontSize.7}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "SemiBold",
+        "lineHeight": "{Typescale.Heading Medium.Line Height}",
+        "fontSize": "{fontSize.7}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Heading 4": {
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Heading Small.Line Height}",
+        "fontSize": "{fontSize.6}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "SemiBold",
+        "lineHeight": "{Typescale.Heading Small.Line Height}",
+        "fontSize": "{fontSize.6}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Body 1": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "{Typescale.Body XLarge.Weight}",
+        "lineHeight": "{Typescale.Body XLarge.Line Height}",
+        "fontSize": "{fontSize.5}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Body XLarge.Line Height}",
+        "fontSize": "{fontSize.5}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "SemiBold",
+        "lineHeight": "{Typescale.Body XLarge.Line Height}",
+        "fontSize": "{fontSize.5}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Body 2": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Regular",
+        "lineHeight": "{Typescale.Body Large.Line Height}",
+        "fontSize": "{fontSize.4}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Body Large.Line Height}",
+        "fontSize": "{fontSize.4}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "SemiBold",
+        "lineHeight": "{Typescale.Body Large.Line Height}",
+        "fontSize": "{fontSize.4}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Body 3": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Regular",
+        "lineHeight": "{Typescale.Body Large.Line Height}",
+        "fontSize": "{fontSize.3}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Body Large.Line Height}",
+        "fontSize": "{fontSize.3}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "SemiBold",
+        "lineHeight": "{Typescale.Body Large.Line Height}",
+        "fontSize": "{fontSize.3}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Body 4": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Regular",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.2}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.2}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "SemiBold",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.2}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Body 5": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Regular",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.1}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.1}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "SemiBold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "SemiBold",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.1}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Caption 1": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Regular",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.1}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.1}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "Caption 2": {
+    "Regular": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Regular",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.0}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    },
+    "Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{Typescale.Heading Large.Font}",
+        "fontWeight": "Medium",
+        "lineHeight": "{Typescale.Body Small.Line Height}",
+        "fontSize": "{fontSize.0}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      }
+    }
+  },
+  "textCase": {
+    "none": {
+      "$type": "textCase",
+      "$value": "none"
+    }
+  },
+  "textDecoration": {
+    "none": {
+      "$type": "textDecoration",
+      "$value": "none"
+    }
+  },
+  "paragraphIndent": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    }
+  }
+}

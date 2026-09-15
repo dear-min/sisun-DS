@@ -1,0 +1,112 @@
+/**
+ * Atelier Fashion Design System - Floating Button Atom Component
+ * 피그마 "00. Common Design System"의 Floating Button 컴포넌트 100% 매핑
+ * Class Name: floating-btn (호환 별칭: btn--floating, fashion-btn--floating)
+ * Variants:
+ *  - Type: floating
+ *  - Size: md (40px) | sm (32px)
+ *  - State: normal (default) | hover | pressed
+ */
+
+/* ==========================================================================
+   1. Floating Button Base (.floating-btn)
+   ========================================================================== */
+.floating-btn,
+.btn--floating,
+.fashion-btn--floating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  border-radius: var(--primitive-radius-circle, 999px);
+  background-color: var(--color-button-floating-bg, #ffffff);
+  color: var(--color-button-floating-text, #000000);
+  font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
+  font-weight: var(--primitive-font-weight-medium, 500);
+  line-height: 1.4;
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px var(--color-button-floating-shadow, rgba(0, 0, 0, 0.12)), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, color 0.15s ease;
+}
+
+/* ==========================================================================
+   2. Size Variants: md (40px) & sm (32px)
+   ========================================================================== */
+/* Medium (md: 40px) */
+.floating-btn--md,
+.btn--floating.btn--md,
+.fashion-btn--floating.fashion-btn--md {
+  height: var(--primitive-number-11, 40px);
+  padding: 0 var(--primitive-number-7, 16px);
+  font-size: var(--primitive-font-size-body-small, 14px);
+  gap: var(--primitive-number-3, 6px);
+}
+
+/* Small (sm: 32px) */
+.floating-btn--sm,
+.btn--floating.btn--sm,
+.fashion-btn--floating.fashion-btn--sm {
+  height: var(--primitive-number-10, 32px);
+  padding: 0 var(--primitive-number-6, 12px);
+  font-size: var(--primitive-font-size-body-xsmall, 13px);
+  gap: var(--primitive-number-2, 4px);
+}
+
+/* ==========================================================================
+   3. Interaction States (normal, hover, pressed)
+   ========================================================================== */
+/* Hover State */
+.floating-btn--hover,
+.floating-btn:hover {
+  background-color: var(--color-button-floating-hover, #ffffff);
+  box-shadow: 0 6px 16px var(--color-button-floating-shadow, rgba(0, 0, 0, 0.16)), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Pressed State */
+.floating-btn--pressed,
+.floating-btn:active {
+  background-color: var(--color-button-floating-pressed, #e5e5e5);
+  box-shadow: 0 2px 6px var(--color-button-floating-shadow, rgba(0, 0, 0, 0.12));
+  transform: translateY(0);
+}
+
+/* Disabled State */
+.floating-btn:disabled,
+.floating-btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   4. Focus-Visible (A11y Accessibility)
+   ========================================================================== */
+.floating-btn:focus-visible {
+  outline: 2px solid var(--color-border-positive, #1e4eed);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   5. Sub-elements (Icon & Label)
+   ========================================================================== */
+.floating-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.floating-btn__label {
+  display: inline-block;
+  line-height: inherit;
+}
