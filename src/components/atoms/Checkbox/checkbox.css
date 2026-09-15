@@ -1,0 +1,194 @@
+/**
+ * Atelier Fashion Design System - Checkbox Atom Component
+ * 피그마 "00. Common Design System"의 Check Box 컴포넌트 100% 매핑
+ * Class Name: check (호환 별칭: checkbox)
+ * Variants:
+ *  - Type: unchecked (default) | checked
+ *  - Disabled: false (default) | true
+ */
+
+/* ==========================================================================
+   1. Checkbox Component Container (.check / .checkbox)
+   ========================================================================== */
+.check,
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
+  font-size: var(--primitive-font-size-body-small, 14px);
+  font-weight: var(--primitive-font-weight-regular, 400);
+  line-height: 1.4;
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+  color: var(--color-checkbox-text);
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   2. Hidden Native Input for Accessibility & State
+   ========================================================================== */
+.check__input,
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. Checkbox Visual Box Control (16px x 16px, 2px radius)
+   ========================================================================== */
+.check__box,
+.check__control,
+.checkbox__box,
+.checkbox__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--primitive-number-7, 16px);
+  height: var(--primitive-number-7, 16px);
+  box-sizing: border-box;
+  border-radius: var(--radius-xsmall, 2px);
+  flex-shrink: 0;
+  border: 1px solid var(--color-checkbox-border);
+  background-color: var(--color-checkbox-bg);
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Check Mark SVG Icon */
+.check__icon,
+.checkbox__icon {
+  width: 10px;
+  height: 10px;
+  color: var(--color-checkbox-icon-checked);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.12s ease, transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  stroke: currentColor;
+}
+
+/* Label text */
+.check__label,
+.checkbox__label {
+  margin-left: var(--primitive-number-4, 8px);
+  color: var(--color-checkbox-text);
+  transition: color 0.15s ease;
+}
+
+/* ==========================================================================
+   4. State: Checked (Normal)
+   ========================================================================== */
+.check--checked .check__box,
+.check--checked .check__control,
+.checkbox--checked .checkbox__box,
+.checkbox--checked .checkbox__control,
+.check__input:checked + .check__box,
+.checkbox__input:checked + .checkbox__box {
+  background-color: var(--color-checkbox-bg-checked);
+  border-color: var(--color-checkbox-border-checked);
+}
+
+.check--checked .check__icon,
+.checkbox--checked .checkbox__icon,
+.check__input:checked + .check__box .check__icon,
+.checkbox__input:checked + .checkbox__box .checkbox__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   5. State: Disabled
+   ========================================================================== */
+.check--disabled,
+.checkbox--disabled,
+.check:has(.check__input:disabled),
+.checkbox:has(.checkbox__input:disabled) {
+  cursor: not-allowed;
+}
+
+/* Unchecked + Disabled */
+.check--disabled.check--unchecked .check__box,
+.checkbox--disabled.checkbox--unchecked .checkbox__box,
+.check__input:disabled:not(:checked) + .check__box,
+.checkbox__input:disabled:not(:checked) + .checkbox__box {
+  background-color: var(--color-checkbox-bg-disabled);
+  border-color: var(--color-checkbox-border-disabled);
+}
+
+.check--disabled .check__label,
+.checkbox--disabled .checkbox__label,
+.check__input:disabled ~ .check__label,
+.checkbox__input:disabled ~ .checkbox__label {
+  color: var(--color-checkbox-text-disabled);
+}
+
+/* Checked + Disabled */
+.check--disabled.check--checked .check__box,
+.checkbox--disabled.checkbox--checked .checkbox__box,
+.check__input:disabled:checked + .check__box,
+.checkbox__input:disabled:checked + .checkbox__box {
+  background-color: var(--color-checkbox-bg-checked-disabled);
+  border-color: var(--color-checkbox-border-checked-disabled);
+}
+
+.check--disabled.check--checked .check__icon,
+.checkbox--disabled.checkbox--checked .checkbox__icon,
+.check__input:disabled:checked + .check__box .check__icon,
+.checkbox__input:disabled:checked + .checkbox__box .checkbox__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   6. Focus-Visible (A11y Accessibility)
+   ========================================================================== */
+.check__input:focus-visible + .check__box,
+.checkbox__input:focus-visible + .checkbox__box {
+  outline: 2px solid var(--color-border-positive, #1e4eed);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   7. Hover Interaction (Enabled Only)
+   ========================================================================== */
+@media (hover: hover) {
+  .check:not(.check--disabled):not(:has(.check__input:disabled)):hover .check__box,
+  .checkbox:not(.checkbox--disabled):not(:has(.checkbox__input:disabled)):hover .checkbox__box {
+    border-color: var(--color-border-subtle);
+  }
+
+  .check--checked:not(.check--disabled):not(:has(.check__input:disabled)):hover .check__box,
+  .checkbox--checked:not(.checkbox--disabled):not(:has(.checkbox__input:disabled)):hover .checkbox__box,
+  .check:not(.check--disabled):has(.check__input:checked:not(:disabled)):hover .check__box,
+  .checkbox:not(.checkbox--disabled):has(.checkbox__input:checked:not(:disabled)):hover .checkbox__box {
+    opacity: 0.85;
+  }
+}
+
+/* ==========================================================================
+   8. CheckboxGroup Component Layout
+   ========================================================================== */
+.check-group,
+.checkbox-group {
+  display: flex;
+}
+
+.check-group--vertical,
+.checkbox-group--vertical {
+  flex-direction: column;
+  gap: var(--space-medium, 16px);
+}
+
+.check-group--horizontal,
+.checkbox-group--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-large, 24px);
+  align-items: center;
+}

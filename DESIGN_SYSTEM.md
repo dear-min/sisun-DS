@@ -233,7 +233,20 @@ DesignSystem/
 | | Hover 배경 | `Background / Secondary` | `var(--color-bg-secondary)` (#f5f5f5) | 상호작용 피드백 소프트 그레이 |
 | | Active 아이콘 | `Icon / Point` | `var(--color-icon-point)` (#e4541b) | 브랜드 메인 테라코타 오렌지 솔리드 채움 |
 | | Disabled (공통) | `Background / Disabled`, `Border / Disabled`, `Icon / Disabled` | `var(--color-bg-disabled)` / `var(--color-border-disabled)` / `var(--color-icon-disabled)` | 비활성 표준 시맨틱 토큰 |
-| **A11y** | 포커스 링 / 스크린리더 | `Border / Positive`, `aria-label` | `var(--color-border-positive)`, `aria-label` 필수 | 키보드 내비게이션 및 접근성 보장 |
+### 📌 Rule 2-7. 컴포넌트 ➔ 디자인 토큰 1:1 엄격 매핑 원칙 (Check Box)
+피그마 `Check Box`는 Type: `unchecked` (default) | `checked`, Disabled: `false` (default) | `true` 4종 상태를 기준으로 하며, 클래스명은 `check` (별칭: `checkbox`)입니다.
+
+| 분류 | 컴포넌트 속성 | 피그마 토큰 경로 | 적용 CSS 토큰 | 매핑 근거 및 규칙 |
+|---|---|---|---|---|
+| **Dimensions** | 박스 크기 | `Number / 7 (16px)` | `var(--primitive-number-7)` (16px) | 16px x 16px 정방형 박스 컨트롤 |
+| | 곡률 (Radius) | `Radius / XSmall (2px)` | `var(--radius-xsmall)` (2px) | 모서리 2px 마이크로 곡률 |
+| | 간격 (Gap) | `Number / 4 (8px)` | `var(--primitive-number-4)` (8px) | 박스와 라벨 텍스트 사이 거리 |
+| **Typography** | 라벨 텍스트 | `Font / Body Small Regular` | `var(--primitive-font-size-body-small)`, `var(--primitive-font-weight-regular)` | Pretendard 14px Regular, 행간 1.4 |
+| **Color** | Unchecked 배경 / 보더 | `Background / Default`, `Border / Default` | `var(--color-checkbox-bg)` (#ffffff) / `var(--color-checkbox-border)` (#d9d9d9) | 기본 화이트 서피스 + 1px 그레이 보더 |
+| | Checked 배경 / 보더 / 아이콘 | `Primary / Default`, `Icon / Inverse` | `var(--color-checkbox-bg-checked)` (#000000) / `var(--color-checkbox-border-checked)` (#000000) / `var(--color-checkbox-icon-checked)` (#ffffff) | 솔리드 블랙 배경 + 화이트 SVG 체크 마크 |
+| | Unchecked Disabled | `Background / Disabled`, `Border / Disabled`, `Text / Disabled` | `var(--color-checkbox-bg-disabled)` (#f5f5f5) / `var(--color-checkbox-border-disabled)` (#d9d9d9) / `var(--color-checkbox-text-disabled)` (#b2b2b2) | 비활성 소프트 그레이 서피스 + 비활성 텍스트 |
+| | Checked Disabled | `Text / Disabled`, `Icon / Inverse` | `var(--color-checkbox-bg-checked-disabled)` (#b2b2b2) / `var(--color-checkbox-border-checked-disabled)` (#b2b2b2) / `var(--color-checkbox-icon-checked)` (#ffffff) | 솔리드 그레이 비활성 채움 + 화이트 SVG 체크 마크 |
+| **A11y** | 포커스 링 / 스크린리더 | `Border / Positive`, 숨김 네이티브 인풋 | `var(--color-border-positive)`, `.check__input` | 키보드 탭 이동 및 접근성 보장 |
 
 ### 📌 Rule 3. 피그마 ➔ 코드 동기화 워크플로우
 1. 피그마에서 Tokens Studio 플러그인 등으로 JSON 내보내기.
