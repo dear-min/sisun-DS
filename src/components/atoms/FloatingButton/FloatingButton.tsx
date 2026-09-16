@@ -1,5 +1,4 @@
-import React, { forwardRef } from 'react';
-import type { ReactNode } from 'react';
+import { forwardRef } from 'react';
 import type { FloatingButtonProps } from './types';
 import { Icon } from '../Icon/Icon';
 import './floating-button.css';

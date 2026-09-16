@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { Tag } from './Tag';
 import type { TagType } from './types';
 

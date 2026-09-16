@@ -1,4 +1,3 @@
-import React from 'react';
 import type { FC, CSSProperties } from 'react';
 import type { IconProps, IconDefinition } from './types';
 import { iconRegistry } from './iconData';
@@ -64,8 +63,6 @@ export const Icon: FC<IconProps> = ({
 
   const effectiveSize = numericSize || iconDef.defaultSize;
   const isStandardSize = [8, 12, 16, 24, 32, 64].includes(effectiveSize);
-
-  const isThumbnail = iconDef.category === 'thumbnail';
 
   const classNames = [
     'ds-icon',

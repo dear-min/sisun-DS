@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Icon } from './Icon';
 import type { IconColorToken, IconSize } from './types';
 import { iconRegistry } from './iconData';

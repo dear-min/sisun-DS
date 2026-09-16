@@ -10,7 +10,7 @@ export type ChipType = 'unchecked' | 'checked';
 /**
  * Chip 컴포넌트 Props 인터페이스
  */
-export interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onChange'> {
+export interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onChange' | 'onToggle'> {
   /** 피그마 명세 Type (unchecked | checked, checked prop과 상호 호환) */
   type?: ChipType;
   /** 선택 여부 (Controlled) */

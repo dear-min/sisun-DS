@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { ProductGrid } from './ProductGrid';
 import type { ProductCardProps } from '../../molecules/ProductCard/ProductCard';
 

@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState, type FC } from 'react';
 import './introduction.css';
-import { Layers, RefreshCw, FileCode, CheckCircle2, ArrowRight } from 'lucide-react';
 
-const FigmaSyncGuide: React.FC = () => {
+const FigmaSyncGuide: FC = () => {
   const [copiedCmd, setCopiedCmd] = useState(false);
 
   const handleCopy = () => {

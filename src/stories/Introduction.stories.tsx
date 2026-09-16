@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
+import type { FC } from 'react';
 import './introduction.css';
 import { Button } from '../components/atoms/Button/Button';
 import { Badge } from '../components/atoms/Badge/Badge';
 import { WishlistButton } from '../components/atoms/WishlistButton/WishlistButton';
 import { Price } from '../components/atoms/Price/Price';
-import { ShoppingBag, Sparkles, Layers, Smartphone, Palette } from 'lucide-react';
+import { ShoppingBag, Smartphone, Palette } from 'lucide-react';
 
-const IntroductionPage: React.FC = () => {
+const IntroductionPage: FC = () => {
   return (
     <div className="intro-container">
       {/* Hero Header */}

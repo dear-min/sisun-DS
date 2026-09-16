@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CartDrawer } from './CartDrawer';
 import type { CartDrawerItem } from './CartDrawer';
 import { Button } from '../../atoms/Button/Button';

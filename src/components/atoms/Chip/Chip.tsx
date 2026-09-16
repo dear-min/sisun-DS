@@ -1,5 +1,5 @@
-import React, { forwardRef, createContext, useContext, useState } from 'react';
-import type { ReactNode, MouseEvent } from 'react';
+import { forwardRef, createContext, useContext, useState } from 'react';
+import type { MouseEvent } from 'react';
 import type { ChipProps, ChipGroupProps } from './types';
 import { Icon } from '../Icon/Icon';
 import './chip.css';
