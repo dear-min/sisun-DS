@@ -6,6 +6,11 @@ const meta: Meta<typeof Button> = {
   title: 'Atoms/Button',
   component: Button,
   parameters: {
+    // 피그마 연동 (Figma Design Tab)
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9NPZzytVoEfRCuBiUo6JXh/00.-Common-Design-System?node-id=77-1403&t=2UCgEKCwPtky2wTX-4',
+    },
     layout: 'centered',
     docs: {
       description: {
@@ -355,7 +360,7 @@ export const FigmaSpecification: Story = {
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-              <Button type="tertiary" size="md" leftIcon={<Icon name="download_16" size={16} />}>
+              <Button type="tertiary" size="md" leftIcon={<Icon name="download" size={16} />}>
                 쿠폰 다운로드
               </Button>
               <span style={{ fontSize: '12px', color: '#666', fontWeight: 500 }}>Left Icon</span>
@@ -506,7 +511,7 @@ export const Icons: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-        <Button type="tertiary" size="md" leftIcon={<Icon name="download_16" size={16} />}>
+        <Button type="tertiary" size="md" leftIcon={<Icon name="download" size={16} />}>
           쿠폰 다운로드
         </Button>
         <span style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>Left Icon</span>
