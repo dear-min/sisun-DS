@@ -7,22 +7,13 @@ const meta: Meta<typeof Tag> = {
   component: Tag,
   parameters: {
     layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9NPZzytVoEfRCuBiUo6JXh/00.-Common-Design-System?node-id=77-1403&t=2UCgEKCwPtky2wTX-4',
+    },
     docs: {
       description: {
-        component: `
-### Atelier Fashion Design System - Tag Atom Component
-피그마 **"00. Common Design System"**의 **Tag** 원자 단위 컴포넌트입니다.
-
-- **Class Name**: \`tag\`
-- **Type (5종)**:
-  - \`normal\` (default): 뉴트럴 그레이 배경 (\`--color-bg-secondary\`) + 보조 텍스트 (\`--color-text-secondary\`)
-  - \`point\`: 브랜드 소프트 오렌지 틴트 배경 (\`--primitive-color-orange-96\`) + 포인트 오렌지 텍스트 (\`--color-text-point-primary\`)
-  - \`inverse\`: 디폴트 화이트 배경 (\`--color-bg-default\`) + 서브틀 다크 그레이 텍스트 (\`--color-text-subtle\`)
-  - \`positive\`: 소프트 성공 블루 틴트 배경 (\`--primitive-color-blue-95\`) + 포지티브 블루 텍스트 (\`--color-text-success\`)
-  - \`negative\`: 소프트 에러 레드 틴트 배경 (\`--primitive-color-red-95\`) + 네거티브 레드 텍스트 (\`--color-text-error\`)
-- **타이포그래피**: 피그마 \`Caption Small\` (12px Medium 500, Letter-spacing: 1 / -0.02em, Pretendard)
-- **치수 토큰**: 높이 22px, 좌우 여백 8px (\`--primitive-number-4\`), 모서리 2px (\`--radius-xsmall\`)
-        `,
+        component: `피그마 **00. Common Design System**의 태그(Tag) 컴포넌트입니다. 상품의 주요 속성(소재, 핏), 혜택(배송, 할인), 상태(신상품, 품절임박) 등을 직관적으로 전달하는 컴팩트한 시각적 라벨입니다.`,
       },
     },
   },
@@ -32,16 +23,12 @@ const meta: Meta<typeof Tag> = {
       control: 'select',
       options: ['normal', 'point', 'inverse', 'positive', 'negative'],
       description: '피그마 정의 Tag Type 5종',
-      table: {
-        defaultValue: { summary: 'normal' },
-      },
+      table: { defaultValue: { summary: 'normal' } },
     },
     children: {
       control: 'text',
-      description: '태그 라벨 문구',
-      table: {
-        defaultValue: { summary: '라벨명' },
-      },
+      description: '태그 라벨 텍스트',
+      defaultValue: '라벨명',
     },
   },
 };
@@ -50,255 +37,301 @@ export default meta;
 type Story = StoryObj<typeof Tag>;
 
 /**
- * 1. Figma Specs: Type 5종 가로 배열 (첨부 이미지 상단 원본 100% 재현)
+ * Tag 컴포넌트 통합 명세 및 미리보기 (1depth 단일 뷰)
  */
-export const AllTypesRow: Story = {
-  name: '1. All Types (Figma Type Matrix)',
-  render: () => {
-    const types: { id: TagType; name: string; isDefault?: boolean }[] = [
-      { id: 'normal', name: 'Normal', isDefault: true },
-      { id: 'point', name: 'Point' },
-      { id: 'inverse', name: 'Inverse' },
-      { id: 'positive', name: 'Positive' },
-      { id: 'negative', name: 'Negative' },
-    ];
-
-    return (
-      <div style={{ padding: '32px 24px', maxWidth: '860px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        {/* Header section mimicking Figma frame */}
-        <div style={{ marginBottom: '32px' }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', borderBottom: '2px solid #000000', paddingBottom: '12px' }}>
-            <h2 style={{ margin: 0, fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em' }}>Tag</h2>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', fontWeight: 600 }}>
-              <span>Class Name</span>
-              <code style={{ background: '#f4f4f5', padding: '2px 8px', borderRadius: '4px', fontFamily: 'var(--font-mono, monospace)' }}>tag</code>
-            </div>
-          </div>
-        </div>
-
-        {/* Type selector header */}
-        <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '15px', fontWeight: 700 }}>Type =</span>
-          <span style={{ background: '#e4e4e7', padding: '3px 8px', borderRadius: '4px', fontSize: '12px', fontFamily: 'monospace', fontWeight: 600 }}>
-            normal <span style={{ opacity: 0.65, fontWeight: 400 }}>default</span>
-          </span>
-          <span style={{ background: '#e4e4e7', padding: '3px 8px', borderRadius: '4px', fontSize: '12px', fontFamily: 'monospace', fontWeight: 600 }}>point</span>
-          <span style={{ background: '#e4e4e7', padding: '3px 8px', borderRadius: '4px', fontSize: '12px', fontFamily: 'monospace', fontWeight: 600 }}>inverse</span>
-          <span style={{ background: '#e4e4e7', padding: '3px 8px', borderRadius: '4px', fontSize: '12px', fontFamily: 'monospace', fontWeight: 600 }}>positive</span>
-          <span style={{ background: '#e4e4e7', padding: '3px 8px', borderRadius: '4px', fontSize: '12px', fontFamily: 'monospace', fontWeight: 600 }}>negative</span>
-        </div>
-
-        {/* 5 Columns Display Box */}
-        <div
-          style={{
-            background: '#ffffff',
-            borderRadius: '16px',
-            border: '1px solid #e5e7eb',
-            padding: '48px 24px',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            gap: '16px',
-            textAlign: 'center',
-          }}
-        >
-          {types.map((t) => (
-            <div key={t.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-              <Tag type={t.id}>라벨명</Tag>
-              <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-secondary, #666666)' }}>
-                {t.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  },
-};
-
-/**
- * 2. Component Vertical Stack (첨부 이미지 하단 Component 점선 박스 원본 100% 재현)
- */
-export const ComponentVerticalStack: Story = {
-  name: '2. Component Vertical Stack (Figma Spec)',
-  render: () => {
-    return (
-      <div style={{ padding: '32px 24px', maxWidth: '720px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        <h3 style={{ margin: '0 0 20px 0', fontSize: '20px', fontWeight: 700 }}>Component</h3>
-
-        {/* White Card Surface */}
-        <div
-          style={{
-            background: '#ffffff',
-            borderRadius: '16px',
-            border: '1px solid #e5e7eb',
-            padding: '56px 24px',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          {/* Purple Dashed Bounding Box from Figma */}
-          <div
-            style={{
-              border: '1.5px dashed #8a38f5',
-              borderRadius: '8px',
-              padding: '24px 28px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '14px',
-              minWidth: '100px',
-            }}
-          >
-            <Tag type="point">라벨명</Tag>
-            <Tag type="normal">라벨명</Tag>
-            <Tag type="inverse">라벨명</Tag>
-            <Tag type="positive">라벨명</Tag>
-            <Tag type="negative">라벨명</Tag>
-          </div>
-        </div>
-      </div>
-    );
-  },
-};
-
-/**
- * 3. Figma Tokens 1:1 매핑 명세표 (Design Tokens Verification)
- */
-export const TokenMappingTable: Story = {
-  name: '3. Token Mapping Table (Zero Hardcoding)',
-  render: () => {
-    const tableData = [
-      {
-        type: 'normal (default)',
-        bgToken: 'var(--color-bg-secondary)',
-        bgValue: '#f5f5f5 (Color/Gray/96)',
-        textToken: 'var(--color-text-secondary)',
-        textValue: '#666666 (Color/Gray/40)',
-        role: '기본 상품 속성, 소재, 핏 정보 표기',
-      },
-      {
-        type: 'point',
-        bgToken: 'var(--primitive-color-orange-96)',
-        bgValue: '#fdf1ed (Color/Orange/96)',
-        textToken: 'var(--color-text-point-primary)',
-        textValue: '#e4541b (Color/Primary/Default)',
-        role: '브랜드 시그니처 웜 테라코타 강조, 기획전, 주요 옵션',
-      },
-      {
-        type: 'inverse',
-        bgToken: 'var(--color-bg-default)',
-        bgValue: '#ffffff (Color/Background/Default)',
-        textToken: 'var(--color-text-subtle)',
-        textValue: '#333333 (Color/Gray/20)',
-        role: '화이트 서피스 태그, 미니멀 클린 레이블, 에디토리얼 키워드',
-      },
-      {
-        type: 'positive',
-        bgToken: 'var(--primitive-color-blue-95)',
-        bgValue: '#e7ecfd (Color/Blue/95)',
-        textToken: 'var(--color-text-success)',
-        textValue: '#1e4eed (Color/Blue/52)',
-        role: '신규 입고, 재입고 완료, 무료 배송 달성, 인증 혜택',
-      },
-      {
-        type: 'negative',
-        bgToken: 'var(--primitive-color-red-95)',
-        bgValue: '#fce8e8 (Color/Red/95)',
-        textToken: 'var(--color-text-error)',
-        textValue: '#e51a1a (Color/Red/50)',
-        role: '품절 임박, 한정 세일, 긴급 공지, 잔여 수량 경고',
-      },
-    ];
-
-    return (
-      <div style={{ padding: '24px', maxWidth: '960px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: 700 }}>
-          피그마 1:1 토큰 바인딩 명세표
-        </h3>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', background: '#ffffff', borderRadius: '8px', overflow: 'hidden', border: '1px solid #e5e7eb' }}>
-          <thead>
-            <tr style={{ background: '#f9fafb', borderBottom: '1px solid #e5e7eb', textAlign: 'left' }}>
-              <th style={{ padding: '12px 16px', fontWeight: 600 }}>Preview</th>
-              <th style={{ padding: '12px 16px', fontWeight: 600 }}>Type</th>
-              <th style={{ padding: '12px 16px', fontWeight: 600 }}>배경 토큰 (Background)</th>
-              <th style={{ padding: '12px 16px', fontWeight: 600 }}>텍스트 토큰 (Color)</th>
-              <th style={{ padding: '12px 16px', fontWeight: 600 }}>역할 및 활용처</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableData.map((row) => (
-              <tr key={row.type} style={{ borderBottom: '1px solid #f3f4f6' }}>
-                <td style={{ padding: '12px 16px' }}>
-                  <Tag type={row.type.split(' ')[0] as TagType}>라벨명</Tag>
-                </td>
-                <td style={{ padding: '12px 16px', fontWeight: 600 }}>{row.type}</td>
-                <td style={{ padding: '12px 16px' }}>
-                  <code style={{ fontSize: '11px', background: '#f3f4f6', padding: '2px 4px', borderRadius: '4px' }}>{row.bgToken}</code>
-                  <div style={{ fontSize: '11px', color: '#666', marginTop: '2px' }}>{row.bgValue}</div>
-                </td>
-                <td style={{ padding: '12px 16px' }}>
-                  <code style={{ fontSize: '11px', background: '#f3f4f6', padding: '2px 4px', borderRadius: '4px' }}>{row.textToken}</code>
-                  <div style={{ fontSize: '11px', color: '#666', marginTop: '2px' }}>{row.textValue}</div>
-                </td>
-                <td style={{ padding: '12px 16px', color: '#444' }}>{row.role}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  },
-};
-
-/**
- * 4. Fashion E-Commerce Real World Use Cases
- */
-export const FashionEcommerceUseCases: Story = {
-  name: '4. Fashion E-Commerce Use Cases',
-  render: () => {
-    return (
-      <div style={{ padding: '24px', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '24px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        {/* Product Card Tag Row Example */}
-        <div style={{ background: '#ffffff', padding: '20px', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
-          <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 600, color: '#666' }}>
-            상품 카드 상단 뱃지/태그 레이아웃
-          </h4>
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Tag type="point">MD PICK</Tag>
-            <Tag type="positive">당일출고</Tag>
-            <Tag type="negative">마감임박</Tag>
-            <Tag type="normal">울 100%</Tag>
-            <Tag type="inverse">#오버핏코트</Tag>
-          </div>
-        </div>
-
-        {/* Order Status Tags */}
-        <div style={{ background: '#ffffff', padding: '20px', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
-          <h4 style={{ margin: '0 0 12px 0', fontSize: '14px', fontWeight: 600, color: '#666' }}>
-            주문 / 배송 상태 태그
-          </h4>
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Tag type="positive">무료특급배송</Tag>
-            <Tag type="point">쿠폰적용가</Tag>
-            <Tag type="normal">일반배송</Tag>
-            <Tag type="negative">품절 (SOLD OUT)</Tag>
-          </div>
-        </div>
-      </div>
-    );
-  },
-};
-
-/**
- * 5. Interactive Playground
- */
-export const InteractivePlayground: Story = {
-  name: '5. Interactive Playground',
+export const Overview: Story = {
+  name: 'Overview',
   args: {
     type: 'normal',
     children: '라벨명',
+  },
+  render: (args) => {
+    const types: { id: TagType; name: string; role: string; isDefault?: boolean }[] = [
+      { id: 'normal', name: 'Normal', role: '기본 상품 속성, 소재, 핏 정보', isDefault: true },
+      { id: 'point', name: 'Point', role: '브랜드 시그니처 웜 테라코타, 기획전, 주요 옵션' },
+      { id: 'inverse', name: 'Inverse', role: '화이트 서피스 태그, 미니멀 클린 레이블' },
+      { id: 'positive', name: 'Positive', role: '신규 입고, 재입고 완료, 무료 배송 혜택' },
+      { id: 'negative', name: 'Negative', role: '품절 임박, 타임 세일, 긴급 공지' },
+    ];
+
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--primitive-number-11, 40px)',
+          maxWidth: '860px',
+          fontFamily: 'var(--primitive-font-family)',
+          color: 'var(--color-text-default)',
+        }}
+      >
+        {/* 헤더 섹션: 피그마 프레임 명세 100% 매핑 */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'baseline',
+            justifyContent: 'space-between',
+            borderBottom: '2px solid var(--primitive-color-gray-0)',
+            paddingBottom: 'var(--primitive-number-6, 12px)',
+          }}
+        >
+          <div>
+            <h2 style={{ margin: 0, fontSize: '28px', fontWeight: 700, letterSpacing: 'var(--primitive-letter-spacing-1, -0.02em)' }}>
+              Tag
+            </h2>
+            <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-secondary)' }}>
+              피그마 <code>00. Common Design System</code> (node-id: 77-1403) 1:1 토큰 바인딩
+            </p>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--primitive-number-4, 8px)', fontSize: '13px', fontWeight: 600 }}>
+            <span style={{ color: 'var(--color-text-secondary)' }}>Class Name</span>
+            <code
+              style={{
+                backgroundColor: 'var(--color-bg-secondary)',
+                padding: 'var(--primitive-number-1, 2px) var(--primitive-number-4, 8px)',
+                borderRadius: 'var(--radius-small, 4px)',
+                color: 'var(--color-text-default)',
+              }}
+            >
+              tag
+            </code>
+          </div>
+        </div>
+
+        {/* 0. 대화형 미리보기 (Interactive Playground) */}
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+          <div>
+            <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 700 }}>
+              Interactive Playground
+            </h3>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+              하단 Controls 패널에서 Type 테마 및 라벨 문구를 직접 변경해보세요.
+            </p>
+          </div>
+          <div
+            style={{
+              backgroundColor: 'var(--color-bg-default)',
+              border: '1px solid var(--color-border-secondary)',
+              borderRadius: 'var(--radius-large, 8px)',
+              padding: 'var(--primitive-number-10, 32px) var(--primitive-number-8, 20px)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Tag {...args} />
+          </div>
+        </section>
+
+        {/* 1. Type Section (피그마 5종 매트릭스) */}
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
+              <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700 }}>Type</h3>
+              <span style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>=</span>
+              <code
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: 'var(--color-bg-secondary)',
+                  padding: '2px 8px',
+                  borderRadius: 'var(--radius-small, 4px)',
+                  color: 'var(--color-text-default)',
+                  fontWeight: 600,
+                }}
+              >
+                normal <span style={{ color: 'var(--color-text-tertiary)', fontSize: '11px' }}>default</span>
+              </code>
+              <code
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: 'var(--color-bg-secondary)',
+                  padding: '2px 8px',
+                  borderRadius: 'var(--radius-small, 4px)',
+                  color: 'var(--color-text-default)',
+                  fontWeight: 600,
+                }}
+              >
+                point
+              </code>
+              <code
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: 'var(--color-bg-secondary)',
+                  padding: '2px 8px',
+                  borderRadius: 'var(--radius-small, 4px)',
+                  color: 'var(--color-text-default)',
+                  fontWeight: 600,
+                }}
+              >
+                inverse
+              </code>
+              <code
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: 'var(--color-bg-secondary)',
+                  padding: '2px 8px',
+                  borderRadius: 'var(--radius-small, 4px)',
+                  color: 'var(--color-text-default)',
+                  fontWeight: 600,
+                }}
+              >
+                positive
+              </code>
+              <code
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'monospace',
+                  backgroundColor: 'var(--color-bg-secondary)',
+                  padding: '2px 8px',
+                  borderRadius: 'var(--radius-small, 4px)',
+                  color: 'var(--color-text-default)',
+                  fontWeight: 600,
+                }}
+              >
+                negative
+              </code>
+            </div>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+              전달하려는 정보의 중요도와 속성에 맞게 5가지 시각적 테마를 제공합니다.
+            </p>
+          </div>
+          <div
+            style={{
+              backgroundColor: 'var(--color-bg-default)',
+              border: '1px solid var(--color-border-secondary)',
+              borderRadius: 'var(--radius-large, 8px)',
+              padding: 'var(--primitive-number-11, 40px) var(--primitive-number-7, 16px)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gap: 'var(--primitive-number-8, 20px)',
+              alignItems: 'center',
+              justifyItems: 'center',
+            }}
+          >
+            {types.map((t) => (
+              <div
+                key={t.id}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 'var(--primitive-number-4, 8px)',
+                  textAlign: 'center',
+                }}
+              >
+                <Tag type={t.id}>라벨명</Tag>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-default)' }}>
+                    {t.name}
+                  </span>
+                  <span style={{ fontSize: '11px', color: 'var(--color-text-tertiary)', lineHeight: 1.3 }}>
+                    {t.role}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 2. 스타일 규격 및 디자인 토큰 가이드 */}
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+          <div>
+            <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 700 }}>
+              Design Token Specifications
+            </h3>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+              Tag 컴포넌트에 엄격하게 적용된 100% 토큰 바인딩 규격입니다.
+            </p>
+          </div>
+          <div
+            style={{
+              backgroundColor: 'var(--color-bg-default)',
+              border: '1px solid var(--color-border-secondary)',
+              borderRadius: 'var(--radius-large, 8px)',
+              padding: 'var(--primitive-number-8, 20px)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: 'var(--primitive-number-6, 12px)',
+            }}
+          >
+            <div style={{ padding: 'var(--primitive-number-4, 8px)', backgroundColor: 'var(--color-bg-secondary)', borderRadius: 'var(--radius-small, 4px)' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-secondary)' }}>Typography</div>
+              <div style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-default)', marginTop: '4px' }}>
+                Caption Small (12px / Medium 500)
+              </div>
+              <div style={{ fontSize: '11px', color: 'var(--color-text-tertiary)' }}>Letter-spacing: -0.02em</div>
+            </div>
+
+            <div style={{ padding: 'var(--primitive-number-4, 8px)', backgroundColor: 'var(--color-bg-secondary)', borderRadius: 'var(--radius-small, 4px)' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-secondary)' }}>Dimensions</div>
+              <div style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-default)', marginTop: '4px' }}>
+                Height: 22px / Radius: 2px
+              </div>
+              <div style={{ fontSize: '11px', color: 'var(--color-text-tertiary)' }}>Padding: 2px 8px (--primitive-number-4)</div>
+            </div>
+
+            <div style={{ padding: 'var(--primitive-number-4, 8px)', backgroundColor: 'var(--color-bg-secondary)', borderRadius: 'var(--radius-small, 4px)' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-secondary)' }}>Color Tokens</div>
+              <div style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-default)', marginTop: '4px' }}>
+                Type별 시맨틱 배경 및 텍스트 토큰
+              </div>
+              <div style={{ fontSize: '11px', color: 'var(--color-text-tertiary)' }}>--color-tag-*-bg / --color-tag-*-text</div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. 실제 사용 예시 (Real-World Use Cases) */}
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+          <div>
+            <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 700 }}>
+              Usage Examples (패션 이커머스 활용 예시)
+            </h3>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+              실제 쇼핑몰 상품 카드 및 주문 내역 화면에서의 조합 예시입니다.
+            </p>
+          </div>
+          <div
+            style={{
+              backgroundColor: 'var(--color-bg-default)',
+              border: '1px solid var(--color-border-secondary)',
+              borderRadius: 'var(--radius-large, 8px)',
+              padding: 'var(--primitive-number-8, 20px)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'var(--primitive-number-6, 12px)',
+            }}
+          >
+            <div>
+              <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-secondary)' }}>
+                상품 카드 뱃지 / 키워드 조합
+              </span>
+              <div style={{ display: 'flex', gap: 'var(--primitive-number-4, 8px)', alignItems: 'center', flexWrap: 'wrap', marginTop: '8px' }}>
+                <Tag type="point">MD PICK</Tag>
+                <Tag type="positive">당일출고</Tag>
+                <Tag type="negative">마감임박</Tag>
+                <Tag type="normal">울 100%</Tag>
+                <Tag type="inverse">#오버핏코트</Tag>
+              </div>
+            </div>
+
+            <div style={{ borderTop: '1px solid var(--color-border-tertiary)', paddingTop: 'var(--primitive-number-6, 12px)' }}>
+              <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-secondary)' }}>
+                주문 / 배송 상태 피드백
+              </span>
+              <div style={{ display: 'flex', gap: 'var(--primitive-number-4, 8px)', alignItems: 'center', flexWrap: 'wrap', marginTop: '8px' }}>
+                <Tag type="positive">무료특급배송</Tag>
+                <Tag type="point">쿠폰적용가</Tag>
+                <Tag type="normal">일반배송</Tag>
+                <Tag type="negative">품절 (SOLD OUT)</Tag>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
   },
 };

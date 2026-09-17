@@ -15,16 +15,16 @@
  * 2. Color Tokens:
  *    - Normal (Default):
  *      - bg: var(--color-bg-default) (#ffffff)
- *      - border: 1px solid var(--color-border-default) (#d9d9d9)
+ *      - border: 1px solid var(--color-border-subtle) (#4d4d4d, Gray/30)
  *      - icon: var(--color-icon-default) (#000000)
  *    - Hover:
- *      - bg: var(--color-bg-secondary) (#f5f5f5)
- *      - border: 1px solid var(--color-border-default) (#d9d9d9)
+ *      - bg: var(--color-bg-secondary) (#f5f5f5, Gray/96)
+ *      - border: 1px solid var(--color-border-subtle) (#4d4d4d, Gray/30)
  *      - icon: var(--color-icon-default) (#000000)
  *    - Active:
  *      - bg: var(--color-bg-default) (#ffffff)
- *      - border: 1px solid var(--color-border-default) (#d9d9d9)
- *      - icon: var(--color-icon-point) (#e4541b)
+ *      - border: 1px solid var(--color-border-subtle) (#4d4d4d, Gray/30)
+ *      - icon: var(--color-icon-point) (#e4541b, Orange/50)
  *    - Disabled:
  *      - bg: var(--color-bg-disabled) (#f5f5f5)
  *      - border: 1px solid var(--color-border-disabled) (#d9d9d9)
@@ -39,12 +39,15 @@
   margin: 0;
   box-sizing: border-box;
   background-color: var(--color-bg-default);
-  border: 1px solid var(--color-border-default);
+  border: 1px solid var(--color-border-subtle);
   color: var(--color-icon-default);
   cursor: pointer;
   user-select: none;
   outline: none;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  transition: background-color var(--transition-fast, 150ms ease),
+              border-color var(--transition-fast, 150ms ease),
+              color var(--transition-fast, 150ms ease),
+              transform var(--transition-fast, 150ms ease);
   flex-shrink: 0;
 }
 
@@ -93,7 +96,7 @@
 .icon-btn--normal,
 .icon-btn--state-normal {
   background-color: var(--color-bg-default);
-  border-color: var(--color-border-default);
+  border-color: var(--color-border-subtle);
   color: var(--color-icon-default);
 }
 
@@ -102,7 +105,7 @@
 .icon-btn--hover:not(:disabled),
 .icon-btn--state-hover:not(:disabled) {
   background-color: var(--color-bg-secondary); /* Color/Gray/96 #f5f5f5 */
-  border-color: var(--color-border-default);
+  border-color: var(--color-border-subtle);
   color: var(--color-icon-default);
 }
 
@@ -111,7 +114,7 @@
 .icon-btn--active:not(:disabled),
 .icon-btn--state-active:not(:disabled) {
   background-color: var(--color-bg-default);
-  border-color: var(--color-border-default);
+  border-color: var(--color-border-subtle);
   color: var(--color-icon-point); /* Color/Orange/50 #e4541b */
 }
 
@@ -119,7 +122,7 @@
 .icon-btn--active:hover:not(:disabled),
 .icon-btn--state-active:hover:not(:disabled) {
   background-color: var(--color-bg-secondary);
-  border-color: var(--color-border-default);
+  border-color: var(--color-border-subtle);
   color: var(--color-icon-point);
 }
 
@@ -142,7 +145,7 @@
   align-items: center;
   justify-content: center;
   line-height: 0;
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  transition: color var(--transition-fast, 150ms ease), transform var(--transition-fast, 150ms ease);
 }
 
 .icon-btn--xl .icon-btn__icon svg {
@@ -170,7 +173,7 @@
   height: 12px;
 }
 
-/* Active state heart fill color */
+/* Active 상태에서 하트 아이콘 채움 시각화 */
 .icon-btn--active .icon-btn__icon--wish-active,
 .icon-btn--state-active .icon-btn__icon--wish-active {
   color: var(--color-icon-point);

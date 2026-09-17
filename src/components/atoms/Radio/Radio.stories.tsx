@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Radio, RadioGroup } from './Radio';
 
 const meta: Meta<typeof Radio> = {
@@ -7,26 +7,13 @@ const meta: Meta<typeof Radio> = {
   component: Radio,
   parameters: {
     layout: 'padded',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/9NPZzytVoEfRCuBiUo6JXh/00.-Common-Design-System?node-id=77-1403&t=2UCgEKCwPtky2wTX-4',
+    },
     docs: {
       description: {
-        component: `
-### Atelier Fashion Design System - Radio Atom Component
-피그마 **"00. Common Design System"**의 **Radio** 원자 단위 컴포넌트입니다.
-
-- **Class Name**: \`radio\`
-- **Variants**:
-  - **Type (2종)**:
-    - \`unchecked\` (default): 미선택 상태 (1px 그레이 외곽선 \`--color-radio-border\` + 화이트 서피스)
-    - \`checked\`: 선택 상태 (볼드 5px 블랙 링 \`--color-radio-border-checked\` + 화이트 센터)
-  - **Disabled (2종)**:
-    - \`false\` (default): 활성 상태 (\`cursor: pointer\`, 기본 텍스트 검정 \`--color-radio-text\`)
-    - \`true\`: 비활성 상태 (비활성 서피스 \`--color-radio-bg-disabled\` + 텍스트 \`--color-radio-text-disabled\`, \`cursor: not-allowed\`)
-- **치수 및 규격**:
-  - 컨트롤 직경: 16px (\`--primitive-number-7\`)
-  - 컨트롤 곡률: 50% / 원형 (\`--primitive-radius-circle\`, 999px)
-  - 간격: 컨트롤과 라벨 텍스트 사이 8px (\`--primitive-number-4\`)
-  - 타이포그래피: 14px Regular (\`--primitive-font-size-body-small\`)
-        `,
+        component: `피그마 **00. Common Design System**의 라디오(Radio) 컴포넌트입니다. 상호 배타적인 다수의 선택지 중 단 하나를 선택할 때 사용합니다.`,
       },
     },
   },
@@ -35,12 +22,12 @@ const meta: Meta<typeof Radio> = {
     type: {
       control: 'select',
       options: ['unchecked', 'checked'],
-      description: '피그마 정의 Type 속성',
+      description: '라디오 선택 상태 (Type)',
       table: { defaultValue: { summary: 'unchecked' } },
     },
     checked: {
       control: 'boolean',
-      description: '체크 선택 여부',
+      description: '선택 여부',
       table: { defaultValue: { summary: 'false' } },
     },
     disabled: {
@@ -51,7 +38,7 @@ const meta: Meta<typeof Radio> = {
     label: {
       control: 'text',
       description: '라디오 라벨 텍스트',
-      table: { defaultValue: { summary: '옵션값' } },
+      defaultValue: '옵션값',
     },
   },
 };
@@ -60,322 +47,272 @@ export default meta;
 type Story = StoryObj<typeof Radio>;
 
 /**
- * 1. Type (Unchecked vs Checked) - 첨부 이미지 Card 1 재현
+ * Radio 컴포넌트 통합 명세 및 미리보기 (1depth 단일 뷰)
  */
-export const TypeVariants: Story = {
-  name: '1. Type (Unchecked vs Checked)',
-  render: () => {
-    return (
-      <div style={{ padding: '32px 24px', maxWidth: '800px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        <div style={{ marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', borderBottom: '2px solid #000000', paddingBottom: '12px' }}>
-            <h2 style={{ margin: 0, fontSize: '24px', fontWeight: 700 }}>Type</h2>
-            <div style={{ display: 'flex', gap: '8px', fontSize: '12px', fontFamily: 'monospace' }}>
-              <span style={{ background: '#e4e4e7', padding: '2px 6px', borderRadius: '4px' }}>unchecked default</span>
-              <span style={{ background: '#e4e4e7', padding: '2px 6px', borderRadius: '4px' }}>checked</span>
-            </div>
+export const Overview: Story = {
+  name: 'Overview',
+  args: {
+    type: 'unchecked',
+    checked: false,
+    disabled: false,
+    label: '옵션값',
+  },
+  render: (args) => {
+    return <RadioStoryView {...args} />;
+  },
+};
+
+// 인터랙티브 상태 및 그룹 선택 동작을 위한 뷰 컴포넌트
+const RadioStoryView: React.FC<any> = (args) => {
+  const [selectedMethod, setSelectedMethod] = useState<string | number>('standard');
+
+  return (
+    <div
+      style={{
+        width: '100%',
+        maxWidth: '860px',
+        margin: '0 auto',
+        fontFamily: 'var(--primitive-font-family, Pretendard, sans-serif)',
+        color: 'var(--color-text-default)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--primitive-number-10, 32px)',
+      }}
+    >
+      {/* 컴포넌트 헤더 */}
+      <div style={{ borderBottom: '2px solid var(--color-border-subtle, #333333)', paddingBottom: 'var(--primitive-number-7, 16px)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--primitive-number-3, 6px)' }}>
+          <h2 style={{ margin: 0, fontSize: '24px', fontWeight: 700, letterSpacing: '-0.02em' }}>
+            Radio
+          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--primitive-number-3, 6px)' }}>
+            <span style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-secondary)' }}>Class Name</span>
+            <code
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: 'var(--color-bg-secondary)',
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-small, 4px)',
+                color: 'var(--color-text-default)',
+                fontWeight: 600,
+              }}
+            >
+              radio
+            </code>
           </div>
         </div>
+        <p style={{ margin: 0, fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+          다수의 선택 항목 중 하나의 항목만을 배타적으로 선택할 때 사용하는 선택 컴포넌트입니다.
+        </p>
+      </div>
 
+      {/* 0. 대화형 미리보기 (Interactive Playground) */}
+      <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+        <div>
+          <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 700 }}>
+            Interactive Playground
+          </h3>
+          <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+            하단 Controls 패널에서 Checked, Disabled, Label 문구를 직접 조작해보세요.
+          </p>
+        </div>
         <div
           style={{
-            background: '#ffffff',
-            borderRadius: '16px',
-            border: '1px solid #e5e7eb',
-            padding: '40px 32px',
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '40px',
-            justifyItems: 'center',
+            backgroundColor: 'var(--color-bg-default)',
+            border: '1px solid var(--color-border-secondary)',
+            borderRadius: 'var(--radius-large, 8px)',
+            padding: 'var(--primitive-number-10, 32px) var(--primitive-number-8, 20px)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          {/* Unchecked Column */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-            <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+          <Radio {...args} />
+        </div>
+      </section>
+
+      {/* 1. Type Section */}
+      <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700 }}>Type</h3>
+            <span style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>=</span>
+            <code
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: 'var(--color-bg-secondary)',
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-small, 4px)',
+                color: 'var(--color-text-default)',
+                fontWeight: 600,
+              }}
+            >
+              unchecked <span style={{ color: 'var(--color-text-tertiary)', fontSize: '11px' }}>default</span>
+            </code>
+            <code
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: 'var(--color-bg-secondary)',
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-small, 4px)',
+                color: 'var(--color-text-default)',
+                fontWeight: 600,
+              }}
+            >
+              checked
+            </code>
+          </div>
+          <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+            선택 여부에 따라 외곽선(미선택) 또는 5px 볼드 블랙 링(선택) 형태로 시각적 상태가 구분됩니다.
+          </p>
+        </div>
+        <div
+          style={{
+            backgroundColor: 'var(--color-bg-default)',
+            border: '1px solid var(--color-border-secondary)',
+            borderRadius: 'var(--radius-large, 8px)',
+            padding: 'var(--primitive-number-10, 32px) var(--primitive-number-8, 20px)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 'var(--primitive-number-12, 48px)',
+            flexWrap: 'wrap',
+          }}
+        >
+          {/* Unchecked Group */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
               <Radio type="unchecked" label="옵션값" readOnly />
               <Radio type="unchecked" disabled label="옵션값" readOnly />
             </div>
-            <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-secondary, #666666)' }}>
+            <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--color-text-secondary)' }}>
               Unchecked
             </span>
           </div>
 
-          {/* Checked Column */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-            <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+          {/* Checked Group */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
               <Radio type="checked" disabled label="옵션값" readOnly />
               <Radio type="checked" label="옵션값" readOnly />
             </div>
-            <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-secondary, #666666)' }}>
+            <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--color-text-secondary)' }}>
               Checked
             </span>
           </div>
         </div>
-      </div>
-    );
-  },
-};
+      </section>
 
-/**
- * 2. Disabled (False vs True) - 첨부 이미지 Card 2 재현
- */
-export const DisabledVariants: Story = {
-  name: '2. Disabled (False vs True)',
-  render: () => {
-    return (
-      <div style={{ padding: '32px 24px', maxWidth: '800px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        <div style={{ marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', borderBottom: '2px solid #000000', paddingBottom: '12px' }}>
-            <h2 style={{ margin: 0, fontSize: '24px', fontWeight: 700 }}>Disabled</h2>
-            <div style={{ display: 'flex', gap: '8px', fontSize: '12px', fontFamily: 'monospace' }}>
-              <span style={{ background: '#e4e4e7', padding: '2px 6px', borderRadius: '4px' }}>false default</span>
-              <span style={{ background: '#e4e4e7', padding: '2px 6px', borderRadius: '4px' }}>true</span>
-            </div>
+      {/* 2. Disabled Section */}
+      <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700 }}>Disabled</h3>
+            <span style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>=</span>
+            <code
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: 'var(--color-bg-secondary)',
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-small, 4px)',
+                color: 'var(--color-text-default)',
+                fontWeight: 600,
+              }}
+            >
+              false <span style={{ color: 'var(--color-text-tertiary)', fontSize: '11px' }}>default</span>
+            </code>
+            <code
+              style={{
+                fontSize: '12px',
+                fontFamily: 'monospace',
+                backgroundColor: 'var(--color-bg-secondary)',
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-small, 4px)',
+                color: 'var(--color-text-default)',
+                fontWeight: 600,
+              }}
+            >
+              true
+            </code>
           </div>
+          <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+            비활성화 시 테두리, 배경, 텍스트가 비활성 토큰으로 변경됩니다.
+          </p>
         </div>
-
         <div
           style={{
-            background: '#ffffff',
-            borderRadius: '16px',
-            border: '1px solid #e5e7eb',
-            padding: '40px 32px',
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '40px',
-            justifyItems: 'center',
+            backgroundColor: 'var(--color-bg-default)',
+            border: '1px solid var(--color-border-secondary)',
+            borderRadius: 'var(--radius-large, 8px)',
+            padding: 'var(--primitive-number-10, 32px) var(--primitive-number-8, 20px)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 'var(--primitive-number-12, 48px)',
+            flexWrap: 'wrap',
           }}
         >
-          {/* False (Enabled) Column */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-            <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+          {/* Enabled (False) */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
               <Radio checked={false} label="옵션값" readOnly />
               <Radio checked={true} label="옵션값" readOnly />
             </div>
-            <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-secondary, #666666)' }}>
+            <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--color-text-secondary)' }}>
               False
             </span>
           </div>
 
-          {/* True (Disabled) Column */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-            <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+          {/* Disabled (True) */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
               <Radio checked={false} disabled label="옵션값" readOnly />
               <Radio checked={true} disabled label="옵션값" readOnly />
             </div>
-            <span style={{ fontSize: '13px', fontWeight: 500, color: 'var(--color-text-secondary, #666666)' }}>
+            <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--color-text-secondary)' }}>
               True
             </span>
           </div>
         </div>
-      </div>
-    );
-  },
-};
+      </section>
 
-/**
- * 3. Component Matrix (Figma Spec View) - 첨부 이미지 Card 3 보라색 점선 뷰 100% 재현
- */
-export const ComponentMatrix: Story = {
-  name: '3. Component Matrix (Figma Spec View)',
-  render: () => {
-    return (
-      <div style={{ padding: '32px 24px', maxWidth: '600px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        <div style={{ marginBottom: '24px' }}>
-          <h2 style={{ margin: 0, fontSize: '24px', fontWeight: 700 }}>Component</h2>
-          <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-secondary, #666666)' }}>
-            피그마 Component 프레임 내 4종 세로 스택 매트릭스
+      {/* 3. Usage Example (RadioGroup 결합) */}
+      <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--primitive-number-4, 8px)' }}>
+        <div>
+          <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 700 }}>
+            Usage Example (라디오 그룹 선택)
+          </h3>
+          <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+            실제 이커머스 체크아웃 화면에서 RadioGroup을 결합하여 단일 항목을 선택하는 예시입니다.
           </p>
         </div>
-
         <div
           style={{
-            border: '1.5px dashed #8b5cf6',
-            borderRadius: '16px',
-            padding: '32px',
-            background: '#ffffff',
-            display: 'inline-flex',
+            backgroundColor: 'var(--color-bg-default)',
+            border: '1px solid var(--color-border-secondary)',
+            borderRadius: 'var(--radius-large, 8px)',
+            padding: 'var(--primitive-number-9, 24px)',
+            display: 'flex',
             flexDirection: 'column',
-            gap: '16px',
-            minWidth: '200px',
+            gap: 'var(--primitive-number-6, 12px)',
+            maxWidth: '380px',
           }}
         >
-          {/* Row 1: Unchecked Normal */}
-          <Radio checked={false} label="옵션값" readOnly />
-          {/* Row 2: Unchecked Disabled */}
-          <Radio checked={false} disabled label="옵션값" readOnly />
-          {/* Row 3: Checked Normal */}
-          <Radio checked={true} label="옵션값" readOnly />
-          {/* Row 4: Checked Disabled */}
-          <Radio checked={true} disabled label="옵션값" readOnly />
-        </div>
-      </div>
-    );
-  },
-};
-
-/**
- * 4. Resource (Radio Controls Only) - 첨부 이미지 Card 4 2x2 라디오 원형 뷰 100% 재현
- */
-export const Resource: Story = {
-  name: '4. Resource (Radio Controls Only)',
-  render: () => {
-    return (
-      <div style={{ padding: '32px 24px', maxWidth: '600px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        <div style={{ marginBottom: '24px' }}>
-          <h2 style={{ margin: 0, fontSize: '24px', fontWeight: 700 }}>Resource</h2>
-          <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-secondary, #666666)' }}>
-            피그마 Resource 프레임 내 2x2 라디오 원형 컨트롤 에셋
-          </p>
-        </div>
-
-        <div
-          style={{
-            border: '1.5px dashed #8b5cf6',
-            borderRadius: '16px',
-            padding: '32px',
-            background: '#ffffff',
-            display: 'inline-grid',
-            gridTemplateColumns: 'repeat(2, 24px)',
-            gap: '16px',
-            alignItems: 'center',
-            justifyItems: 'center',
-          }}
-        >
-          {/* Top-Left: Checked Normal */}
-          <Radio checked={true} readOnly />
-          {/* Top-Right: Unchecked Normal */}
-          <Radio checked={false} readOnly />
-          {/* Bottom-Left: Checked Disabled */}
-          <Radio checked={true} disabled readOnly />
-          {/* Bottom-Right: Unchecked Disabled */}
-          <Radio checked={false} disabled readOnly />
-        </div>
-      </div>
-    );
-  },
-};
-
-/**
- * 5. Token Mapping Table (Zero Hardcoding)
- */
-export const TokenMappingTable: Story = {
-  name: '5. Token Mapping Table (Zero Hardcoding)',
-  render: () => {
-    const tableData = [
-      {
-        state: 'Unchecked Normal',
-        border: 'var(--color-radio-border) (#d9d9d9, 1px)',
-        bg: 'var(--color-radio-bg) (#ffffff)',
-        text: 'var(--color-radio-text) (#000000)',
-        spec: '16px 원형, 8px 간격, 14px Regular',
-      },
-      {
-        state: 'Unchecked Disabled',
-        border: 'var(--color-radio-border-disabled) (#d9d9d9, 1px)',
-        bg: 'var(--color-radio-bg-disabled) (#f5f5f5)',
-        text: 'var(--color-radio-text-disabled) (#b2b2b2)',
-        spec: '비활성 서피스 배경, 커서 not-allowed',
-      },
-      {
-        state: 'Checked Normal',
-        border: 'var(--color-radio-border-checked) (#000000, 5px 볼드 링)',
-        bg: 'var(--color-radio-bg) (#ffffff 화이트 센터)',
-        text: 'var(--color-radio-text) (#000000)',
-        spec: '5px 볼드 링 + 화이트 센터 도넛 구조',
-      },
-      {
-        state: 'Checked Disabled',
-        border: 'var(--color-radio-border-checked-disabled) (#b2b2b2, 5px 볼드 링)',
-        bg: 'var(--color-radio-bg-disabled) (#f5f5f5 비활성 센터)',
-        text: 'var(--color-radio-text-disabled) (#b2b2b2)',
-        spec: '비활성 볼드 그레이 링 + 비활성 서피스 센터',
-      },
-    ];
-
-    return (
-      <div style={{ padding: '24px', maxWidth: '900px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: 700 }}>
-          피그마 1:1 토큰 바인딩 명세표 (Radio Component)
-        </h3>
-        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
-          <thead>
-            <tr style={{ background: '#f4f4f5', textAlign: 'left', borderBottom: '2px solid #d4d4d8' }}>
-              <th style={{ padding: '10px 12px' }}>상태 (State)</th>
-              <th style={{ padding: '10px 12px' }}>외곽선/링 토큰 (Border)</th>
-              <th style={{ padding: '10px 12px' }}>배경/센터 토큰 (Fill)</th>
-              <th style={{ padding: '10px 12px' }}>텍스트 토큰 (Text)</th>
-              <th style={{ padding: '10px 12px' }}>치수 및 레이아웃</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableData.map((row, idx) => (
-              <tr key={idx} style={{ borderBottom: '1px solid #e4e4e7', background: idx % 2 === 0 ? '#ffffff' : '#fafafa' }}>
-                <td style={{ padding: '10px 12px', fontWeight: 600 }}>{row.state}</td>
-                <td style={{ padding: '10px 12px' }}>
-                  <code style={{ fontSize: '11px', background: '#f1f5f9', padding: '2px 4px', borderRadius: '3px' }}>
-                    {row.border}
-                  </code>
-                </td>
-                <td style={{ padding: '10px 12px' }}>
-                  <code style={{ fontSize: '11px', background: '#f1f5f9', padding: '2px 4px', borderRadius: '3px' }}>
-                    {row.bg}
-                  </code>
-                </td>
-                <td style={{ padding: '10px 12px' }}>
-                  <code style={{ fontSize: '11px', background: '#f1f5f9', padding: '2px 4px', borderRadius: '3px' }}>
-                    {row.text}
-                  </code>
-                </td>
-                <td style={{ padding: '10px 12px', color: '#52525b' }}>{row.spec}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  },
-};
-
-/**
- * 6. Interactive Radio Group - 실무 패션 이커머스 배송/결제 옵션 선택 쇼케이스
- */
-export const InteractiveRadioGroup: Story = {
-  name: '6. Interactive Radio Group',
-  render: () => {
-    const [delivery, setDelivery] = useState<string | number>('standard');
-    const [payment, setPayment] = useState<string | number>('card');
-
-    return (
-      <div style={{ padding: '32px 24px', maxWidth: '500px', fontFamily: 'var(--primitive-font-family, sans-serif)' }}>
-        {/* Delivery Options Group */}
-        <div style={{ background: '#ffffff', padding: '24px', borderRadius: '12px', border: '1px solid #e5e7eb', marginBottom: '24px' }}>
-          <h4 style={{ margin: '0 0 16px 0', fontSize: '15px', fontWeight: 700 }}>배송 방법 선택</h4>
-          <RadioGroup name="delivery" value={delivery} onChange={setDelivery}>
+          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--color-text-default)' }}>
+            배송 방법 선택
+          </span>
+          <RadioGroup name="deliveryMethod" value={selectedMethod} onChange={setSelectedMethod}>
             <Radio value="standard" label="일반 택배 배송 (무료)" />
             <Radio value="express" label="당일 특급 배송 (+3,000원)" />
-            <Radio value="pickup" label="오프라인 매장 픽업" />
-            <Radio value="overseas" label="해외 특송 배송 (현재 불가)" disabled />
+            <Radio value="pickup" label="오프라인 매장 직접 수령" />
+            <Radio value="overseas" label="해외 특송 배송 (품절)" disabled />
           </RadioGroup>
-          <div style={{ marginTop: '12px', fontSize: '12px', color: 'var(--color-text-secondary, #666666)' }}>
-            선택된 배송: <strong>{String(delivery)}</strong>
-          </div>
         </div>
-
-        {/* Payment Options Group (Horizontal) */}
-        <div style={{ background: '#ffffff', padding: '24px', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
-          <h4 style={{ margin: '0 0 16px 0', fontSize: '15px', fontWeight: 700 }}>결제 수단 선택 (가로 배열)</h4>
-          <RadioGroup name="payment" direction="horizontal" value={payment} onChange={setPayment}>
-            <Radio value="card" label="신용카드" />
-            <Radio value="naver" label="네이버페이" />
-            <Radio value="kakao" label="카카오페이" />
-            <Radio value="bank" label="무통장 입금" disabled />
-          </RadioGroup>
-          <div style={{ marginTop: '12px', fontSize: '12px', color: 'var(--color-text-secondary, #666666)' }}>
-            선택된 결제: <strong>{String(payment)}</strong>
-          </div>
-        </div>
-      </div>
-    );
-  },
+      </section>
+    </div>
+  );
 };

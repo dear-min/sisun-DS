@@ -94,11 +94,21 @@ export const Select: React.FC<SelectProps> = ({
     };
   }, [box, isEffectiveOpen, controlledOpen]);
 
-  // Toggle dropdown handler
-  const handleTriggerClick = () => {
+  // Toggle dropdown handler (opens/toggles from trigger button)
+  const handleTriggerClick = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
     if (isEffectiveDisabled || isEffectiveReadOnly) return;
     if (controlledOpen === undefined) {
       setIsOpenInternal((prev) => !prev);
+    }
+  };
+
+  // Close dropdown handler (when clicking header row while covering trigger)
+  const handleHeaderClick = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (isEffectiveDisabled || isEffectiveReadOnly) return;
+    if (controlledOpen === undefined) {
+      setIsOpenInternal(false);
     }
   };
 
@@ -137,7 +147,19 @@ export const Select: React.FC<SelectProps> = ({
       {/* Header Row per Figma Spec ("사이즈 선택" / "선택" + arrow_up) */}
       <div
         className="select__header"
-        onClick={box ? handleTriggerClick : undefined}
+        role={box ? 'button' : undefined}
+        tabIndex={box ? 0 : undefined}
+        onClick={box ? handleHeaderClick : undefined}
+        onKeyDown={
+          box
+            ? (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleHeaderClick();
+                }
+              }
+            : undefined
+        }
       >
         <span className="select__header-title">{effectiveHeaderTitle}</span>
         <span className="select__header-icon">
@@ -156,9 +178,16 @@ export const Select: React.FC<SelectProps> = ({
               key={option.value || idx}
               className={`select__option ${optionStateClass}`}
               role="option"
+              tabIndex={isOptionDisabled ? -1 : 0}
               aria-selected={option.value === currentValue}
               aria-disabled={isOptionDisabled}
               onClick={() => handleOptionClick(option)}
+              onKeyDown={(e) => {
+                if (!isOptionDisabled && (e.key === 'Enter' || e.key === ' ')) {
+                  e.preventDefault();
+                  handleOptionClick(option);
+                }
+              }}
             >
               {option.state === 'message' ? (
                 <div className="select__option-content">

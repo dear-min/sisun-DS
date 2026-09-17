@@ -1,0 +1,153 @@
+/**
+ * Atelier Fashion Design System - Toast Atom Component
+ * 피그마 "00. Common Design System"의 Toast 컴포넌트 100% 매핑
+ * Class Name: toast
+ * Variants:
+ *  - Type: marketing (default) | feedback
+ */
+
+/* ==========================================================================
+   1. Toast Container Base (.toast)
+   ========================================================================== */
+.toast {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: var(--color-toast-bg);
+  border-radius: var(--radius-large, 8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
+  font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+  color: var(--color-toast-text-default);
+  user-select: none;
+  width: 100%;
+  max-width: 320px;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* ==========================================================================
+   2. Variant: Marketing (Default)
+   좌측 썸네일 + 중앙 서브/메인 문구 + 우측 상단 카운트다운 배지
+   ========================================================================== */
+.toast--marketing {
+  padding: var(--primitive-number-3, 6px);
+  gap: var(--primitive-number-5, 10px);
+}
+
+/* 2-1. Thumbnail Image Container (52px x 52px) */
+.toast__thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background-color: var(--color-toast-thumb-bg);
+  border-radius: var(--radius-small, 4px);
+  overflow: hidden;
+  color: var(--color-text-tertiary);
+}
+
+.toast__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 2-2. Text Content Area */
+.toast__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--primitive-number-1, 2px);
+  flex: 1;
+  min-width: 0;
+}
+
+/* 2-3. Subtitle Text (12px, Gray 70) */
+.toast__sub {
+  font-size: var(--primitive-font-size-body-xxsmall, 12px);
+  font-weight: var(--primitive-font-weight-regular, 400);
+  line-height: 1.3;
+  color: var(--color-toast-text-sub);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 2-4. Main Title Text (14px, Point Orange #e4541b, 최대 2줄) */
+.toast__main {
+  font-size: var(--primitive-font-size-body-small, 14px);
+  font-weight: var(--primitive-font-weight-medium, 500);
+  line-height: 1.35;
+  color: var(--color-toast-text-point);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: keep-all;
+}
+
+/* 2-5. Circular Countdown Timer Badge */
+.toast__timer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: var(--primitive-number-1, 2px);
+  margin-right: var(--primitive-number-1, 2px);
+}
+
+.toast__timer-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.toast__timer-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1.5;
+}
+
+.toast__timer-progress {
+  fill: none;
+  stroke: var(--color-toast-text-default);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.toast__timer-number {
+  font-size: 11px;
+  font-weight: var(--primitive-font-weight-medium, 500);
+  color: var(--color-toast-timer-text);
+  line-height: 1;
+}
+
+/* ==========================================================================
+   3. Variant: Feedback
+   단일 텍스트 피드백 결과 알림 (화이트 텍스트)
+   ========================================================================== */
+.toast--feedback {
+  padding: var(--primitive-number-6, 12px) var(--primitive-number-8, 20px);
+  justify-content: flex-start;
+}
+
+.toast__message {
+  font-size: var(--primitive-font-size-body-small, 14px);
+  font-weight: var(--primitive-font-weight-regular, 400);
+  line-height: 1.4;
+  color: var(--color-toast-text-default);
+  word-break: keep-all;
+}

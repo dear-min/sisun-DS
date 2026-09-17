@@ -24,8 +24,7 @@
    2. Sizes (md, sm)
    ========================================================================== */
 /* Medium Size: Height 40px, Font 14px */
-.select--md .select__trigger,
-.select--md .select__header {
+.select--md .select__trigger {
   height: var(--primitive-number-11, 40px);
   padding: 0 var(--primitive-number-6, 12px);
   font-size: var(--primitive-font-size-body-small, 14px);
@@ -33,15 +32,24 @@
   letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
 }
 
-.select--md .select__option {
+.select--md .select__header {
+  height: calc(var(--primitive-number-11, 40px) - 1px);
+  padding: 0 var(--primitive-number-6, 12px);
+  font-size: var(--primitive-font-size-body-small, 14px);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+}
+
+.select--md .select__option,
+.select--md .select__option-label,
+.select--md .select__option-title {
   min-height: var(--primitive-number-11, 40px);
   padding: var(--primitive-number-3, 6px) var(--primitive-number-6, 12px);
   font-size: var(--primitive-font-size-body-small, 14px);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
 }
 
 /* Small Size: Height 32px, Font 12px */
-.select--sm .select__trigger,
-.select--sm .select__header {
+.select--sm .select__trigger {
   height: var(--primitive-number-10, 32px);
   padding: 0 var(--primitive-number-4, 8px);
   font-size: var(--primitive-font-size-body-xxsmall, 12px);
@@ -49,10 +57,20 @@
   letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
 }
 
-.select--sm .select__option {
+.select--sm .select__header {
+  height: calc(var(--primitive-number-10, 32px) - 1px);
+  padding: 0 var(--primitive-number-4, 8px);
+  font-size: var(--primitive-font-size-body-xxsmall, 12px);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+}
+
+.select--sm .select__option,
+.select--sm .select__option-label,
+.select--sm .select__option-title {
   min-height: var(--primitive-number-10, 32px);
   padding: var(--primitive-number-2, 4px) var(--primitive-number-4, 8px);
   font-size: var(--primitive-font-size-body-xxsmall, 12px);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
 }
 
 /* ==========================================================================
@@ -170,19 +188,31 @@
 /* ==========================================================================
    5. Dropdown Menu (Box = false or Open State)
    ========================================================================== */
-/* Floating dropdown (when open in Box=true mode) */
+/* Floating dropdown (when open in Box=true mode: overlays select trigger) */
 .select__dropdown {
   position: absolute;
-  top: calc(100% + 4px);
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 50;
   background-color: var(--color-select-surface);
-  border: 1px solid var(--color-select-border);
+  border: 1px solid var(--color-select-dropdown-border, var(--color-select-border-active));
   border-radius: var(--radius-small, 4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   overflow: hidden;
+  animation: selectDropdownFade 0.15s ease;
+}
+
+@keyframes selectDropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Static dropdown (Box = false mode per Figma spec) */
@@ -190,6 +220,7 @@
   position: static;
   box-shadow: none;
   width: 100%;
+  animation: none;
 }
 
 /* Dropdown Header Row ("사이즈 선택" / "선택" + arrow_up) */
@@ -198,12 +229,22 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--color-select-border);
+  border-bottom: 1px solid var(--color-select-divider);
   background-color: var(--color-select-surface);
   color: var(--color-select-text);
-  font-weight: var(--primitive-font-weight-medium, 500);
+  font-weight: var(--primitive-font-weight-regular, 400);
   cursor: pointer;
   user-select: none;
+  transition: background-color 0.15s ease;
+  outline: none;
+}
+
+.select--box-true .select__header:hover {
+  background-color: var(--color-select-option-hover);
+}
+
+.select--box-false .select__header {
+  cursor: default;
 }
 
 .select__header-title {
@@ -230,6 +271,19 @@
   overflow-y: auto;
 }
 
+.select__list::-webkit-scrollbar {
+  width: var(--primitive-number-2, 4px);
+}
+
+.select__list::-webkit-scrollbar-thumb {
+  background-color: var(--primitive-color-gray-70, #b2b2b2);
+  border-radius: var(--radius-circle, 999px);
+}
+
+.select__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* ==========================================================================
    6. Option Item States (normal | disabled | button | message)
    ========================================================================== */
@@ -238,17 +292,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--color-border-secondary, #f0f0f0);
+  border-bottom: 1px solid var(--color-select-divider);
   background-color: var(--color-select-surface);
   color: var(--color-select-text);
+  font-size: var(--primitive-font-size-body-small, 14px);
   font-weight: var(--primitive-font-weight-regular, 400);
   cursor: pointer;
   transition: background-color 0.15s ease;
   user-select: none;
+  outline: none;
+}
+
+.select__option-label,
+.select__option-title {
+  font-size: var(--primitive-font-size-body-small, 14px);
+  font-weight: var(--primitive-font-weight-regular, 400);
+  color: var(--color-select-text);
+  letter-spacing: var(--primitive-letter-spacing-1, -0.02em);
+}
+
+.select__option:focus-visible {
+  background-color: var(--color-select-option-hover);
 }
 
 .select__option:last-child {
   border-bottom: none;
+}
+
+/* Option Selected State */
+.select__option[aria-selected="true"] {
+  font-weight: var(--primitive-font-weight-medium, 500);
 }
 
 /* Option State 1: Normal */
@@ -279,18 +352,17 @@
 .select__option-btn {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: var(--primitive-number-1, 2px);
   font-size: var(--primitive-font-size-body-xxsmall, 12px);
   color: var(--color-text-secondary);
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: color 0.15s ease;
 }
 
-.select__option--button:hover .select__option-btn {
-  color: var(--color-text-point-primary);
+.select__option-btn:hover {
+  color: var(--color-text-secondary);
 }
 
 /* Option State 4: Message (2 lines: Title + Helper text) */
@@ -314,6 +386,6 @@
 .select__option-desc {
   font-size: var(--primitive-font-size-body-xxsmall, 12px);
   color: var(--color-select-option-message);
-  margin-top: 2px;
+  margin-top: var(--primitive-number-1, 2px);
   line-height: 1.3;
 }

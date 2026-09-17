@@ -21,7 +21,9 @@
   border: none;
   outline: none;
   border-radius: var(--primitive-radius-circle, 999px);
-  background-color: var(--color-button-floating-bg, #ffffff);
+  background-color: var(--color-button-floating-bg, var(--color-overlay-white-strong));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--color-button-floating-text, #000000);
   font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
   font-weight: var(--primitive-font-weight-medium, 500);

@@ -10,9 +10,9 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  height: 22px;
+  height: var(--primitive-typescale-caption-small-line-height, 22px);
   line-height: 1;
-  padding: 2px var(--primitive-number-4, 8px);
+  padding: var(--primitive-number-1, 2px) var(--primitive-number-4, 8px);
   border-radius: var(--radius-xsmall, 2px);
   font-family: var(--primitive-font-family, 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif);
   font-size: var(--primitive-font-size-body-xxsmall, 12px);
